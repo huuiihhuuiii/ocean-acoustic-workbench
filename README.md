@@ -52,6 +52,8 @@ npm.cmd run build
 
 AT 使用 MATLAB 搜索路径方式接入，不是 `.mltbx` 安装包。安装脚本将资源导入当前用户 `Documents/MATLAB/AcousticsToolbox/at`，为 `startup.m` 登记根目录、`bin`、`ReadWrite`、`Plot` 和 `Misc` 并保留备份。既有节点已验证相关函数位置；迁移后须重新检查自己的环境。
 
+AT 工具箱本身不随仓库分发，需自备官方发行版（本机配套副本在桌面 `AcousticsToolbox`，约 115 MB，已剔除 tests 的生成结果）。本机对 AT 的唯一改动：官方 2018 发行版缺 `krakel.exe`，已用 2026-10-22 源码重新编译（`Krakel/krakel.f90` 修正 4 处接口调用以匹配同版本 `misc`，物理逻辑未改）后放入 `bin/`；其余 11 个 exe 为官方原版。需要弹性模态时，把 `toolbox_path` 指向含该 `krakel.exe` 的 AT 目录即可。
+
 ## 真实计算与结果边界
 
 网页参数 → 严格 Plan 校验 → 独立任务目录 → 数值 `case.json` → 固定入口 `backend/matlab/run_ocean_case.m` → ENV / FLP → 读取 ENV 核对输入 → KRAKEN / FIELD → SHD 复声压 → TL、曲线与数值验证 → PNG、CSV、JSON 和 `manifest.json`。
