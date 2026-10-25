@@ -1,0 +1,4094 @@
+{
+  "schema_version": "0.2",
+  "title": "海洋声学课程知识图谱",
+  "chapters": [
+    {
+      "id": "basics",
+      "label": "声学基础",
+      "color": "#68a8ff",
+      "description": "从物理量、分贝和波动方程开始，建立计算与读图的共同语言。",
+      "number": 1
+    },
+    {
+      "id": "environment",
+      "label": "海洋环境",
+      "color": "#67dbc3",
+      "description": "理解声速剖面、海面与海底，明确仿真环境的物理假设。",
+      "number": 2
+    },
+    {
+      "id": "methods",
+      "label": "声传播方法",
+      "color": "#be9bff",
+      "description": "比较简正波、射线/波束和抛物方程，理解每种方法的适用条件。",
+      "number": 3
+    },
+    {
+      "id": "toolbox",
+      "label": "AT 仿真流程",
+      "color": "#ffcd73",
+      "description": "从环境文件到求解器，串联 MATLAB 调用与输出读取。",
+      "number": 4
+    },
+    {
+      "id": "analysis",
+      "label": "结果分析",
+      "color": "#ff91bb",
+      "description": "解释传播损失、网格和数值检查，避免把示例计算当作实测结论。",
+      "number": 5
+    },
+    {
+      "id": "observations",
+      "label": "观测与应用",
+      "color": "#83d2f5",
+      "description": "把实验观测与声学环境联系起来，区分历史报告、原始数据和模型输入。",
+      "number": 6
+    }
+  ],
+  "nodes": [
+    {
+      "id": "course",
+      "label": "海洋声学",
+      "kind": "course",
+      "overview": "围绕“环境—原理—求解—结果”组织课程知识。可直接浏览知识、查看教材图片，也可跳转到已接通的 Munk 声场仿真。",
+      "source_claim_ids": [],
+      "references": [],
+      "color": "#a5c4ff"
+    },
+    {
+      "id": "basics",
+      "label": "声学基础",
+      "kind": "chapter",
+      "number": 1,
+      "color": "#68a8ff",
+      "overview": "从物理量、分贝和波动方程开始，建立计算与读图的共同语言。",
+      "source_claim_ids": [],
+      "references": []
+    },
+    {
+      "id": "environment",
+      "label": "海洋环境",
+      "kind": "chapter",
+      "number": 2,
+      "color": "#67dbc3",
+      "overview": "理解声速剖面、海面与海底，明确仿真环境的物理假设。",
+      "source_claim_ids": [],
+      "references": []
+    },
+    {
+      "id": "methods",
+      "label": "声传播方法",
+      "kind": "chapter",
+      "number": 3,
+      "color": "#be9bff",
+      "overview": "比较简正波、射线/波束和抛物方程，理解每种方法的适用条件。",
+      "source_claim_ids": [],
+      "references": []
+    },
+    {
+      "id": "toolbox",
+      "label": "AT 仿真流程",
+      "kind": "chapter",
+      "number": 4,
+      "color": "#ffcd73",
+      "overview": "从环境文件到求解器，串联 MATLAB 调用与输出读取。",
+      "source_claim_ids": [],
+      "references": []
+    },
+    {
+      "id": "analysis",
+      "label": "结果分析",
+      "kind": "chapter",
+      "number": 5,
+      "color": "#ff91bb",
+      "overview": "解释传播损失、网格和数值检查，避免把示例计算当作实测结论。",
+      "source_claim_ids": [],
+      "references": []
+    },
+    {
+      "id": "observations",
+      "label": "观测与应用",
+      "kind": "chapter",
+      "number": 6,
+      "color": "#83d2f5",
+      "overview": "把实验观测与声学环境联系起来，区分历史报告、原始数据和模型输入。",
+      "source_claim_ids": [],
+      "references": []
+    },
+    {
+      "id": "acoustic_pressure",
+      "label": "声压与水听器",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "声压是声波引起的压力扰动。水听器把水中的声学信号转换为可记录的电信号，计算模型则用声压场描述传播。",
+      "key_points": [
+        "声源与接收器的位置共同确定传播问题。",
+        "声压传感器与速度/矢量传感器测量的物理量不同。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 29,
+          "locator": "PDF 第 29 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 30,
+          "locator": "PDF 第 30 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "不要把声压 p 与声强 I 当作同一个量。",
+      "example": "",
+      "diagram": "quantities",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K001"
+      ]
+    },
+    {
+      "id": "acoustic_intensity",
+      "label": "声强与能流",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "声强表示单位面积上的平均声能流率；它既与声压有关，也与质点速度有关。",
+      "key_points": [
+        "声强有传播方向，时间平均需要考虑声压和速度的相位关系。",
+        "平面行波中可由均方根声压与介质阻抗计算声强。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 31,
+          "locator": "PDF 第 31 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        }
+      ],
+      "formula": "I = pᵣₘₛ² / (ρc)",
+      "conditions": "该简式用于平面行波；一般复声场应使用声压与速度的复共轭关系。",
+      "misconception": "",
+      "example": "",
+      "diagram": "quantities",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K002"
+      ]
+    },
+    {
+      "id": "acoustic_impedance",
+      "label": "声阻抗",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "平面行波的特性声阻抗为介质密度与声速的乘积。比较不同介质中的声压与声强时，需要考虑阻抗差异。",
+      "key_points": [
+        "水和海底介质可以具有不同阻抗。",
+        "用 20 log 的声压比替代 10 log 的声强比时，需要满足相应阻抗约定。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        }
+      ],
+      "formula": "Z = ρc",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "quantities",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K003"
+      ]
+    },
+    {
+      "id": "decibel",
+      "label": "分贝与参考量",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "分贝表达两个量的对数比值。声强比采用 10 log₁₀，声压幅值比在相同阻抗约定下采用 20 log₁₀。",
+      "key_points": [
+        "声压级常以 1 μPa 为参考。",
+        "传播损失的参考是同源 1 m 处的参考场，不能与声压级的参考单位混用。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        }
+      ],
+      "formula": "ΔL = 10 log₁₀(I₁/I₂) = 20 log₁₀(|p₁|/|p₂|)",
+      "conditions": "声压比等价式需采用相同阻抗约定。",
+      "misconception": "“80 dB TL”不能直接解释为“80 dB re 1 μPa 的接收声压级”。",
+      "example": "",
+      "diagram": "spreading",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K004"
+      ]
+    },
+    {
+      "id": "spherical_spreading",
+      "label": "球面扩展",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "均匀、无界、无损介质中的点声源，声能分布在球面上，声强随距离平方的倒数减小。",
+      "key_points": [
+        "用于理解几何扩展，不包含吸收和边界反射损失。",
+        "距离增加 10 倍，球面扩展损失增加 20 dB。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        }
+      ],
+      "formula": "TL = 20 log₁₀(r / 1 m)",
+      "conditions": "均匀、无界、无损介质；r 为传播距离。",
+      "misconception": "",
+      "example": "从 10 m 到 100 m，几何扩展损失增量为 20 dB。",
+      "diagram": "spreading",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K005"
+      ]
+    },
+    {
+      "id": "cylindrical_spreading",
+      "label": "柱面扩展",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "在理想平面边界波导的远场，声能受垂向限制，几何扩展趋向柱面形式。",
+      "key_points": [
+        "点源近场仍可能表现为球面扩展，随后经历过渡。",
+        "10 log₁₀ 的斜率不能作为任意真实波导的完整损失模型。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 34,
+          "locator": "PDF 第 34 页"
+        }
+      ],
+      "formula": "理想远场扩展斜率：10 log₁₀ r",
+      "conditions": "理想波导远场；实际截距与近场过渡、边界和损耗有关。",
+      "misconception": "不要把这条理想扩展律直接替代 KRAKEN 声场。",
+      "example": "",
+      "diagram": "spreading",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K006"
+      ]
+    },
+    {
+      "id": "helmholtz",
+      "label": "Helmholtz 方程",
+      "kind": "knowledge",
+      "chapter": "basics",
+      "color": "#68a8ff",
+      "overview": "对时间变量进行频域变换后，波动方程转化为 Helmholtz 方程。多种声传播方法是在不同条件下求解这一类问题。",
+      "key_points": [
+        "局部波数由频率与声速确定。",
+        "问题维度、边界、声源几何和环境变化决定合适的求解方法。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 90,
+          "locator": "PDF 第 90 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 91,
+          "locator": "PDF 第 91 页"
+        }
+      ],
+      "formula": "∇²p + k²p = 0；k = 2πf / c",
+      "conditions": "此处写出恒密度、无源区域的简式；变密度、源项和边界应另行处理。",
+      "misconception": "",
+      "example": "",
+      "diagram": "methods",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K007"
+      ]
+    },
+    {
+      "id": "sound_speed_profile",
+      "label": "声速剖面 SSP",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "声速剖面描述声速随深度的变化，是判断折射、声道及模型环境的重要输入。",
+      "key_points": [
+        "典型剖面可含混合层、温跃层与深层近等温区。",
+        "真实剖面可能随距离、季节和时间变化。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        }
+      ],
+      "formula": "c = c(T, S, z)",
+      "conditions": "",
+      "misconception": "示例剖面不等于指定海域的实测剖面。",
+      "example": "",
+      "diagram": "ssp",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K008"
+      ]
+    },
+    {
+      "id": "temperature_salinity",
+      "label": "温度、盐度与压力",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "海水声速由温度、盐度与静压力等因素共同决定；深度常作为静压力的代理量进入经验公式。",
+      "key_points": [
+        "上层海洋的季节与日变化会改变声速结构。",
+        "高精度走时应用应选择与条件匹配的声速公式。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "经验声速公式有自己的温盐深适用范围；不能无限外推。",
+      "misconception": "",
+      "example": "",
+      "diagram": "ssp",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K009"
+      ]
+    },
+    {
+      "id": "deep_sound_channel",
+      "label": "深海声道",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "深海声道的轴线对应声速极小值附近；部分声能可以经内部折射长距离传播，减少与有损边界的相互作用。",
+      "key_points": [
+        "不是所有发射角都被声道约束。",
+        "轴线深度与有效角度范围随海域和剖面变化。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 43,
+          "locator": "PDF 第 43 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 44,
+          "locator": "PDF 第 44 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "不能把某个海域示例的声道轴深度当作全球常数。",
+      "example": "",
+      "diagram": "ssp",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K010"
+      ]
+    },
+    {
+      "id": "surface_duct",
+      "label": "表面声道",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "近海面混合层可形成表面声道。被束缚的传播路径反复与海面相互作用，传播效果受海况、混合层和频率影响。",
+      "key_points": [
+        "浅声道在低频下可能不能有效束缚声能。",
+        "上层加热可破坏原有导声结构。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 44,
+          "locator": "PDF 第 44 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 45,
+          "locator": "PDF 第 45 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "教材所述近表层环境；声道有效性应由具体剖面和频率判断。",
+      "misconception": "",
+      "example": "",
+      "diagram": "ssp",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K011"
+      ]
+    },
+    {
+      "id": "pressure_release_surface",
+      "label": "压力释放海面",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "理想压力释放边界要求海面处声压为零。在相应模态问题中，垂向模态函数在海面也为零。",
+      "key_points": [
+        "这是边界理想化，不是对任意粗糙海面散射的完整描述。",
+        "数值结果中的近零残差不宜直接解释为巨大但有意义的 TL。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 357,
+          "locator": "式 5.4"
+        }
+      ],
+      "formula": "p(z = 0) = 0",
+      "conditions": "理想压力释放边界。",
+      "misconception": "",
+      "example": "",
+      "diagram": "boundary",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K012"
+      ]
+    },
+    {
+      "id": "rigid_bottom",
+      "label": "刚性海底边界",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "理想刚性海底对应法向速度为零，并使相应模态的法向导数为零。",
+      "key_points": [
+        "真实海底通常不能一概当作刚性边界。",
+        "吸收、流体半空间和弹性底条件需要分别建模。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 357,
+          "locator": "式 5.4"
+        }
+      ],
+      "formula": "∂p/∂n = 0",
+      "conditions": "理想刚性边界。",
+      "misconception": "",
+      "example": "",
+      "diagram": "boundary",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K013"
+      ]
+    },
+    {
+      "id": "seabed",
+      "label": "海底介质与损耗",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "海底结构与介质参数会影响反射和能量损耗，尤其在浅水、低频或较多海底相互作用的情形下。",
+      "key_points": [
+        "海底可具有分层沉积物和更深的地壳结构。",
+        "密度、声速、吸收及弹性性质不能只用一个“水深”参数代替。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 27,
+          "locator": "PDF 第 27 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 28,
+          "locator": "PDF 第 28 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "有了水深，并不等于已经确定海底边界条件。",
+      "example": "",
+      "diagram": "boundary",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K014"
+      ]
+    },
+    {
+      "id": "range_dependence",
+      "label": "距离相关环境",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "声速、水深或底质随传播距离改变时，环境具有距离相关性。距离无关假设是便于计算的近似。",
+      "key_points": [
+        "海洋锋面和海山是教材中的距离相关例子。",
+        "环境变化可引起折射、模态耦合或额外边界作用。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 51,
+          "locator": "PDF 第 51 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "须依据具体环境判断近似是否合理。",
+      "misconception": "",
+      "example": "",
+      "diagram": "methods",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K015"
+      ]
+    },
+    {
+      "id": "munk_profile",
+      "label": "Munk 理想剖面",
+      "kind": "knowledge",
+      "chapter": "environment",
+      "color": "#67dbc3",
+      "overview": "Munk 剖面是研究深海传播特性的理想声速模型，可用于展示深声道及模态形态。",
+      "key_points": [
+        "教材给出连续解析剖面；教师工具包使用离散深度—声速输入。",
+        "本项目运行的是工具包的 5000 m Munk 示例。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 375,
+          "locator": "PDF 第 375 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 376,
+          "locator": "PDF 第 376 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        }
+      ],
+      "formula": "c(z) = c₀[1 + ε(η − 1 + e⁻η)]；η = 2(z − zₐ)/B",
+      "conditions": "参数与离散输入以所用示例为准，不能把理想模型当作实测环境。",
+      "misconception": "",
+      "example": "",
+      "diagram": "ssp",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K016"
+      ]
+    },
+    {
+      "id": "normal_mode_field",
+      "label": "简正波方法",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "在波导中用一组垂向模态及其传播因子表示声场。源深与接收深度通过模态函数影响各项贡献。",
+      "key_points": [
+        "基础展开适用于教材所述距离无关波导。",
+        "距离相关环境可采用耦合模态或特定近似扩展。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        }
+      ],
+      "formula": "p(r,z) = Σₘ Aₘ(r) ψₘ(z)",
+      "conditions": "示意展开；归一化、密度因子和传播因子以具体推导为准。",
+      "misconception": "",
+      "example": "",
+      "diagram": "modes",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K017"
+      ]
+    },
+    {
+      "id": "source_depth",
+      "label": "声源深度",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "源位置的模态函数决定激发权重。改变源深会改变各模态对最终声场的贡献。",
+      "key_points": [
+        "不能只凭“靠近声道轴”就断言全部接收位置损失最小。",
+        "比较源深时应保持其他环境、频率和接收网格一致。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "式 5.13–5.14"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "可运行 50 Hz 下源深 500 m 与 1000 m 两组，比较同一接收深度曲线。",
+      "diagram": "modes",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K018"
+      ]
+    },
+    {
+      "id": "mode_excitation",
+      "label": "模态激发权重",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "声源对各模态的激发与源位置的模态函数值有关，而接收位置又决定各模态的观测权重。",
+      "key_points": [
+        "源位于某模态的节点附近时，该模态的激发可能很弱。",
+        "最终声场需要综合所有有效模态及其相位。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "modes",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K019"
+      ]
+    },
+    {
+      "id": "modal_sum",
+      "label": "模态叠加",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "简正波声场由各模态的复贡献相加得到。不同模态的传播相位导致空间干涉结构。",
+      "key_points": [
+        "幅值与相位都参与相干复声压求和。",
+        "先求复声压和再转 TL，与先求模态强度和不同。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "modes",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K020"
+      ]
+    },
+    {
+      "id": "coherent_modal_sum",
+      "label": "相干与非相干求和",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "相干求和保留模态间相位关系；非相干约定按相应强度贡献组合，二者可能给出不同的损失结构。",
+      "key_points": [
+        "比较图表时应记录采用的求和类型。",
+        "频率平滑不能随意视为任意非相干计算的等价替代。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "式 5.17–5.18"
+        }
+      ],
+      "formula": "",
+      "conditions": "当前网页 Munk 模板使用 FIELD 的相干设置。",
+      "misconception": "",
+      "example": "",
+      "diagram": "modes",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K021"
+      ]
+    },
+    {
+      "id": "ray_method",
+      "label": "射线方法",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "射线与波前正交，用轨迹描述声能传播方向。折射、边界反射和多路径可由射线图直观理解。",
+      "key_points": [
+        "射线轨迹对声速剖面和数值离散敏感。",
+        "阴影区与焦散附近，几何射线需要特别处理。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "射线近似有适用范围；不能用零条射线直接断言真实声压为零。",
+      "misconception": "",
+      "example": "",
+      "diagram": "rays",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K022"
+      ]
+    },
+    {
+      "id": "snell",
+      "label": "Snell 定律",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "在水平分层介质中，射线掠射角与局部声速满足不变量关系，可用来解释声线转向。",
+      "key_points": [
+        "这里角度 θ 相对水平定义。",
+        "若采用相对法线的角度，三角函数形式会改变。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 176,
+          "locator": "PDF 第 176 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 217,
+          "locator": "PDF 第 217 页"
+        }
+      ],
+      "formula": "cos θ(z) / c(z) = 常数",
+      "conditions": "水平分层介质中的射线关系。",
+      "misconception": "不要把“相对水平”与“相对法线”的角度混用。",
+      "example": "",
+      "diagram": "rays",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K023"
+      ]
+    },
+    {
+      "id": "caustic_shadow",
+      "label": "焦散与阴影区",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "几何射线预测中，射线管截面趋于零产生焦散；没有射线经过的区域形成几何阴影。",
+      "key_points": [
+        "射线近似可在焦散处给出非物理的无限声强。",
+        "真实波动解通常保持有限，并可通过衍射在几何阴影区有声能。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "rays",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K024"
+      ]
+    },
+    {
+      "id": "gaussian_beams",
+      "label": "高斯波束",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "高斯波束在中心射线附近描述有限宽度的场，帮助处理纯几何射线场的某些问题。",
+      "key_points": [
+        "波束并非只有一条无宽度曲线。",
+        "BELLHOP 的实际输出与运行选项、波束设置有关。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 199,
+          "locator": "PDF 第 199 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 201,
+          "locator": "PDF 第 201 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "教材介绍的近轴波束思路；具体实现需查看求解器选项。",
+      "misconception": "",
+      "example": "",
+      "diagram": "rays",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K025"
+      ]
+    },
+    {
+      "id": "parabolic_equation",
+      "label": "抛物方程 PE",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "通过对 Helmholtz 方程作传播方向相关的近似，得到可沿距离步进计算的波场方程。",
+      "key_points": [
+        "标准 PE 包含远场与小角度/近轴近似。",
+        "不同宽角算法和实现具有不同精度与限制。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 477,
+          "locator": "PDF 第 477 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 478,
+          "locator": "PDF 第 478 页"
+        }
+      ],
+      "formula": "2ik₀ ∂u/∂r + ∂²u/∂z² + k₀²(n² − 1)u = 0",
+      "conditions": "展示标准恒密度二维 PE；不是所有 PE 实现的统一完整方程。",
+      "misconception": "",
+      "example": "",
+      "diagram": "methods",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K026"
+      ]
+    },
+    {
+      "id": "coupled_modes",
+      "label": "耦合模态与绝热近似",
+      "kind": "knowledge",
+      "chapter": "methods",
+      "color": "#be9bff",
+      "overview": "距离相关问题可使用局部模态描述。耦合模态考虑模态间能量转移，绝热近似则忽略相关交叉耦合。",
+      "key_points": [
+        "“简正波只能算距离无关环境”过于绝对。",
+        "是否可用绝热近似，要看环境变化和目标精度。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 427,
+          "locator": "PDF 第 427 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "methods",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K027"
+      ]
+    },
+    {
+      "id": "matlab_kraken_wrapper",
+      "label": "KRAKEN / FIELD 调用",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "教师包 kraken.m 先运行 kraken.exe，再调用 field.exe 计算接收网格上的声场。",
+      "key_points": [
+        "KRAKEN 求模态，FIELD 按指定几何计算场。",
+        "网页使用独立任务目录，保留每次新生成的文件。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "网页“检查计划→确认运行”调用固定 MATLAB 入口，不执行任意模型代码。",
+      "diagram": "pipeline",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K028"
+      ]
+    },
+    {
+      "id": "bellhop",
+      "label": "BELLHOP 工具",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "BELLHOP 是教师包提供的射线/波束传播工具。MATLAB 包装函数查找并运行 bellhop.exe。",
+      "key_points": [
+        "方法知识可先看射线与高斯波束节点。",
+        "不同运行选项产生的声线、到达结构或声场需要配套读取。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/bellhop.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 199,
+          "locator": "PDF 第 199 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "工具包已安装；网页首版尚未接入 BELLHOP 任务提交。",
+      "misconception": "",
+      "example": "",
+      "diagram": "rays",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K029"
+      ]
+    },
+    {
+      "id": "ram",
+      "label": "RAM 工具",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "RAM 是资料包中的抛物方程求解工具。可与 PE 原理一起学习，理解沿距离步进的波场计算。",
+      "key_points": [
+        "工具输入与 KRAKEN 的 ENV / FLP 工作流不同。",
+        "接入前应核对运行输入、输出读取及网格约定。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/ram.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 477,
+          "locator": "PDF 第 477 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 478,
+          "locator": "PDF 第 478 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "工具包已安装；网页尚未接入 RAM 任务提交。",
+      "misconception": "",
+      "example": "",
+      "diagram": "methods",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K030"
+      ]
+    },
+    {
+      "id": "env_file",
+      "label": "ENV 环境文件",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "ENV 描述频率、介质层、声速剖面和边界等信息。参数值、格式与求解器选项需要同时正确。",
+      "key_points": [
+        "本模板检查标题、介质层数和源深标记后才修改输入。",
+        "生成后用 read_env 回读，核对实际频率与源深。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/ReadWrite/read_env.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "pipeline",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K031"
+      ]
+    },
+    {
+      "id": "flp_file",
+      "label": "FLP 场计算文件",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "FLP 指定 FIELD 场计算的选项及源、接收深度和距离网格，与模态文件共同生成声场。",
+      "key_points": [
+        "ENV 和 FLP 中的源深需要一致。",
+        "接收深度与距离采样决定最终声场网格。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.flp"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "pipeline",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K032"
+      ]
+    },
+    {
+      "id": "field_executable",
+      "label": "FIELD 与模态文件",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "KRAKEN 生成模态文件，FIELD 读取模态与场计算输入，输出接收位置的复声压。",
+      "key_points": [
+        "仅有模态文件并不等于已经得到所需网格声场。",
+        "项目包装函数已串联两步，不应无依据重复调用。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "pipeline",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K033"
+      ]
+    },
+    {
+      "id": "binary_shd_pressure",
+      "label": "SHD 复声压输出",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "本包二进制 SHD 读取器返回指定频率的复声压数组，按方位、源深、接收深、距离组织。",
+      "key_points": [
+        "读取器的维度约定需核对，不能只看数组大小猜含义。",
+        "复声压既有幅值也有相位；转换 TL 使用幅值。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/ReadWrite/read_shd_bin.m:96–102"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "θ × zₛ × zᵣ × r",
+      "conditions": "所核对的本包 reader 与指定频率；其他格式/版本需要重新核查。",
+      "misconception": "",
+      "example": "",
+      "diagram": "pipeline",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K034"
+      ]
+    },
+    {
+      "id": "munk_case",
+      "label": "Munk 网页仿真案例",
+      "kind": "knowledge",
+      "chapter": "toolbox",
+      "color": "#ffcd73",
+      "overview": "已接通 MATLAB R2024a 与 KRAKEN / FIELD，可以在网页选择频率、源深和接收网格并得到本次计算结果。",
+      "key_points": [
+        "已完成 50/100 Hz 与 500/1000 m 源深四组核验。",
+        "每次任务保存 ENV、FLP、SHD、PRT、CSV、JSON 和图表。"
+      ],
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "5000 m 理想深海示例，当前频率输入范围 10–200 Hz。",
+      "misconception": "",
+      "example": "",
+      "diagram": "pipeline",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K035"
+      ]
+    },
+    {
+      "id": "transmission_loss",
+      "label": "传播损失 TL",
+      "kind": "knowledge",
+      "chapter": "analysis",
+      "color": "#ff91bb",
+      "overview": "传播损失比较接收场与同源参考场的强度或声压。判断 TL 数值之前，应先明确参考场、阻抗与求和约定。",
+      "key_points": [
+        "本网页按 AT FIELD 归一化复声压计算 −20 log₁₀|p|。",
+        "TL 是场与参考的比值，不是直接测量的声压级。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "TL = −20 log₁₀(|p| / |p₀|)",
+      "conditions": "声压式采用相同阻抗约定；网页归一化参考遵循 AT FIELD。",
+      "misconception": "",
+      "example": "",
+      "diagram": "spreading",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K036"
+      ]
+    },
+    {
+      "id": "receiver_depth",
+      "label": "接收深度与采样",
+      "kind": "knowledge",
+      "chapter": "analysis",
+      "color": "#ff91bb",
+      "overview": "接收深度影响所观测模态的权重。网页取最接近请求深度的网格点，并记录其实际深度与误差。",
+      "key_points": [
+        "请求 1005 m 并不保证网格中恰有 1005 m。",
+        "比较曲线需要对齐实际接收深度。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "grid",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K037"
+      ]
+    },
+    {
+      "id": "range_depth_grid",
+      "label": "距离—深度网格",
+      "kind": "knowledge",
+      "chapter": "analysis",
+      "color": "#ff91bb",
+      "overview": "声场图是离散距离与深度上的计算值。网格数量决定输出采样密度，不会自动改变物理环境。",
+      "key_points": [
+        "更密的接收网格只是更密的场采样，不等于求解器内部误差已经收敛。",
+        "输出图与 CSV 要保留明确的 m / km 单位。"
+      ],
+      "references": [
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "这里说明本网页输出采样；求解器内部网格与精度控制需另外检查。",
+      "misconception": "",
+      "example": "",
+      "diagram": "grid",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K038"
+      ]
+    },
+    {
+      "id": "near_zero_pressure",
+      "label": "近零声压与无效值",
+      "kind": "knowledge",
+      "chapter": "analysis",
+      "color": "#ff91bb",
+      "overview": "声压近零时，对数换算会产生很大的 TL 或无穷值。需要区分物理零值与数值残差。",
+      "key_points": [
+        "当前实现过滤 |p| < 10⁻¹² 及非有限 TL。",
+        "有效比例反映本次网格的可显示值比例，不是模型准确率。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 357,
+          "locator": "PDF 第 357 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "99.6% 的有效比例不能解释为仿真有 99.6% 的准确率。",
+      "example": "",
+      "diagram": "grid",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K039"
+      ]
+    },
+    {
+      "id": "comparison",
+      "label": "控制变量比较",
+      "kind": "knowledge",
+      "chapter": "analysis",
+      "color": "#ff91bb",
+      "overview": "比较频率或源深的影响时，应固定其他输入、参考约定、接收深度和读图尺度。",
+      "key_points": [
+        "本网页声场图统一使用 40–110 dB 色标。",
+        "不能仅凭全网格中位 TL 判断某个接收位置的最优方案。"
+      ],
+      "references": [
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/app.py:plot_result"
+        }
+      ],
+      "formula": "",
+      "conditions": "项目分析约定；实际最优目标还需明确距离、接收位置、带宽等。",
+      "misconception": "",
+      "example": "",
+      "diagram": "grid",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": true,
+      "source_claim_ids": [
+        "K040"
+      ]
+    },
+    {
+      "id": "convergence_zone",
+      "label": "会聚区",
+      "kind": "knowledge",
+      "chapter": "analysis",
+      "color": "#ff91bb",
+      "overview": "在特定深海剖面和源位置条件下，折射路径可在距离方向周期性聚焦，产生较高声强区。",
+      "key_points": [
+        "教材示例的会聚区间距随剖面与海域变化。",
+        "几何阴影区在波动解中仍可出现有限声能。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 40,
+          "locator": "PDF 第 40 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 41,
+          "locator": "PDF 第 41 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 42,
+          "locator": "PDF 第 42 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "教材特定条件和例子；间距不能当作通用常数。",
+      "misconception": "",
+      "example": "",
+      "diagram": "rays",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K041"
+      ]
+    },
+    {
+      "id": "ctd",
+      "label": "CTD 与环境观测",
+      "kind": "knowledge",
+      "chapter": "observations",
+      "color": "#83d2f5",
+      "overview": "CTD 观测提供温度、盐度和深度相关信息，是认识水体环境、进一步构建声速剖面的资料来源。",
+      "key_points": [
+        "必须同时记录站位、采样时间、深度和变量单位。",
+        "温盐图表与可直接计算的原始数据文件不是同一种资料。"
+      ],
+      "references": [
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "",
+      "example": "",
+      "diagram": "observation",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K042"
+      ]
+    },
+    {
+      "id": "ASIAEX_CTD",
+      "label": "ASIAEX 2001 实验",
+      "kind": "knowledge",
+      "chapter": "observations",
+      "color": "#83d2f5",
+      "overview": "报告介绍 ASIAEX 南海实验的船载 CTD 温盐观测，并提供位置与水深等信息。",
+      "key_points": [
+        "可用于学习实验环境和观测组织。",
+        "年份和站位是不可省略的上下文。"
+      ],
+      "references": [
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        }
+      ],
+      "formula": "",
+      "conditions": "2001 年历史实验资料；不代表当前指定海域。",
+      "misconception": "",
+      "example": "",
+      "diagram": "observation",
+      "tags": [
+        "实验资料"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K043"
+      ]
+    },
+    {
+      "id": "SW06_CTD",
+      "label": "SW06 2006 实验",
+      "kind": "knowledge",
+      "chapter": "observations",
+      "color": "#83d2f5",
+      "overview": "SW06 报告描述船载 CTD 对实验区域的空间温盐观测，配有观测位置表。",
+      "key_points": [
+        "可与 ASIAEX 比较观测组织与环境资料表达方式。",
+        "复现实验声场还需要原始数据与声源接收器条件。"
+      ],
+      "references": [
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        }
+      ],
+      "formula": "",
+      "conditions": "2006 年历史实验；当前项目未宣称复现实验声场。",
+      "misconception": "",
+      "example": "",
+      "diagram": "observation",
+      "tags": [
+        "实验资料"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K044"
+      ]
+    },
+    {
+      "id": "temperature_salinity_profiles",
+      "label": "温盐观测到声速输入",
+      "kind": "knowledge",
+      "chapter": "observations",
+      "color": "#83d2f5",
+      "overview": "使用观测环境建模，需要把温盐深资料按适用声速公式转换，并检查单位、剖面范围和采样信息。",
+      "key_points": [
+        "报告图片可帮助理解，但不能直接作为原始数值数据。",
+        "当前 Munk 案例仍使用教师示例，不使用报告中的观测数据。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "PDF 第 54 页"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "PDF 第 84 页"
+        }
+      ],
+      "formula": "",
+      "conditions": "这里是资料处理的教学流程；尚未接入观测数据导入。",
+      "misconception": "",
+      "example": "",
+      "diagram": "observation",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K045"
+      ]
+    },
+    {
+      "id": "validation",
+      "label": "示例与实验验证",
+      "kind": "knowledge",
+      "chapter": "observations",
+      "color": "#83d2f5",
+      "overview": "数值示例成功运行验证了调用流程。要验证真实海域预测，还需独立观测数据、匹配实验条件与误差分析。",
+      "key_points": [
+        "运行成功、图像漂亮和物理准确是不同层次。",
+        "环境、源和接收条件需与验证数据对齐。"
+      ],
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ],
+      "formula": "",
+      "conditions": "",
+      "misconception": "不要把 Munk 示例跑通写成 ASIAEX 或 SW06 实验已经复现。",
+      "example": "",
+      "diagram": "observation",
+      "tags": [
+        "核心知识"
+      ],
+      "simulation": false,
+      "source_claim_ids": [
+        "K046"
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e001",
+      "source": "course",
+      "target": "basics",
+      "label": "课程单元",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e002",
+      "source": "course",
+      "target": "environment",
+      "label": "课程单元",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e003",
+      "source": "course",
+      "target": "methods",
+      "label": "课程单元",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e004",
+      "source": "course",
+      "target": "toolbox",
+      "label": "课程单元",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e005",
+      "source": "course",
+      "target": "analysis",
+      "label": "课程单元",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e006",
+      "source": "course",
+      "target": "observations",
+      "label": "课程单元",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e007",
+      "source": "basics",
+      "target": "acoustic_pressure",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e008",
+      "source": "basics",
+      "target": "acoustic_intensity",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e009",
+      "source": "basics",
+      "target": "acoustic_impedance",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e010",
+      "source": "basics",
+      "target": "decibel",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e011",
+      "source": "basics",
+      "target": "spherical_spreading",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e012",
+      "source": "basics",
+      "target": "cylindrical_spreading",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e013",
+      "source": "basics",
+      "target": "helmholtz",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e014",
+      "source": "environment",
+      "target": "sound_speed_profile",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e015",
+      "source": "environment",
+      "target": "temperature_salinity",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e016",
+      "source": "environment",
+      "target": "deep_sound_channel",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e017",
+      "source": "environment",
+      "target": "surface_duct",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e018",
+      "source": "environment",
+      "target": "pressure_release_surface",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e019",
+      "source": "environment",
+      "target": "rigid_bottom",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e020",
+      "source": "environment",
+      "target": "seabed",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e021",
+      "source": "environment",
+      "target": "range_dependence",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e022",
+      "source": "environment",
+      "target": "munk_profile",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e023",
+      "source": "methods",
+      "target": "normal_mode_field",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e024",
+      "source": "methods",
+      "target": "source_depth",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e025",
+      "source": "methods",
+      "target": "mode_excitation",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e026",
+      "source": "methods",
+      "target": "modal_sum",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e027",
+      "source": "methods",
+      "target": "coherent_modal_sum",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e028",
+      "source": "methods",
+      "target": "ray_method",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e029",
+      "source": "methods",
+      "target": "snell",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e030",
+      "source": "methods",
+      "target": "caustic_shadow",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e031",
+      "source": "methods",
+      "target": "gaussian_beams",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e032",
+      "source": "methods",
+      "target": "parabolic_equation",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e033",
+      "source": "methods",
+      "target": "coupled_modes",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e034",
+      "source": "toolbox",
+      "target": "matlab_kraken_wrapper",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e035",
+      "source": "toolbox",
+      "target": "bellhop",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e036",
+      "source": "toolbox",
+      "target": "ram",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e037",
+      "source": "toolbox",
+      "target": "env_file",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e038",
+      "source": "toolbox",
+      "target": "flp_file",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e039",
+      "source": "toolbox",
+      "target": "field_executable",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e040",
+      "source": "toolbox",
+      "target": "binary_shd_pressure",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e041",
+      "source": "toolbox",
+      "target": "munk_case",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e042",
+      "source": "analysis",
+      "target": "transmission_loss",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e043",
+      "source": "analysis",
+      "target": "receiver_depth",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e044",
+      "source": "analysis",
+      "target": "range_depth_grid",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e045",
+      "source": "analysis",
+      "target": "near_zero_pressure",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e046",
+      "source": "analysis",
+      "target": "comparison",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e047",
+      "source": "analysis",
+      "target": "convergence_zone",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e048",
+      "source": "observations",
+      "target": "ctd",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e049",
+      "source": "observations",
+      "target": "ASIAEX_CTD",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e050",
+      "source": "observations",
+      "target": "SW06_CTD",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e051",
+      "source": "observations",
+      "target": "temperature_salinity_profiles",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e052",
+      "source": "observations",
+      "target": "validation",
+      "label": "包含知识点",
+      "type": "hierarchy",
+      "group": "hierarchy",
+      "note": "",
+      "references": []
+    },
+    {
+      "id": "e053",
+      "source": "acoustic_intensity",
+      "target": "decibel",
+      "label": "以对数比表达",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 31,
+          "locator": "PDF 第 31 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        }
+      ]
+    },
+    {
+      "id": "e054",
+      "source": "acoustic_pressure",
+      "target": "acoustic_intensity",
+      "label": "关联声强",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 29,
+          "locator": "PDF 第 29 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 30,
+          "locator": "PDF 第 30 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 31,
+          "locator": "PDF 第 31 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        }
+      ]
+    },
+    {
+      "id": "e055",
+      "source": "acoustic_impedance",
+      "target": "acoustic_intensity",
+      "label": "参与换算",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 31,
+          "locator": "PDF 第 31 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        }
+      ]
+    },
+    {
+      "id": "e056",
+      "source": "decibel",
+      "target": "transmission_loss",
+      "label": "表达对数比",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 32,
+          "locator": "PDF 第 32 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e057",
+      "source": "spherical_spreading",
+      "target": "transmission_loss",
+      "label": "理想扩展基准",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e058",
+      "source": "cylindrical_spreading",
+      "target": "transmission_loss",
+      "label": "理想扩展基准",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 34,
+          "locator": "PDF 第 34 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e059",
+      "source": "temperature_salinity",
+      "target": "sound_speed_profile",
+      "label": "决定声速",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        }
+      ]
+    },
+    {
+      "id": "e060",
+      "source": "sound_speed_profile",
+      "target": "deep_sound_channel",
+      "label": "形成声道结构",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 43,
+          "locator": "PDF 第 43 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 44,
+          "locator": "PDF 第 44 页"
+        }
+      ]
+    },
+    {
+      "id": "e061",
+      "source": "sound_speed_profile",
+      "target": "surface_duct",
+      "label": "形成导声条件",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 44,
+          "locator": "PDF 第 44 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 45,
+          "locator": "PDF 第 45 页"
+        }
+      ]
+    },
+    {
+      "id": "e062",
+      "source": "sound_speed_profile",
+      "target": "snell",
+      "label": "决定折射",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 176,
+          "locator": "PDF 第 176 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 217,
+          "locator": "PDF 第 217 页"
+        }
+      ]
+    },
+    {
+      "id": "e063",
+      "source": "munk_profile",
+      "target": "deep_sound_channel",
+      "label": "理想化描述",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 375,
+          "locator": "PDF 第 375 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 376,
+          "locator": "PDF 第 376 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 43,
+          "locator": "PDF 第 43 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 44,
+          "locator": "PDF 第 44 页"
+        }
+      ]
+    },
+    {
+      "id": "e064",
+      "source": "seabed",
+      "target": "transmission_loss",
+      "label": "影响边界损耗",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 27,
+          "locator": "PDF 第 27 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 28,
+          "locator": "PDF 第 28 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e065",
+      "source": "pressure_release_surface",
+      "target": "normal_mode_field",
+      "label": "提供边界条件",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 357,
+          "locator": "式 5.4"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        }
+      ]
+    },
+    {
+      "id": "e066",
+      "source": "rigid_bottom",
+      "target": "normal_mode_field",
+      "label": "理想边界条件",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 357,
+          "locator": "式 5.4"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        }
+      ]
+    },
+    {
+      "id": "e067",
+      "source": "helmholtz",
+      "target": "normal_mode_field",
+      "label": "求解方法",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 90,
+          "locator": "PDF 第 90 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 91,
+          "locator": "PDF 第 91 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        }
+      ]
+    },
+    {
+      "id": "e068",
+      "source": "helmholtz",
+      "target": "parabolic_equation",
+      "label": "近似出发点",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 90,
+          "locator": "PDF 第 90 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 91,
+          "locator": "PDF 第 91 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 477,
+          "locator": "PDF 第 477 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 478,
+          "locator": "PDF 第 478 页"
+        }
+      ]
+    },
+    {
+      "id": "e069",
+      "source": "source_depth",
+      "target": "mode_excitation",
+      "label": "改变权重",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "式 5.13–5.14"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        }
+      ]
+    },
+    {
+      "id": "e070",
+      "source": "mode_excitation",
+      "target": "modal_sum",
+      "label": "参与声场组合",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        }
+      ]
+    },
+    {
+      "id": "e071",
+      "source": "modal_sum",
+      "target": "normal_mode_field",
+      "label": "构成声场",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        }
+      ]
+    },
+    {
+      "id": "e072",
+      "source": "coherent_modal_sum",
+      "target": "modal_sum",
+      "label": "规定求和约定",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "式 5.17–5.18"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        }
+      ]
+    },
+    {
+      "id": "e073",
+      "source": "receiver_depth",
+      "target": "normal_mode_field",
+      "label": "影响观测权重",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        }
+      ]
+    },
+    {
+      "id": "e074",
+      "source": "snell",
+      "target": "ray_method",
+      "label": "描述折射轨迹",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 176,
+          "locator": "PDF 第 176 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 217,
+          "locator": "PDF 第 217 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        }
+      ]
+    },
+    {
+      "id": "e075",
+      "source": "ray_method",
+      "target": "caustic_shadow",
+      "label": "几何近似现象",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        }
+      ]
+    },
+    {
+      "id": "e076",
+      "source": "gaussian_beams",
+      "target": "ray_method",
+      "label": "波束扩展",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 199,
+          "locator": "PDF 第 199 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 201,
+          "locator": "PDF 第 201 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        }
+      ]
+    },
+    {
+      "id": "e077",
+      "source": "range_dependence",
+      "target": "coupled_modes",
+      "label": "距离相关处理",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 51,
+          "locator": "PDF 第 51 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 427,
+          "locator": "PDF 第 427 页"
+        }
+      ]
+    },
+    {
+      "id": "e078",
+      "source": "range_dependence",
+      "target": "parabolic_equation",
+      "label": "沿距离建模",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 51,
+          "locator": "PDF 第 51 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 477,
+          "locator": "PDF 第 477 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 478,
+          "locator": "PDF 第 478 页"
+        }
+      ]
+    },
+    {
+      "id": "e079",
+      "source": "normal_mode_field",
+      "target": "matlab_kraken_wrapper",
+      "label": "由工具实现",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 356,
+          "locator": "PDF 第 356 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 421,
+          "locator": "PDF 第 421 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e080",
+      "source": "ray_method",
+      "target": "bellhop",
+      "label": "对应方法",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/bellhop.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 199,
+          "locator": "PDF 第 199 页"
+        }
+      ]
+    },
+    {
+      "id": "e081",
+      "source": "gaussian_beams",
+      "target": "bellhop",
+      "label": "对应波束方法",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 199,
+          "locator": "PDF 第 199 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 201,
+          "locator": "PDF 第 201 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/bellhop.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 199,
+          "locator": "PDF 第 199 页"
+        }
+      ]
+    },
+    {
+      "id": "e082",
+      "source": "parabolic_equation",
+      "target": "ram",
+      "label": "对应方法",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 477,
+          "locator": "PDF 第 477 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 478,
+          "locator": "PDF 第 478 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/ram.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 477,
+          "locator": "PDF 第 477 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 478,
+          "locator": "PDF 第 478 页"
+        }
+      ]
+    },
+    {
+      "id": "e083",
+      "source": "munk_profile",
+      "target": "env_file",
+      "label": "离散环境输入",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 375,
+          "locator": "PDF 第 375 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 376,
+          "locator": "PDF 第 376 页"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/ReadWrite/read_env.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e084",
+      "source": "env_file",
+      "target": "matlab_kraken_wrapper",
+      "label": "提供环境",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/ReadWrite/read_env.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e085",
+      "source": "matlab_kraken_wrapper",
+      "target": "field_executable",
+      "label": "串联调用",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        }
+      ]
+    },
+    {
+      "id": "e086",
+      "source": "flp_file",
+      "target": "field_executable",
+      "label": "配置接收网格",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.flp"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        }
+      ]
+    },
+    {
+      "id": "e087",
+      "source": "field_executable",
+      "target": "binary_shd_pressure",
+      "label": "输出复声压",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/ReadWrite/read_shd_bin.m:96–102"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e088",
+      "source": "binary_shd_pressure",
+      "target": "transmission_loss",
+      "label": "换算 TL",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/ReadWrite/read_shd_bin.m:96–102"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e089",
+      "source": "munk_case",
+      "target": "matlab_kraken_wrapper",
+      "label": "实际调用",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/kraken.m:8–17"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e090",
+      "source": "range_depth_grid",
+      "target": "flp_file",
+      "label": "确定输出采样",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.flp"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e091",
+      "source": "receiver_depth",
+      "target": "range_depth_grid",
+      "label": "选取实际深度",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e092",
+      "source": "near_zero_pressure",
+      "target": "transmission_loss",
+      "label": "数值过滤",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 357,
+          "locator": "PDF 第 357 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e093",
+      "source": "comparison",
+      "target": "source_depth",
+      "label": "比较变量",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/app.py:plot_result"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "式 5.13–5.14"
+        }
+      ]
+    },
+    {
+      "id": "e094",
+      "source": "comparison",
+      "target": "transmission_loss",
+      "label": "统一参考与尺度",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/app.py:plot_result"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 33,
+          "locator": "PDF 第 33 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 359,
+          "locator": "PDF 第 359 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e095",
+      "source": "ray_method",
+      "target": "convergence_zone",
+      "label": "解释聚焦",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 175,
+          "locator": "PDF 第 175 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 194,
+          "locator": "PDF 第 194 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 40,
+          "locator": "PDF 第 40 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 41,
+          "locator": "PDF 第 41 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 42,
+          "locator": "PDF 第 42 页"
+        }
+      ]
+    },
+    {
+      "id": "e096",
+      "source": "ASIAEX_CTD",
+      "target": "ctd",
+      "label": "报告包含观测",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        },
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        }
+      ]
+    },
+    {
+      "id": "e097",
+      "source": "SW06_CTD",
+      "target": "ctd",
+      "label": "报告包含观测",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        },
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        }
+      ]
+    },
+    {
+      "id": "e098",
+      "source": "ctd",
+      "target": "temperature_salinity_profiles",
+      "label": "提供温盐深资料",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "PDF 第 54 页"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "PDF 第 84 页"
+        }
+      ]
+    },
+    {
+      "id": "e099",
+      "source": "temperature_salinity_profiles",
+      "target": "sound_speed_profile",
+      "label": "转换环境输入",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "PDF 第 54 页"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "PDF 第 84 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 22,
+          "locator": "PDF 第 22 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 23,
+          "locator": "PDF 第 23 页"
+        }
+      ]
+    },
+    {
+      "id": "e100",
+      "source": "validation",
+      "target": "munk_case",
+      "label": "区分运行与验证",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S20",
+          "locator": "at/tests/Munk/MunkK.env"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        }
+      ]
+    },
+    {
+      "id": "e101",
+      "source": "validation",
+      "target": "ASIAEX_CTD",
+      "label": "需匹配观测条件",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S15",
+          "pdf_page": 54,
+          "locator": "3.7 节、表 38"
+        }
+      ]
+    },
+    {
+      "id": "e102",
+      "source": "validation",
+      "target": "SW06_CTD",
+      "label": "需匹配观测条件",
+      "type": "related",
+      "group": "related",
+      "note": "教学整理的概念关联，物理说明与适用条件见两端知识点。",
+      "references": [
+        {
+          "source_id": "S17",
+          "pdf_page": 52,
+          "locator": "PDF 第 52 页"
+        },
+        {
+          "source_id": "S17",
+          "pdf_page": 53,
+          "locator": "PDF 第 53 页"
+        },
+        {
+          "source_id": "PROJECT",
+          "locator": "backend/matlab/run_ocean_case.m"
+        },
+        {
+          "source_id": "S07",
+          "pdf_page": 84,
+          "locator": "10.1 节"
+        }
+      ]
+    },
+    {
+      "id": "e103",
+      "source": "acoustic_pressure",
+      "target": "decibel",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e104",
+      "source": "decibel",
+      "target": "sound_speed_profile",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e105",
+      "source": "sound_speed_profile",
+      "target": "pressure_release_surface",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e106",
+      "source": "pressure_release_surface",
+      "target": "normal_mode_field",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e107",
+      "source": "normal_mode_field",
+      "target": "source_depth",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e108",
+      "source": "source_depth",
+      "target": "munk_case",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e109",
+      "source": "munk_case",
+      "target": "transmission_loss",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e110",
+      "source": "munk_profile",
+      "target": "env_file",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e111",
+      "source": "env_file",
+      "target": "flp_file",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e112",
+      "source": "flp_file",
+      "target": "matlab_kraken_wrapper",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e113",
+      "source": "matlab_kraken_wrapper",
+      "target": "field_executable",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e114",
+      "source": "field_executable",
+      "target": "binary_shd_pressure",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e115",
+      "source": "binary_shd_pressure",
+      "target": "range_depth_grid",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e116",
+      "source": "range_depth_grid",
+      "target": "receiver_depth",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e117",
+      "source": "receiver_depth",
+      "target": "comparison",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e118",
+      "source": "helmholtz",
+      "target": "snell",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e119",
+      "source": "snell",
+      "target": "ray_method",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e120",
+      "source": "ray_method",
+      "target": "caustic_shadow",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e121",
+      "source": "caustic_shadow",
+      "target": "gaussian_beams",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e122",
+      "source": "gaussian_beams",
+      "target": "normal_mode_field",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e123",
+      "source": "normal_mode_field",
+      "target": "range_dependence",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e124",
+      "source": "range_dependence",
+      "target": "coupled_modes",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e125",
+      "source": "coupled_modes",
+      "target": "parabolic_equation",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    },
+    {
+      "id": "e126",
+      "source": "parabolic_equation",
+      "target": "validation",
+      "label": "建议顺序",
+      "type": "prerequisite",
+      "group": "prerequisite",
+      "note": "教学建议的阅读顺序，不表示严格数学必要条件。",
+      "references": []
+    }
+  ],
+  "learning_paths": [
+    {
+      "id": "first",
+      "title": "入门：从原理到声场",
+      "description": "先理解环境与方法，再读实际计算结果。",
+      "nodes": [
+        "acoustic_pressure",
+        "decibel",
+        "sound_speed_profile",
+        "pressure_release_surface",
+        "normal_mode_field",
+        "source_depth",
+        "munk_case",
+        "transmission_loss"
+      ]
+    },
+    {
+      "id": "run",
+      "title": "实践：跑通 Munk 案例",
+      "description": "对齐输入、执行与结果的每一步。",
+      "nodes": [
+        "munk_profile",
+        "env_file",
+        "flp_file",
+        "matlab_kraken_wrapper",
+        "field_executable",
+        "binary_shd_pressure",
+        "range_depth_grid",
+        "receiver_depth",
+        "comparison"
+      ]
+    },
+    {
+      "id": "choose",
+      "title": "进阶：比较传播方法",
+      "description": "从共同方程走向不同近似与环境条件。",
+      "nodes": [
+        "helmholtz",
+        "snell",
+        "ray_method",
+        "caustic_shadow",
+        "gaussian_beams",
+        "normal_mode_field",
+        "range_dependence",
+        "coupled_modes",
+        "parabolic_equation",
+        "validation"
+      ]
+    }
+  ],
+  "reference_design": {
+    "title": "智慧树知识图谱使用手册",
+    "url": "https://jwc.shnu.edu.cn/_upload/article/files/26/c4/b28fc1cf49408c3fd3980aa81320/2f28c218-42a8-4d05-9ca0-4bc2bea382cc.pdf",
+    "pages": [
+      164,
+      165,
+      167,
+      169,
+      170
+    ]
+  },
+  "status": "人工整理课程结构与知识说明；逐项提供所用教材页码或代码定位。"
+}

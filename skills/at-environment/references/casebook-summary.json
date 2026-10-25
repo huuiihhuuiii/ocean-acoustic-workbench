@@ -1,0 +1,419 @@
+{
+  "audit_date": "2026-10-22",
+  "execution_count": 18,
+  "scope": "调用结构梳理与部分算例执行；全量变体和物理精度未验证。",
+  "families": [
+    {
+      "family": "3DAtlantic",
+      "purpose": "北大西洋三维模态与FIELD3D，需三角网格和多剖面，不能按单一ENV解释。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "arctic",
+      "purpose": "极区声速结构下的声线、模态、谱积分和SimplePE对照。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "BeamPattern",
+      "purpose": "声源方向性对照：全向/加权波束与模态、谱积分方向图；需保留波束输入。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "Bellhop3DTests",
+      "purpose": "三维自由场、海山、楔形底与区域案例的调度集合；只跑free不能称覆盖整个集合。",
+      "executions_this_audit": [
+        "BELLHOP3D-Bellhop3DTests_free-freeBhat"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "block",
+      "purpose": "障碍物前后声场与声线，几何遮蔽和散射解释须区分。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "BroadBand",
+      "purpose": "宽频选项及稳定化衰减随频率的缩放；不能把单频SHD当时域脉冲。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "calib",
+      "purpose": "等声速及梯度校准环境，比较不同传播方法。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P0"
+      ]
+    },
+    {
+      "family": "Dickins",
+      "purpose": "海山地形、平底参照与RAM/SimplePE/模态/声线流程；曲线读取和沿程地形重要。",
+      "executions_this_audit": [
+        "RAM-Dickins-original"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "Ellipse",
+      "purpose": "椭圆边界及几何/高斯波束；需同时读ATI/BTY插值和反射条件。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "free",
+      "purpose": "自由场点源/线源及不同波束、谱积分对照；几何扩展规律不同。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P0"
+      ]
+    },
+    {
+      "family": "Gulf",
+      "purpose": "涡旋剖面变化下距离无关、绝热和耦合模态，以及BELLHOP二维SSP。",
+      "executions_this_audit": [
+        "KRAKEN-FIELD-Gulf-gulf_cm",
+        "KRAKEN-FIELD-Gulf-gulf_ri",
+        "KRAKEN-FIELD-Gulf-gulf_ad"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "halfspace",
+      "purpose": "上下半空间与界面反射系数，检查边界定义而非固定水深。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P0"
+      ]
+    },
+    {
+      "family": "head",
+      "purpose": "SPARC头波与时域输出；输出第二轴可能是时间，不能按多个源深解释。",
+      "executions_this_audit": [
+        "SPARC-head-head"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "Munk",
+      "purpose": "深海声道，多模型与声线/本征声线/模态/叠加方式示例。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P0"
+      ]
+    },
+    {
+      "family": "MunkLeaky",
+      "purpose": "逐步扩展相速搜索范围，研究水体俘获、底部与泄漏模态贡献；KRAKENC与SCOOTER对照。",
+      "executions_this_audit": [
+        "KRAKENC-MunkLeaky-MunkKwb",
+        "KRAKENC-MunkLeaky-MunkKbb",
+        "KRAKENC-MunkLeaky-MunkKleaky"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "MunkRot",
+      "purpose": "旋转Munk/三维几何测试，不能把bearing轴丢弃为二维结果。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "MunkTS",
+      "purpose": "含声场与到达结构的资料目录，本轮未发现顶层runtests入口，需进一步核对用途。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "Noise",
+      "purpose": "Halfspace、Pekeris、ATOC等噪声子目录调度；不是单一声场求解器。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "ParaBot",
+      "purpose": "抛物线形海面/海底边界及插值、声线与波束测试；名称不表示抛物方程求解器。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "PekerisRD",
+      "purpose": "主要为BELLHOP沿程底质变化，RAM片段被注释；不等同于RAM已启用。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "PointLine",
+      "purpose": "Lloyd镜像与点源/线源归一化对照，需分开几何扩展约定。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P0"
+      ]
+    },
+    {
+      "family": "SBCX",
+      "purpose": "BELLHOP到达结构重建声场与直接声场对照，检查ARR格式与相位约定。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "scs",
+      "purpose": "南海相关输入及scs.m脚本；未发现标准runtests入口，需单独审查研究脚本。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "sduct",
+      "purpose": "泄漏表面声道，多模型流程；声速正梯度候选不等于所有频率有效俘获。",
+      "executions_this_audit": [
+        "SCOOTER-sduct-sductS"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "SedAtten",
+      "purpose": "无损、dB/波长与频率幂律衰减；250Hz基频等价性与其他频率区别。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "step",
+      "purpose": "台阶地形，按多剖面调用kraken_rd和FIELD，以及SimplePE；需检查沿程采样。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "TabRefCoef",
+      "purpose": "BOUNCE生成反射系数，再比较直接地声学底、BRC与IRC边界输入。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "terrain",
+      "purpose": "随地形变化的非矩形接收坐标；接收位置与海底地形不是同一个参数。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "TLslices",
+      "purpose": "11个手册波导/弹性/粗糙界面问题；KRAKEN/KRAKENC/SCOOTER能力并不完全相同。",
+      "executions_this_audit": [
+        "KRAKEN-TLslices-pekeris",
+        "KRAKENC-TLslices-pekeris",
+        "SCOOTER-TLslices-pekeris"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    },
+    {
+      "family": "VolAtt",
+      "purpose": "体吸收与点/线源、波束设置；频率与衰减约定须核对。",
+      "executions_this_audit": [],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "P1"
+      ]
+    },
+    {
+      "family": "wedge",
+      "purpose": "坡底/楔形波导，分段复模态耦合、SimplePE与RAM输入；存在随距离逼近岸线的区域。",
+      "executions_this_audit": [
+        "RAM-wedge-original",
+        "RAM-wedge-half_dr",
+        "RAM-wedge-half_dz",
+        "SimplePE-wedge-wedgeB",
+        "RAM-wedge-matlab_reader"
+      ],
+      "all_variants_verified": false,
+      "executed_batches": [
+        "审计"
+      ]
+    }
+  ],
+  "p0_2026_10_25": {
+    "date": "2026-10-25",
+    "families_executed": {
+      "free": [
+        "BELLHOP freePointB (analytic 20log10R)"
+      ],
+      "PointLine": [
+        "BELLHOP LloydPointB (analytic Lloyd mirror)"
+      ],
+      "halfspace": [
+        "BELLHOP upper_halfB",
+        "SCOOTER upper_halfS (cross-model)"
+      ],
+      "calib": [
+        "KRAKEN calibK",
+        "BELLHOP calibB",
+        "SCOOTER calibS (cross-model)"
+      ],
+      "Munk": [
+        "KRAKEN MunkKcoh (RCOC coherent)",
+        "SCOOTER MunkS",
+        "BELLHOP MunkB_Coh (cross-model)"
+      ]
+    }
+  },
+  "p1_2026_10_25": {
+    "date": "2026-10-25",
+    "families_executed": {
+      "arctic": [
+        "arcticB (bellhop)"
+      ],
+      "BeamPattern": [
+        "omni (bellhop)"
+      ],
+      "block": [
+        "blockB_geo (bellhop)"
+      ],
+      "BroadBand": [
+        "MunkS_500Hz (scooter)"
+      ],
+      "Ellipse": [
+        "Ellipse (bellhop)"
+      ],
+      "MunkRot": [
+        "MunkRot (bellhop)"
+      ],
+      "MunkTS": [
+        "MunkB (bellhop)"
+      ],
+      "ParaBot": [
+        "ParaBot (bellhop)"
+      ],
+      "PekerisRD": [
+        "PekerisRDB (bellhop)"
+      ],
+      "SBCX": [
+        "sbcx (bellhop)"
+      ],
+      "scs": [
+        "scs_s1 (bellhop)"
+      ],
+      "SedAtten": [
+        "calibS_noloss (scooter)"
+      ],
+      "step": [
+        "step (simplePE)"
+      ],
+      "TabRefCoef": [
+        "neggradB (bounce)"
+      ],
+      "terrain": [
+        "lower_half (bellhop)"
+      ],
+      "VolAtt": [
+        "freePointB (bellhop)"
+      ],
+      "3DAtlantic": [
+        "lant (kraken+field3d)"
+      ],
+      "Noise": [
+        "halfspace (scooter+spectral_noise)"
+      ]
+    },
+    "pending": []
+  },
+  "coverage_summary": {
+    "total_families": 31,
+    "executed_families": 31,
+    "not_executed": [],
+    "batches": [
+      {
+        "label": "审计",
+        "date": "2026-10-22",
+        "families": 8
+      },
+      {
+        "label": "P0",
+        "date": "2026-10-25",
+        "families": 5
+      },
+      {
+        "label": "P1",
+        "date": "2026-10-25",
+        "families": 18
+      }
+    ]
+  }
+}

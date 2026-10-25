@@ -1,0 +1,724 @@
+{
+  "audit_date": "2026-10-22",
+  "scope": "Fresh execution and structural/numerical checks, not universal physical accuracy validation.",
+  "executions": [
+    {
+      "id": "RAM-wedge-original",
+      "family": "wedge",
+      "model": "RAM",
+      "changes": [],
+      "input_sha256": "dc8569549244ed76c0d6b4adeaa9c07d311ce388f2d8fe61ad3be13592903aea",
+      "exit_code": 0,
+      "seconds": 0.141,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "first_check_error": "tl.line/grid mismatch",
+      "summary": {
+        "frequency_hz": 25.0,
+        "source_depth_m": 100.0,
+        "receiver_depth_m": 30.0,
+        "range_max_m": 4000.0,
+        "dr_m": 5.0,
+        "ndr": 1,
+        "zmax_m": 1000.0,
+        "dz_m": 1.0,
+        "ndz": 2,
+        "zmplt_m": 1000.0,
+        "c0_m_s": 1500.0,
+        "pade_terms": 1,
+        "stability_terms": 1,
+        "stability_range_m": 8000.0,
+        "depth_count": 500,
+        "shape": [
+          500,
+          800
+        ],
+        "finite_ratio": 1.0,
+        "first_depth_m": 1.0,
+        "first_range_m": 5.0,
+        "tl_min_db": 20.5072021484375,
+        "tl_max_db": 151.46910095214844,
+        "depth_convention": "Physical depth (sample_index*ndz-1)*dz; differs by -dz from local MATLAB reader; verified for current executable by receiver-depth probe.",
+        "note": "TL output only; no phase, not a complex-pressure SHD reconstruction."
+      }
+    },
+    {
+      "id": "RAM-wedge-half_dr",
+      "family": "wedge",
+      "model": "RAM",
+      "changes": [
+        "dr halved; ndr doubled to retain identical output ranges"
+      ],
+      "input_sha256": "77cde11129583b98e2c6264ccf57c47773777527b01dd38a810f1c11d7c8d853",
+      "exit_code": 0,
+      "seconds": 0.079,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "first_check_error": "tl.line/grid mismatch",
+      "water_column_difference_db": {
+        "points": 36118,
+        "median": 0.42806243896484375,
+        "p95": 2.044145202636721,
+        "max": 28.50444793701172,
+        "scope": "Wet points r>=200m, same physical output positions; not physical accuracy certification"
+      },
+      "summary": {
+        "frequency_hz": 25.0,
+        "source_depth_m": 100.0,
+        "receiver_depth_m": 30.0,
+        "range_max_m": 4000.0,
+        "dr_m": 2.5,
+        "ndr": 2,
+        "zmax_m": 1000.0,
+        "dz_m": 1.0,
+        "ndz": 2,
+        "zmplt_m": 1000.0,
+        "c0_m_s": 1500.0,
+        "pade_terms": 1,
+        "stability_terms": 1,
+        "stability_range_m": 8000.0,
+        "depth_count": 500,
+        "shape": [
+          500,
+          800
+        ],
+        "finite_ratio": 1.0,
+        "first_depth_m": 1.0,
+        "first_range_m": 5.0,
+        "tl_min_db": 19.455236434936523,
+        "tl_max_db": 144.35272216796875,
+        "depth_convention": "Physical depth (sample_index*ndz-1)*dz; differs by -dz from local MATLAB reader; verified for current executable by receiver-depth probe.",
+        "note": "TL output only; no phase, not a complex-pressure SHD reconstruction."
+      }
+    },
+    {
+      "id": "RAM-wedge-half_dz",
+      "family": "wedge",
+      "model": "RAM",
+      "changes": [
+        "dz halved; ndz doubled to retain identical output depths"
+      ],
+      "input_sha256": "1b4c95b618d9a3ce1e60a560acce7577ac18cd1ca5e576b7a2b9abc02cff023e",
+      "exit_code": 0,
+      "seconds": 0.047,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "first_check_error": "tl.line/grid mismatch",
+      "comparison_note": "Changing dz shifts the physical output depths; no strict pointwise difference claimed.",
+      "summary": {
+        "frequency_hz": 25.0,
+        "source_depth_m": 100.0,
+        "receiver_depth_m": 30.0,
+        "range_max_m": 4000.0,
+        "dr_m": 5.0,
+        "ndr": 1,
+        "zmax_m": 1000.0,
+        "dz_m": 0.5,
+        "ndz": 4,
+        "zmplt_m": 1000.0,
+        "c0_m_s": 1500.0,
+        "pade_terms": 1,
+        "stability_terms": 1,
+        "stability_range_m": 8000.0,
+        "depth_count": 500,
+        "shape": [
+          500,
+          800
+        ],
+        "finite_ratio": 1.0,
+        "first_depth_m": 1.5,
+        "first_range_m": 5.0,
+        "tl_min_db": 20.499717712402344,
+        "tl_max_db": 157.4763641357422,
+        "depth_convention": "Physical depth (sample_index*ndz-1)*dz; differs by -dz from local MATLAB reader; verified for current executable by receiver-depth probe.",
+        "note": "TL output only; no phase, not a complex-pressure SHD reconstruction."
+      }
+    },
+    {
+      "id": "RAM-Dickins-original",
+      "family": "Dickins",
+      "model": "RAM",
+      "changes": [],
+      "input_sha256": "c43764961351b3785833e215bc0c1616d85ddab5f38fa79431ba6826c8358d17",
+      "exit_code": 0,
+      "seconds": 4.328,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "first_check_error": "tl.line/grid mismatch",
+      "summary": {
+        "frequency_hz": 230.0,
+        "source_depth_m": 18.0,
+        "receiver_depth_m": 3000.0,
+        "range_max_m": 100000.0,
+        "dr_m": 10.0,
+        "ndr": 10,
+        "zmax_m": 4500.0,
+        "dz_m": 1.0,
+        "ndz": 3,
+        "zmplt_m": 3000.0,
+        "c0_m_s": 1467.199951171875,
+        "pade_terms": 10,
+        "stability_terms": 1,
+        "stability_range_m": 200000.0,
+        "depth_count": 1000,
+        "shape": [
+          1000,
+          1000
+        ],
+        "finite_ratio": 1.0,
+        "first_depth_m": 2.0,
+        "first_range_m": 100.0,
+        "tl_min_db": 34.37963104248047,
+        "tl_max_db": 444.6147766113281,
+        "depth_convention": "Physical depth (sample_index*ndz-1)*dz; differs by -dz from local MATLAB reader; verified for current executable by receiver-depth probe.",
+        "note": "TL output only; no phase, not a complex-pressure SHD reconstruction."
+      }
+    },
+    {
+      "id": "KRAKENC-MunkLeaky-MunkKwb",
+      "family": "MunkLeaky",
+      "model": "KRAKENC",
+      "case": "MunkKwb",
+      "changes": [],
+      "output": "MunkKwb.shd",
+      "exit_code": 0,
+      "seconds": 7.36,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 50,
+        "pressure_shape": [
+          1,
+          1,
+          301,
+          501
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "KRAKENC-MunkLeaky-MunkKbb",
+      "family": "MunkLeaky",
+      "model": "KRAKENC",
+      "case": "MunkKbb",
+      "changes": [],
+      "output": "MunkKbb.shd",
+      "exit_code": 0,
+      "seconds": 5.438,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 50,
+        "pressure_shape": [
+          1,
+          1,
+          301,
+          501
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "KRAKENC-MunkLeaky-MunkKleaky",
+      "family": "MunkLeaky",
+      "model": "KRAKENC",
+      "case": "MunkKleaky",
+      "changes": [],
+      "output": "MunkKleaky.shd",
+      "exit_code": 0,
+      "seconds": 5.875,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 50,
+        "pressure_shape": [
+          1,
+          1,
+          301,
+          501
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "KRAKEN-TLslices-pekeris",
+      "family": "TLslices",
+      "model": "KRAKEN",
+      "case": "pekeris",
+      "changes": [],
+      "output": "pekeris.shd",
+      "exit_code": 0,
+      "seconds": 5.0,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 10,
+        "pressure_shape": [
+          1,
+          1,
+          1,
+          501
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "KRAKENC-TLslices-pekeris",
+      "family": "TLslices",
+      "model": "KRAKENC",
+      "case": "pekeris",
+      "changes": [],
+      "output": "pekeris.shd",
+      "exit_code": 0,
+      "seconds": 4.734,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 10,
+        "pressure_shape": [
+          1,
+          1,
+          1,
+          501
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "SCOOTER-TLslices-pekeris",
+      "family": "TLslices",
+      "model": "SCOOTER",
+      "case": "pekeris",
+      "changes": [],
+      "output": "pekeris.shd.mat",
+      "exit_code": 0,
+      "seconds": 5.406,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 10,
+        "pressure_shape": [
+          1,
+          1,
+          1,
+          501
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "SimplePE-wedge-wedgeB",
+      "family": "wedge",
+      "model": "SimplePE",
+      "case": "wedgeB",
+      "changes": [],
+      "output": "wedgeB.shd.mat",
+      "exit_code": 0,
+      "seconds": 5.859,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 25,
+        "pressure_shape": [
+          1,
+          1,
+          401,
+          1001
+        ],
+        "finite_ratio": 0.999000999000999,
+        "receiver_depth_m": 100,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "KRAKEN-FIELD-Gulf-gulf_cm",
+      "family": "Gulf",
+      "model": "KRAKEN-FIELD",
+      "case": "gulf_cm",
+      "changes": [],
+      "output": "gulf_cm.shd",
+      "exit_code": 0,
+      "seconds": 4.984,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 50,
+        "pressure_shape": [
+          1,
+          1,
+          251,
+          1001
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 2500,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "SPARC-head-head",
+      "family": "head",
+      "model": "SPARC",
+      "case": "head",
+      "changes": [],
+      "output": "head.shd.mat",
+      "exit_code": 0,
+      "seconds": 16.187,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 100.0000018720614,
+        "pressure_shape": [
+          1,
+          60,
+          101,
+          500
+        ],
+        "finite_ratio": 1,
+        "receiver_depth_m": 50,
+        "scope": "Fresh execution and structural checks; not a physical accuracy proof"
+      }
+    },
+    {
+      "id": "RAM-wedge-matlab_reader",
+      "family": "wedge",
+      "model": "RAM",
+      "case": "matlab_reader",
+      "changes": [],
+      "output": "RAM.magnitude.shd.mat",
+      "exit_code": 0,
+      "seconds": 4.782,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 25,
+        "pressure_shape": [
+          1,
+          1,
+          500,
+          800
+        ],
+        "finite_ratio": 1,
+        "scope": "Execution and output structure only; not physical accuracy"
+      }
+    },
+    {
+      "id": "BELLHOP3D-Bellhop3DTests_free-freeBhat",
+      "family": "Bellhop3DTests/free",
+      "model": "BELLHOP3D",
+      "case": "freeBhat",
+      "changes": [],
+      "output": "freeBhat.shd",
+      "exit_code": 0,
+      "seconds": 5.0,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 5,
+        "pressure_shape": [
+          2,
+          1,
+          501,
+          1000
+        ],
+        "finite_ratio": 1,
+        "scope": "Execution and output structure only; not physical accuracy"
+      }
+    },
+    {
+      "id": "KRAKEN-FIELD-Gulf-gulf_ri",
+      "family": "Gulf",
+      "model": "KRAKEN-FIELD",
+      "case": "gulf_ri",
+      "changes": [],
+      "output": "gulf_ri.shd",
+      "exit_code": 0,
+      "seconds": 4.797,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 50,
+        "pressure_shape": [
+          1,
+          1,
+          251,
+          1001
+        ],
+        "finite_ratio": 1,
+        "scope": "Execution and output structure only; not physical accuracy",
+        "receiver_depth_m": 2500
+      }
+    },
+    {
+      "id": "KRAKEN-FIELD-Gulf-gulf_ad",
+      "family": "Gulf",
+      "model": "KRAKEN-FIELD",
+      "case": "gulf_ad",
+      "changes": [],
+      "output": "gulf_ad.shd",
+      "exit_code": 0,
+      "seconds": 4.75,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 50,
+        "pressure_shape": [
+          1,
+          1,
+          251,
+          1001
+        ],
+        "finite_ratio": 1,
+        "scope": "Execution and output structure only; not physical accuracy",
+        "receiver_depth_m": 2500
+      }
+    },
+    {
+      "id": "SCOOTER-sduct-sductS",
+      "family": "sduct",
+      "model": "SCOOTER",
+      "case": "sductS",
+      "changes": [],
+      "output": "sductS.shd.mat",
+      "exit_code": 0,
+      "seconds": 18.625,
+      "timed_out": false,
+      "status": "executed_output_checked",
+      "summary": {
+        "frequency_hz": 200,
+        "pressure_shape": [
+          1,
+          1,
+          201,
+          1001
+        ],
+        "finite_ratio": 1,
+        "scope": "Execution and output structure only; not physical accuracy"
+      }
+    }
+  ],
+  "toolbox_inputs_unchanged": true,
+  "source_input_hashes_checked": 107,
+  "ram_depth_probe": {
+    "receiver_depth_m": 1,
+    "grid_first_row_matches_line_max_db": 4.902343704316081e-07,
+    "inference": "For this executable grid sample i=ndz corresponds to physical z=(ndz-1)*dz; local MATLAB reader labels one dz deeper."
+  },
+  "matlab_reader_crosscheck": "MATLAB read_ram_tlgrid versus strict Python payload TL matrix: maximum absolute difference 0 dB; depth label convention differs and is documented.",
+  "p0_2026_10_25": {
+    "date": "2026-10-25",
+    "driver": ".local/p0-runs/2026-10-25/run_p0.m",
+    "null_threshold_dB": 150,
+    "scope": "Analytic reference checks (free field, Lloyd mirror) plus cross-model agreement on aligned coherent fields; not third-party physical accuracy certification.",
+    "cases": [
+      {
+        "case": "free_BELLHOP_point",
+        "check": "analytic",
+        "reference": "spherical spreading 20log10(R)",
+        "median_abs_dB": 0.000414,
+        "p99_abs_dB": 0.00079,
+        "max_abs_dB": 0.213
+      },
+      {
+        "case": "PointLine_BELLHOP_lloyd",
+        "check": "analytic",
+        "reference": "Lloyd mirror image",
+        "median_abs_dB": 0.000682,
+        "p99_abs_dB": 0.0143,
+        "max_abs_dB": 5.42,
+        "note": "max at an interference null"
+      },
+      {
+        "case": "halfspace_BELLHOP_vs_SCOOTER",
+        "check": "cross_model",
+        "reference": "upper halfspace, RD 2500 m",
+        "median_abs_dB": 0.0403,
+        "p90_abs_dB": 0.939,
+        "max_abs_dB": 5.11
+      },
+      {
+        "case": "calib_KRAKEN_BELLHOP_SCOOTER",
+        "check": "cross_model",
+        "reference": "isovelocity waveguide, RD 50 m",
+        "KRAKEN_BELLHOP_median_dB": 0.489,
+        "KRAKEN_SCOOTER_median_dB": 0.217,
+        "BELLHOP_SCOOTER_median_dB": 0.358
+      },
+      {
+        "case": "Munk_coh_KRAKEN_SCOOTER_BELLHOP_axis1400",
+        "check": "cross_model",
+        "reference": "Munk duct, SD 1000 m, RD axis 1400 m, R 0-100 km",
+        "KRAKEN_SCOOTER_median_dB": 0.773,
+        "KRAKEN_BELLHOP_median_dB": 1.48,
+        "SCOOTER_BELLHOP_median_dB": 1.19
+      }
+    ],
+    "findings": [
+      "BELLHOP free-field and Lloyd-mirror analytic reference agree to <0.001 dB median -> call chain, source normalization and read_shd are consistent.",
+      "Shallow isovelocity / halfspace cross-model median 0.04-0.49 dB -> KRAKEN/SCOOTER/BELLHOP mutually consistent where interference is weak.",
+      "Munk deep duct: AT's own MunkK.flp uses 'RCOI' (incoherent mode sum) while SCOOTER/BELLHOP are coherent; incoherent-vs-coherent comparison inflates median to 3-5 dB. Re-running KRAKEN with 'RCOC' (coherent) drops it to 0.77-1.48 dB.",
+      "Deep nulls masked at TL<150 dB; report median/p90/p99, not null-dominated pointwise max."
+    ]
+  },
+  "p1_2026_10_25": {
+    "date": "2026-10-25",
+    "scope": "Representative-case execution per family (fresh output + PRT normal termination); structural check only, not physical accuracy.",
+    "executions": [
+      {
+        "family": "arctic",
+        "root": "arcticB",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "BeamPattern",
+        "root": "omni",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "block",
+        "root": "blockB_geo",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "BroadBand",
+        "root": "MunkS_500Hz",
+        "model": "scooter",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "Ellipse",
+        "root": "Ellipse",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "MunkRot",
+        "root": "MunkRot",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "MunkTS",
+        "root": "MunkB",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "ParaBot",
+        "root": "ParaBot",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "PekerisRD",
+        "root": "PekerisRDB",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "SBCX",
+        "root": "sbcx",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "scs",
+        "root": "scs_s1",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "SedAtten",
+        "root": "calibS_noloss",
+        "model": "scooter",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "step",
+        "root": "step",
+        "model": "simplePE",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "TabRefCoef",
+        "root": "neggradB",
+        "model": "bounce",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "terrain",
+        "root": "lower_half",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "VolAtt",
+        "root": "freePointB",
+        "model": "bellhop",
+        "status": "executed_output_checked"
+      },
+      {
+        "family": "3DAtlantic",
+        "root": "lant",
+        "model": "kraken+field3d",
+        "status": "executed_output_checked",
+        "mod_files": 57,
+        "lant_shd_bytes": 1521520
+      },
+      {
+        "family": "Noise",
+        "root": "halfspace",
+        "model": "scooter+spectral_noise",
+        "status": "executed_output_checked",
+        "nl_dB": 67.07,
+        "note": "halfspace spectral noise NL ~67 dB matches analytic expectation 54+13.2 dB"
+      }
+    ]
+  },
+  "p2_2026_10_25_elastic": {
+    "date": "2026-10-25",
+    "scope": "KRAKEN runs the TLslices elastic family (elastic sediment + Scholte/ice).",
+    "cases": [
+      {
+        "case": "elsed",
+        "solver": "kraken",
+        "tl_median_dB": 89.6
+      },
+      {
+        "case": "scholte",
+        "solver": "kraken",
+        "tl_median_dB": 90.1
+      },
+      {
+        "case": "flused",
+        "solver": "kraken",
+        "tl_median_dB": 89.8
+      },
+      {
+        "case": "normal",
+        "solver": "kraken",
+        "tl_median_dB": 91.3
+      },
+      {
+        "case": "ice",
+        "solver": "kraken",
+        "tl_median_dB": 90.5
+      }
+    ],
+    "note": "弹性介质由 KRAKEN 原生支持；KRAKEN 在弹性介质中不计衰减（ICE 用例 TL 偏低，见 TLslices runtests 注释）。"
+  }
+}

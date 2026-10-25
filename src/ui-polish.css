@@ -1,0 +1,175 @@
+/*
+ * 界面一致性层：统一面板圆角、表面色与描边色。
+ *
+ * 引入顺序很重要：本文件必须是最后一个样式 import（main.jsx 末尾），
+ * 才能以相同特异性覆盖 style / workbench / ocean-theme / studio-pages 里的历史取值。
+ *
+ * 尺度（只保留五档，新增界面请复用，不要再写 3px、5px、7px 这类散值）：
+ *   外壳 18 ｜ 面板 16 ｜ 面板内卡片 12 ｜ 控件 8 ｜ 标签 6
+ */
+:root {
+  --radius-shell: 18px;
+  --radius-panel: 16px;
+  --radius-card: 12px;
+  --radius-control: 8px;
+  --radius-chip: 6px;
+
+  /* Fuwari 的 .card-base 沿用 --radius-large，这里拉平到面板尺度 */
+  --radius-large: var(--radius-panel);
+
+  --ui-surface: #fff;
+  --ui-border: #dfebf2;
+  --ui-border-soft: #e6eff5;
+
+  /* --border 曾被 28 处引用却从未定义，导致分隔线、表框、控件边框整段消失 */
+  --border: var(--ui-border-soft);
+}
+
+/* 面板与卡片：同一圆角、同一底色、同一描边 */
+.workbench-app .panel,
+.workbench-app .card-base,
+.studio-page .panel,
+.research-list,
+.workbench-app .research-content,
+.research-inline,
+.simulation-assistant,
+.job-comparison,
+.workspace-login {
+  border-radius: var(--radius-panel);
+  background-color: var(--ui-surface);
+  border-color: var(--ui-border);
+}
+
+/* 面板内的小块与浮层：比面板小一档 */
+.workbench-app .result-metrics > div,
+.workbench-app .project-root,
+.research-more > div,
+.studio-page .ocean-map-frame {
+  border-radius: var(--radius-card);
+  border-color: var(--ui-border-soft);
+}
+
+/* 外壳与栅格 */
+.workbench-app .sidebar {
+  border-radius: var(--radius-shell);
+}
+
+/* 表单控件与按钮统一 8px；studio 页内 .field/.ocean-input/.map-toolbar
+   历史上分别是 5/8/6，逐页不一致，这里一并拉平。 */
+.workbench-app input:not([type="checkbox"]):not([type="radio"]),
+.workbench-app select,
+.workbench-app textarea,
+.workbench-app .field input,
+.workbench-app .field select,
+.studio-page input:not([type="checkbox"]):not([type="radio"]),
+.studio-page select,
+.studio-page textarea,
+.studio-page .field input,
+.studio-page .field select,
+.studio-page .ocean-input input,
+.studio-page .ocean-input select,
+.studio-page .map-toolbar select,
+.studio-page .chat-toolbar select,
+.dialogue-workbench select,
+.dialogue-workbench input,
+.workbench-app .button,
+.studio-page .button {
+  border-radius: var(--radius-control);
+}
+
+/* 控件底色与描边：原先 .field / .ocean-input / 弹层里分别是 #fcfdfd、#fff、透明，
+   描边还有 #dce7e8、#d2e3ec、#dceaf2 三套，统一到面板描边色。 */
+.workbench-app input:not([type="checkbox"]):not([type="radio"]),
+.workbench-app select,
+.workbench-app textarea,
+.workbench-app .field input,
+.workbench-app .field select,
+.studio-page input:not([type="checkbox"]):not([type="radio"]),
+.studio-page select,
+.studio-page textarea,
+.studio-page .field input,
+.studio-page .field select,
+.studio-page .ocean-input input,
+.studio-page .ocean-input select,
+.studio-page .map-toolbar select,
+.studio-page .chat-toolbar select,
+.dialogue-workbench select,
+.dialogue-workbench input {
+  background-color: var(--ui-surface);
+  border-color: var(--ui-border);
+  color: inherit;
+}
+
+/* 标签与计数：统一小圆角，避免 2px／4px／10px 混用 */
+.workbench-app .badge,
+.workbench-app .tag,
+.workbench-app .nav-count,
+.studio-page .tag,
+.studio-page .nav-count,
+.project-file-category > summary > span {
+  border-radius: var(--radius-chip);
+}
+
+/* 各页背景：studio 页原先自铺 #f3f7f7，与其他页面的浅蓝底形成色差 */
+.studio-page {
+  background: transparent;
+}
+
+/* 知识图谱：原先整页包在一张白卡片里（.course-explorer），标题条和页签都压在白底上，
+   与其他页面"标题落在页面底色、内容单独成面板"的结构不一致。
+   这里拆开：外壳透明，标题条与页签直接落在页面底色，内容区单独成圆角面板。 */
+.workbench-app .course-explorer,
+.workbench-app .course-explorer.light {
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.workbench-app .course-tabs {
+  background: transparent;
+  border-bottom: 1px solid var(--ui-border-soft);
+}
+
+.workbench-app .course-body {
+  background: var(--ui-surface);
+  border: 1px solid var(--ui-border);
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+}
+
+/* 面板内左栏不再自铺近白色，避免同一张面板里出现两段色差 */
+.workbench-app .course-directory {
+  background: transparent;
+}
+
+/* 图谱 Banner 用自己的浅蓝底；卡片白底规则不应把它刷成白色 */
+.workbench-app .course-explorer .anime-ocean-banner {
+  background-color: #f1f9fe;
+}
+
+/* 推荐问题：主题把网格改成了单列左对齐，这里恢复两列并居中 */
+.workbench-app[data-page="chat"] .prompt-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 860px;
+  margin: 24px auto 0;
+}
+
+.workbench-app[data-page="chat"] .prompt-grid button {
+  width: auto;
+  max-width: none;
+  min-height: 64px;
+}
+
+@media (max-width: 720px) {
+  .workbench-app[data-page="chat"] .prompt-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 16px;
+  }
+}

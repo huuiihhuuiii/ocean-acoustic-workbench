@@ -1,0 +1,92 @@
+/*!
+ * Adapted from Fuwari main.css and variables.styl (Tailwind/Stylus -> plain CSS).
+ * Source: https://github.com/saicaca/fuwari/tree/6d39b0dec41282e7852e23e032998a5789abee28/src/styles
+ * MIT License
+ * Copyright (c) 2024 saicaca
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+:root {
+  --hue: 226;
+  --radius-large: 1rem;
+  --primary: oklch(0.7 0.14 var(--hue));
+  --page-bg: oklch(0.95 0.01 var(--hue));
+  --card-bg: white;
+  --btn-content: oklch(0.55 0.12 var(--hue));
+  --btn-regular-bg: oklch(0.95 0.025 var(--hue));
+  --btn-regular-bg-hover: oklch(0.9 0.05 var(--hue));
+  --btn-regular-bg-active: oklch(0.85 0.08 var(--hue));
+  --btn-plain-bg-hover: oklch(0.95 0.025 var(--hue));
+  --selection-bg: oklch(0.9 0.05 var(--hue));
+  --float-panel-bg: white;
+  --codeblock-bg: oklch(0.17 0.015 var(--hue));
+  --line-color: rgba(0, 0, 0, 0.1);
+}
+.card-base {
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  background: var(--card-bg);
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.card-shadow {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.005));
+}
+.btn-regular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--btn-regular-bg);
+  color: var(--btn-content);
+  transition: background-color 0.2s;
+}
+.btn-regular:hover {
+  background: var(--btn-regular-bg-hover);
+}
+.btn-regular:active {
+  background: var(--btn-regular-bg-active);
+}
+.float-panel {
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  background: var(--float-panel-bg);
+  box-shadow: 0 12px 35px #34566c20;
+  transition: background-color 0.2s;
+}
+.expand-animation {
+  position: relative;
+  z-index: 0;
+}
+.expand-animation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: scale(0.85);
+  transition:
+    transform 0.2s,
+    background-color 0.2s;
+}
+.expand-animation:hover::before {
+  transform: scale(1);
+  background: var(--btn-plain-bg-hover);
+}
+::selection {
+  background-color: var(--selection-bg);
+}

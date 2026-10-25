@@ -1,0 +1,6 @@
+import React,{useEffect,useState} from 'react';
+export default function ResearchSkills({onAsk}){
+ const [catalog,setCatalog]=useState(null),[objective,setObjective]=useState(''),[error,setError]=useState('');
+ useEffect(()=>{fetch('/api/research-skills').then(async r=>{if(!r.ok)throw Error('技能目录读取失败');return r.json()}).then(setCatalog).catch(e=>setError(e.message))},[]);
+ return <section className="panel research-skills"><div className="panel-heading">声学研究 Agent <span>问题 → 数据与技能 → 实际计算 → 验证与报告</span></div><p>描述研究目标，由 Agent 选择资料、构造环境和执行脚本。技能给出可复用的方法，具体区域、判据与计算条件仍由研究问题决定。</p><textarea aria-label="开放研究目标" placeholder="例如：分析南海某区域混合层厚度的季节变化，并解释表面声道结构。请写明经纬范围、时段及希望得到的结果。" value={objective} onChange={e=>setObjective(e.target.value)}/><button className="button primary" disabled={!objective.trim()} onClick={()=>onAsk('请先发现并加载适合的研究技能，根据以下目标实际完成数据分析或计算，保存脚本、输入、图表和验证记录，再提交研究报告。缺少关键条件时先澄清，禁止用任意单点冒充区域。研究目标：'+objective)}>交给 Agent 构造研究</button>{error&&<p role="alert">{error}</p>}<div className="research-skill-grid">{catalog?.skills.map(s=><article key={s.id}><h3>{s.name}</h3><p>{s.description}</p><button className="button" onClick={()=>onAsk(s.prompt)}>使用此技能</button></article>)}</div><p className="result-note">{catalog?.toolbox_status} · 点击将研究目标带入 Agent，发送后才开始执行。技能包可由不同模型后端共用。</p></section>
+}

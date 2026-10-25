@@ -1,0 +1,509 @@
+{
+  "scope": "依据本机AT源码、tests及已保存的运行记录整理。已审阅、已跑通、科学精度已验证分别记录；目录中存在模型不代表平台表单已接入。",
+  "models": [
+    {
+      "id": "kraken",
+      "name": "KRAKEN",
+      "method": "简正波 · 实特征值搜索与衰减处理",
+      "status": "移植前记录 · 已审阅 · 已有运行与回归记录",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "常用于低频波导传播，浅海与深海均可；按模态组织声场，便于分析模态形状与远距离传播。",
+      "conditions": [
+        "选择依据是频率、波导结构、距离和模态贡献，不存在统一的适用水深上下限。",
+        "平台表单采用距离无关、单剖面、平底环境；AT的距离相关模态流程需要额外剖面与FIELD配置，不能仅修改一个水深值。",
+        "近场、泄漏或连续谱贡献重要时，要核对所用模态是否足够；不能只凭算出一个模态就判定模型失效。",
+        "支持弹性介质（含剪切波速 cs）；注意 KRAKEN 在弹性介质中不计衰减（TLslices ICE 用例 TL 偏低），弹性衰减需单独核对。"
+      ],
+      "environment": [
+        "先给出频率、声速随深度的节点、介质密度、海面与海底边界。逐层核对z、cP、cS、rho、alphaP、alphaS及单位。",
+        "ENV头部选择声速插值、海面边界与衰减单位；本机MunkK.env使用NVW，表单自定义环境使用CVW，二者插值不同，比较前需统一。",
+        "ENV尾部给相速搜索范围、计算控制、源深和接收深度；FLP给模态使用数量、剖面位置、接收距离和场叠加选项。",
+        "当前WOA18表单的流体半空间模板要求海底声速高于水体最大声速，这是表单限制，并非所有KRAKEN用法的普遍物理条件。"
+      ],
+      "files": [
+        [
+          ".env",
+          "介质、边界、搜索范围与深度设置"
+        ],
+        [
+          ".flp",
+          "FIELD的模态叠加和接收网格"
+        ],
+        [
+          ".mod / .shd / .prt",
+          "模态、复声压与求解日志"
+        ]
+      ],
+      "workflow": [
+        "在独立任务目录准备同名前缀ENV与FLP。",
+        "addpath(genpath(AT路径))；调用kraken('case')。",
+        "本机kraken.m依次调用kraken.exe和field.exe；read_shd('case.shd')读取复声压。",
+        "核对PRT、模态数、输出维度、有效覆盖；加密内部网格和模态设置进行稳定性检查。"
+      ],
+      "experience": [
+        "本机Munk和Pekeris已有接入回归记录；tests/sduct/sductK原始算例已跑通，200 Hz输出201×1001接收网格。跑通不等于物理精度认证。",
+        "MATLAB JSON会把单模态形状降为一维、单个波数降为标量；后处理需规范形状，不能把格式问题当作求解失败。",
+        "接收输出深度点数与求解器内部离散网格不同；调大图片网格不等于模态求解已收敛。",
+        "KRAKEN的FLP与SCOOTER的FLP格式不同，不可直接互换。",
+        "本轮Gulf的距离无关、绝热和耦合模态FIELD配置分别实际执行；复用同一新计算的多剖面MOD，每种FLP的NPROF与RA/RC选项不同。",
+        "与 SCOOTER/BELLHOP 在等声速波导、Munk 声道（相干 RCOC）跨模型对照中位差 0.2–1.5 dB（2026-10-25）。"
+      ],
+      "sources": [
+        "kraken.m",
+        "ReadWrite/read_env.m",
+        "ReadWrite/write_env.m",
+        "ReadWrite/read_shd.m",
+        "tests/Munk/MunkK.env",
+        "tests/Munk/MunkK.flp",
+        "tests/sduct/runtests.m",
+        "tests/sduct/sductK.env",
+        "tests/sduct/sductK.flp"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/manual/node46.html",
+      "examples": [
+        {
+          "path": "tests/Munk/MunkK.env",
+          "sha256": "c99a5f620dabe02440e71c763c654c39d2b0c5d216d3f86de1ff152617affa18",
+          "text": "'BBMunk profile'\r\n50\r\n1\r\n'NVW'\r\n0  0.0  5000.0\r\n    0.0  1548.52  0.0  1.0  0.0  0.0\r\n  200.0  1530.29 /\r\n  250.0  1526.69 /\r\n  400.0  1517.78 /\r\n  600.0  1509.49 /\r\n  800.0  1504.30 /\r\n 1000.0  1501.38 /\r\n 1200.0  1500.14 /\r\n 1400.0  1500.12 /\r\n 1600.0  1501.02 /\r\n 1800.0  1502.57 /\r\n 2000.0  1504.62 /\r\n 2200.0  1507.02 /\r\n 2400.0  1509.69 /\r\n 2600.0  1512.55 /\r\n 2800.0  1515.56 /\r\n 3000.0  1518.67 /\r\n 3200.0  1521.85 /\r\n 3400.0  1525.10 /\r\n 3600.0  1528.38 /\r\n 3800.0  1531.70 /\r\n 4000.0  1535.04 /\r\n 4200.0  1538.39 /\r\n 4400.0  1541.76 /\r\n 4600.0  1545.14 /\r\n 4800.0  1548.52 /\r\n 5000.0  1551.91 /\r\n'A' 0.0\r\n 5000.0  1600.00 0.0 1.8 0.8 /\r\n1500  1600\r\n0\t\t\t\t! RMAX (km)\r\n2\t\t\t\t! NSD\r\n   25 250 /\t\t! SD(1)  ...\r\n1001\t\t\t! NRD\r\n  0 5000 /\t\t! RD(1)  ...\r\n"
+        },
+        {
+          "path": "tests/Munk/MunkK.flp",
+          "sha256": "a78d6fdc0860247b407b349c3b58d79d73d135320f3eccceb5dc79184230cc8f",
+          "text": "/,\t\t\t\t! TITLE\r\n'RCOI'\t\t\t\t! OPT 'X/R' (coords), 'C/A' (couple/adiab)\r\n9999\t\t\t\t! M  (number of modes to include)\r\n1\r\n     0.0 100.0 /\t\t! NPROF,  RPROF(1:NPROF) (km)\r\n1001\r\n 0.0  100.0 /\t\t\t! RMIN,   RMAX           (km), NR\r\n1\r\n   1000.0 /\t\t\t! NSD, SD(1:NSD)   (m)\r\n501\r\n  0.0 5000.0 /\t\t! NRD, RD(1:NRD)   (m)\r\n501\r\n     0.0 /\t\t\t! NRR, RR(1:NRR)   (m)\r\n"
+        }
+      ]
+    },
+    {
+      "id": "krakenc",
+      "name": "KRAKENC",
+      "method": "简正波 · 复特征值搜索",
+      "status": "移植前记录 · 已审阅 · MunkLeaky三组与Pekeris已执行检查",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "针对需要复特征值处理的模态问题，可用于研究泄漏模态及相关衰减条件；不是KRAKEN的自动通用替代。",
+      "conditions": [
+        "研究泄漏模态或弹性介质材料衰减时，需考虑KRAKENC与KRAKEN的处理差别，并核对具体边界和模型假设。",
+        "复根搜索范围、根的完整性和所选模态贡献均需验证；更换求解器名称不保证得到正确或完整声场。",
+        "距离相关环境仍需额外配置FIELD连接各局部环境；本机存在wrapper不等于现有表单已提供这种能力。"
+      ],
+      "environment": [
+        "ENV/FLP结构与KRAKEN同族；从对应KRAKENC算例复制后，检查插值、边界、材料衰减单位和相速搜索范围。",
+        "tests/MunkLeaky/MunkKleaky.env包含带吸收的流体海底半空间及较宽相速搜索范围，可用于理解不同模态贡献；其数值不是任意海域的默认参数。",
+        "源深、接收深度及FIELD参数须相容。每次改环境后重新计算模态，不复用旧MOD声称是新输入结果。"
+      ],
+      "files": [
+        [
+          ".env / .flp",
+          "环境与FIELD场计算配置"
+        ],
+        [
+          ".mod / .shd / .prt",
+          "复模态、声场与搜索诊断"
+        ]
+      ],
+      "workflow": [
+        "先阅读tests/MunkLeaky/runtests.m中实际启用的krakenc调用。",
+        "复制MunkKwb、MunkKbb或MunkKleaky对应文件到任务目录，先复现基准。",
+        "调用krakenc('case')；本机wrapper依次运行krakenc.exe和field.exe。",
+        "krakenc_nofield仅计算模态，不自动调用FIELD；需要自己安排后续场计算。"
+      ],
+      "experience": [
+        "与KRAKEN比较时保持频率、环境、搜索范围、源接收位置和归一化一致，单独解释泄漏模态处理差异。",
+        "tests/MunkLeaky同时提供SCOOTER对照，但不能在未运行、未统一输入前宣称两者相符。",
+        "原始ENV与FLP的源深列表也要逐项核对；不能因它们放在同一目录就假定采样位置完全一致。",
+        "本轮实际执行MunkKwb、MunkKbb、MunkKleaky三种搜索范围，以及TLslices/Pekeris；均产生新MOD/SHD并通过结构检查。",
+        "同一TLslices/Pekeris输入下，KRAKEN与KRAKENC本次接收曲线最大TL差为0dB；不推广到有损弹性或泄漏环境。"
+      ],
+      "sources": [
+        "krakenc.m",
+        "krakenc_nofield.m",
+        "tests/MunkLeaky/runtests.m",
+        "tests/MunkLeaky/MunkKleaky.env",
+        "tests/MunkLeaky/MunkKleaky.flp"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/manual/node46.html",
+      "examples": [
+        {
+          "path": "tests/MunkLeaky/MunkKleaky.env",
+          "sha256": "176a4e2f9c3b142d9f58c2fc691374a789b470322bfd44eb5679da754604e60a",
+          "text": "'Munk profile, leaky modes'\r\n50.0\r\n1\r\n'NVW .'\r\n5000  0.0  5000.0\r\n    0.0  1548.52  0.0  1.0  0.0  0.0\r\n  200.0  1530.29 /\r\n  250.0  1526.69 /\r\n  400.0  1517.78 /\r\n  600.0  1509.49 /\r\n  800.0  1504.30 /\r\n 1000.0  1501.38 /\r\n 1200.0  1500.14 /\r\n 1400.0  1500.12 /\r\n 1600.0  1501.02 /\r\n 1800.0  1502.57 /\r\n 2000.0  1504.62 /\r\n 2200.0  1507.02 /\r\n 2400.0  1509.69 /\r\n 2600.0  1512.55 /\r\n 2800.0  1515.56 /\r\n 3000.0  1518.67 /\r\n 3200.0  1521.85 /\r\n 3400.0  1525.10 /\r\n 3600.0  1528.38 /\r\n 3800.0  1531.70 /\r\n 4000.0  1535.04 /\r\n 4200.0  1538.39 /\r\n 4400.0  1541.76 /\r\n 4600.0  1545.14 /\r\n 4800.0  1548.52 /\r\n 5000.0  1551.91 /\r\n'A' 0.0\r\n 5000.0  1600.00 0.0 1.8 0.8 /\r\n1500.0  20000\r\n0.0\t\t\t\t! RMAX (km)\r\n2\r\n   25.0 250.0 /\t\t! NSRCS  SD(1)  ...\r\n1001\r\n  0.0 5000.0 /\t\t! NRCVRS  RD(1)  ...\r\n"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkKleaky.flp",
+          "sha256": "72b6e29b05b048bf8fc5dc67559ba1c037ff8f82455e93d83ce81777f207e4e6",
+          "text": "/,\t\t\t\t! TITLE\r\n'RA'\t\t\t\t! OPT 'X/R' (coords), 'C/A' (couple/adiab)\r\n9999\t\t\t\t! M  (number of modes to include)\r\n1\r\n     0.0 100.0 /\t\t! NPROF,  RPROF(1:NPROF) (km)\r\n501\r\n 0.0  100.0 /\t\t\t! RMIN,   RMAX           (km), NR\r\n1\r\n   100.0 /\t\t\t! NSD, SD(1:NSD)   (m)\r\n301\r\n  0.0 5000.0 /\t\t! NRD, RD(1:NRD)   (m)\r\n301\r\n     0.0 /\t\t\t! NRR, RR(1:NRR)   (m)\r\n"
+        }
+      ]
+    },
+    {
+      "id": "scooter",
+      "name": "SCOOTER",
+      "method": "波数积分 · 有限元深度离散",
+      "status": "移植前记录 · 已审阅 · 已有Munk/Pekeris/WOA18回归记录",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "针对水平分层、距离无关环境直接进行谱积分；适合检查近场或模态展开未充分描述的贡献，但不是全环境通用模型。",
+      "conditions": [
+        "当前模型针对距离无关环境；任意起伏海底、沿程变化剖面与三维环境不能直接按单个ENV处理。",
+        "浅海和深海都可构造，计算代价与谱采样、频率、距离等有关，须验证采样收敛。",
+        "近场研究要检查fieldsco的变换选项；当前表单默认RP圆柱远场变换，不可直接称作完整近场解。"
+      ],
+      "environment": [
+        "ENV前部与KRAKEN同族：介质、声速节点、密度、边界、衰减单位与相速范围。",
+        "ENV中的RMAX控制波数采样，不能只按最终画图距离理解；内部有限元网格与接收深度网格不同。",
+        "SCOOTER的FLP用于谱到距离变换及接收距离。本机MunkS.flp为RP，sductS.flp为RB；选项含义和适用条件需查fieldsco源码。"
+      ],
+      "files": [
+        [
+          ".env",
+          "环境、有限元/谱采样控制及深度"
+        ],
+        [
+          ".flp",
+          "fieldsco的变换和接收距离"
+        ],
+        [
+          ".grn / .shd.mat / .prt",
+          "格林函数、复声压与诊断日志"
+        ]
+      ],
+      "workflow": [
+        "独立目录准备ENV和对应FLP，核对RMAX、相速范围与源接收深度。",
+        "调用scooter('case')；本机scooter.m先运行scooter.exe，再fieldsco('case.grn')。",
+        "显式调用read_shd('case.shd.mat')，避免同名旧SHD文件误读。",
+        "固定环境后分别增加RMAX和有限元网格，检查有效覆盖与场差异。"
+      ],
+      "experience": [
+        "已有Munk、Pekeris、WOA18直接AT调用与平台输出一致的回归记录；只覆盖所测配置。",
+        "GRN是中间产物，不是最终TL；fieldsco完成后再读取声场。",
+        "改变频率、变换选项或海底参数的差异，不能全部归因于积分离散误差。",
+        "本轮另执行TLslices/Pekeris与原始sductS；Pekeris曲线相对KRAKEN的P95差约0.371dB、最大约1.786dB，不能据此宣称全参数一致。",
+        "与 KRAKEN/BELLHOP 在等声速波导、Munk 声道（相干）跨模型对照中位差 0.04–1.2 dB（2026-10-25）。"
+      ],
+      "sources": [
+        "scooter.m",
+        "Scooter/fieldsco.m",
+        "tests/Munk/MunkS.env",
+        "tests/Munk/MunkS.flp",
+        "tests/sduct/sductS.env",
+        "tests/sduct/sductS.flp",
+        "ReadWrite/read_shd.m"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/manual/node64.html",
+      "examples": [
+        {
+          "path": "tests/Munk/MunkS.env",
+          "sha256": "0154a0ce78d476e279d628c17daab250b94119be5f198f7dc1de1c551c6944fe",
+          "text": "'Munk profile'\r\n50.0\r\n1\r\n'SVW'\r\n0  0.0  5000.0\r\n    0.0  1548.52  0.0  1.0  0.0  0.0\r\n  200.0  1530.29 /\r\n  250.0  1526.69 /\r\n  400.0  1517.78 /\r\n  600.0  1509.49 /\r\n  800.0  1504.30 /\r\n 1000.0  1501.38 /\r\n 1200.0  1500.14 /\r\n 1400.0  1500.12 /\r\n 1600.0  1501.02 /\r\n 1800.0  1502.57 /\r\n 2000.0  1504.62 /\r\n 2200.0  1507.02 /\r\n 2400.0  1509.69 /\r\n 2600.0  1512.55 /\r\n 2800.0  1515.56 /\r\n 3000.0  1518.67 /\r\n 3200.0  1521.85 /\r\n 3400.0  1525.10 /\r\n 3600.0  1528.38 /\r\n 3800.0  1531.70 /\r\n 4000.0  1535.04 /\r\n 4200.0  1538.39 /\r\n 4400.0  1541.76 /\r\n 4600.0  1545.14 /\r\n 4800.0  1548.52 /\r\n 5000.0  1551.91 /\r\n'A' 0.0\r\n 5000.0  1600.00 0.0 1.8 0.8 /\r\n1400  1600\r\n200\t\t\t\t! RMAX (km)\r\n1\t\t\t\t! NSD\r\n1000 /\t\t\t! SD(1)  ...\r\n501\t\t\t\t! NRD\r\n0.0 5000 /\t\t! RD(1)  ...\r\n"
+        },
+        {
+          "path": "tests/Munk/MunkS.flp",
+          "sha256": "d4b0102cdb6110142b81f5737ecfad506cfadd4094af2e0aecdad325979ee90e",
+          "text": "'RP'\t\t\t\t! 'R/X (coord), Pos/Neg/Both' \r\n501\t\t\t\t! Nrr number of receiver ranges\r\n0.0  100.0 /\t\t\t! rr( 1 : Nrr ) receiver ranges (km)\r\n"
+        }
+      ]
+    },
+    {
+      "id": "bellhop",
+      "name": "BELLHOP",
+      "method": "声线与波束追踪",
+      "status": "移植前记录 · 已审阅 · 自由场/Lloyd 解析对照 <0.001 dB",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "用于路径、折射反射与几何波束声场研究；使用时需评估高频近似、发射角覆盖和环境尺度。",
+      "conditions": [
+        "声线路径、相干/非相干声场和到达结构是不同运行类型，按需要选择；声线图本身不提供TL。",
+        "不能仅按频率数值宣布有效或无效，要结合波长、环境变化尺度、边界和数值稳定性判断。",
+        "BELLHOP本身支持额外地形等输入，但当前表单仍是平底单剖面；复杂环境应独立构造并核验。"
+      ],
+      "environment": [
+        "ENV前部描述水体与边界；尾部包含源深、接收深度与距离、运行类型、波束/声线设置、发射角和追踪区域。",
+        "本机tests/sduct/sductB.env可看到C运行类型、Nalpha、发射角以及STEP/ZBOX/RBOX配置。",
+        "若引入BTY/SSP等附加文件，须同时检查ENV激活选项、文件单位、坐标方向与覆盖范围。"
+      ],
+      "files": [
+        [
+          ".env",
+          "环境及声线/声场运行配置"
+        ],
+        [
+          ".bty / .ssp（按需）",
+          "距离相关地形或声速附加输入"
+        ],
+        [
+          ".ray / .shd / .arr / .prt",
+          "按运行类型产生的路径、声场、到达与日志"
+        ]
+      ],
+      "workflow": [
+        "从目标输出对应的tests输入出发，配置发射角、步长与追踪边界。",
+        "调用bellhop('case')，本机wrapper运行bellhop.exe。",
+        "按运行类型读取RAY、SHD或ARR，不把不同文件混读。",
+        "独立检查发射角覆盖、波束加密与步长减半；对比时保持几何/高斯波束及叠加方式一致。"
+      ],
+      "experience": [
+        "当前ray_count用于声线图，beam_count用于声场，不能当成同一数量。",
+        "角度范围改变属于覆盖试验，波束数加密属于离散试验；不应把二者混在一次收敛判断里。",
+        "白色或NaN格点可能来自覆盖、近零幅值和后处理阈值，不等于物理上完全没有声能。",
+        "等声速声线曾与解析直线对照，这不证明复杂海域的传播损失精度。",
+        "自由场点源 TL 与 20log10(R) 解析解、Lloyd 镜像逐点对照中位差 <0.001 dB（2026-10-25）。"
+      ],
+      "sources": [
+        "bellhop.m",
+        "tests/sduct/sductB.env",
+        "tests/sduct/runtests.m",
+        "tests/Munk/runtests.m"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/manual/node61.html",
+      "examples": [
+        {
+          "path": "tests/sduct/sductB.env",
+          "sha256": "2b9633bcadd23090c7bc6ece6c6fcf90a834d56ca68aaa7a3fb683b8a007b66c",
+          "text": "'Leaky surface duct'\r\n200.0\r\n1\r\n'CVW'\r\n0  0  4000.0\r\n     0.0  1497.0 /\r\n   250.0  1502.0 /\r\n   300.0  1485.0 /\r\n   375.0  1478.0 /\r\n   425.0  1477.0 /\r\n   500.0  1476.0 /\r\n   600.0  1476.5 /\r\n   700.0  1477.0 /\r\n   810.0  1478.0 /\r\n   900.0  1479.0 /\r\n  1000.0  1480.0 /\r\n  1100.0  1481.0 /\r\n  1180.0  1482.0 /\r\n  1340.0  1484.0 /\r\n  1600.0  1487.0 /\r\n  1800.0  1490.0 /\r\n  2500.0  1498.7 /\r\n  3000.0  1506.8 /\r\n  4000.0  1523.9 /\r\n'A' 0\r\n4000.0 1523.9 0.0 1 0.5 /\r\n1              ! NSD\r\n25.0 /\t\t\t! SD( 1 : NSD ) (m)\r\n201            ! NRD\r\n0.0 4000.0 /\t! RD( 1 : NRD ) (m)\r\n1001           ! NR\r\n0 150 / 80.0\t! R( 1 : NR ) (km)\r\n'C'            ! 'R/C/I/S'\r\n0 0            ! Nalpha\r\n-10 10  /            ! alpha( 1 : Nalpha ) (degrees)\r\n0  4500.0  151.0\t\t! STEP (m), ZBOX (m), RBOX (km)\r\n\r\n\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "id": "ram",
+      "name": "RAM",
+      "method": "距离相关抛物方程 · split-step Padé",
+      "status": "移植前记录 · 已审阅 · wedge、Dickins与MATLAB读取链已执行",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "面向沿程变化水深与介质的前向PE计算；不能因可处理地形就宣称包含完整后向散射。",
+      "conditions": [
+        "需给出传播方向、沿程地形及水体/沉积物剖面，检查步长与计算底部吸收域。",
+        "大坡度、反向散射或强弹性问题不能仅凭RAM输出就认为近似充分。"
+      ],
+      "environment": [
+        "ram.in依次设置频率和源/接收深度、rmax/dr/ndr、zmax/dz/ndz/zmplt、c0/np/ns/rs，再写地形与分段更新剖面。",
+        "ram.in距离与深度均为m，不能把其他AT例子的km距离直接照搬。",
+        "dr/dz是内部网格，ndr/ndz为输出抽样；改变dz可能改变实际输出深度，不能只比较矩阵下标。"
+      ],
+      "files": [
+        [
+          "ram.in",
+          "固定名输入，含地形与环境更新"
+        ],
+        [
+          "tl.grid / tl.line",
+          "二进制TL网格与固定接收深度曲线，不含相位"
+        ]
+      ],
+      "workflow": [
+        "独立目录复制输入，MATLAB system显式运行ram.exe并检查退出码。",
+        "使用read_ram_tlgrid或严格Python读取器；不要原样调用含F盘硬编码的RAMtoSHD。",
+        "需要物理坐标时先核对采样起点；本机二进制的深度探针见审查记录。"
+      ],
+      "experience": [
+        "本机旧RAMtoSHD有路径、记录标记和维度问题，工具箱已有更可靠的ReadWrite/read_ram_tlgrid。",
+        "Python严格读取与MATLAB读取得到的本次TL矩阵最大差0dB，但MATLAB深度标签比探针确认的物理坐标深一个dz。",
+        "wedge距离步长减半，湿点r≥200m的TL差P95约2.04dB、最大约28.50dB；这仍是未充分稳定的观察。",
+        "10^(-TL/20)只能恢复幅度，不能用于相位比较或宽带传递函数。"
+      ],
+      "sources": [
+        "ram.m",
+        "RAMtoSHD.m",
+        "ReadWrite/read_ram_tlgrid.m",
+        "ReadWrite/write_env_RAM.m",
+        "Slicer/run_ram.m",
+        "tests/Dickins/ram.in",
+        "tests/wedge/ram.in"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/PE/RAM.pdf",
+      "examples": [
+        {
+          "path": "tests/wedge/ram.in",
+          "sha256": "dc8569549244ed76c0d6b4adeaa9c07d311ce388f2d8fe61ad3be13592903aea",
+          "text": "RAM Wedge problem\n25.0 100.0 30.0           freq zs zr\n4000.0 5.0 1          rmax dr ndr\n1000.0 1 2 1000.0       zmax dz ndz zmplt\n1500.0 1 1 0.0           c0 np ns rs\n   0.0 200.0                rb zb\n4000.0   0.0\n-1 -1\n   0 1500              z cw\n3000 1500\n-1 -1\n0.0 1700               z cb\n-1 -1\n0.0 1.5                  z rhob\n-1 -1\n   0.0  0.5\n 900.0  0.5                z attn\n1000.0 10.0\n-1 -1\n25000.0                  rp\n   0 1500              z cw\n3000 1500\n-1 -1\n0.0 1700               z cb\n-1 -1\n0.0 1.5                  z rhob\n-1 -1\n   0.0  0.5\n 900.0  0.5                z attn\n1000.0 10.0\n-1 -1\n"
+        }
+      ]
+    },
+    {
+      "id": "simplepe",
+      "name": "SimplePE",
+      "method": "MATLAB 简化抛物方程实现",
+      "status": "移植前记录 · 已审阅 · wedgeB原始输入已执行",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "从AT的BELLHOP格式环境读取剖面和地形的简单PE实现，便于学习PE推进与参考场对照。",
+      "conditions": [
+        "源码包含固定近似与采样设置；不能因为名字含PE就当成RAM同等算法或通用真值。",
+        "需核对地形范围从0开始及输入单位，检查起始场、海底延拓、频率与角度适用性。"
+      ],
+      "environment": [
+        "读取BELLHOP格式ENV与所需BTY/SSP等，源码将接收距离由km转换为m。",
+        "源码设置每波长采样数30、海底延拓50个波长和Greene起始场；它们是实现选择，不是自动收敛证明。"
+      ],
+      "files": [
+        [
+          ".env / .bty / .ssp（按需）",
+          "环境与沿程信息"
+        ],
+        [
+          ".shd.mat",
+          "MATLAB复声压场"
+        ]
+      ],
+      "workflow": [
+        "运行simplePE('wedgeB')，显式读wedgeB.shd.mat。",
+        "需要修改内部参数时复制脚本到任务目录并记录版本；再检查空间步长与计算域敏感性。"
+      ],
+      "experience": [
+        "wedgeB实际输出401×1001接收网格，程序与输出结构检查通过；尚未做网格收敛。",
+        "ParaBot目录指抛物线边界形状，不是PE模型，不能按目录名误分类。"
+      ],
+      "sources": [
+        "simplePE.m",
+        "tests/wedge/runtests.m",
+        "tests/wedge/wedgeB.env",
+        "tests/wedge/wedgeB.bty",
+        "tests/sduct/runtests.m"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/archive/",
+      "examples": [
+        {
+          "path": "tests/wedge/wedgeB.env",
+          "sha256": "14515c30eabd66ae3c9f718e9a265593570ea46988013eb432202983163060e5",
+          "text": "'Wedge problem' ! Title \r\n   25.00  \t \t \t ! Frequency (Hz) \r\n    1    \t \t \t ! NMedia \r\n'CVW' \t \t \t ! Top Option \r\n  500 0.00 200.00 \t ! N sigma depth \r\n\t   0.00 1500.00   0.00      1   0.000000   0.00 / \t ! z c cs rho \r\n\t 200.00 1500.00   0.00      1   0.000000   0.00 / \t ! z c cs rho \r\n'A~'   0.00  \t \t ! Bottom Option, sigma\r\n\t 200.00 1700.00   0.00    1.5   0.500000   0.00 / \t ! z c cs rho \r\n    1 \t \t \t \t ! NSD\r\n  100.000000  / \t ! SD(1)  ... (m) \r\n 401 \t \t \t \t ! NRD\r\n    0.000000 200.000000 / \t ! RD(1)  ... (m) \r\n1001\t\t\t\t! NR\r\n0.0  3.9 /\t\t\t! R(1:NR ) (km)\r\n'C'\t\t\t\t! Run type: 'Ray/Coh/Inc/Sem'\r\n1789\t\t\t\t! NBEAMS\r\n-89 89 /\t! ALPHA1,2 (degrees)\r\n0.0  201.0  3.9\t\t! STEP (m), ZBOX (m), RBOX (km)"
+        },
+        {
+          "path": "tests/wedge/wedgeB.bty",
+          "sha256": "6009f42a4905ae002ca61b4e04a23a055b78fc6b6192076ec13a871cdefdeb12",
+          "text": "'L'\r\n2\r\n  0 200\r\n  4   0\r\n\r\n"
+        }
+      ]
+    },
+    {
+      "id": "sparc",
+      "name": "SPARC",
+      "method": "时域声场 · 频时转换与脉冲研究流程",
+      "status": "移植前记录 · 已审阅 · head原始流程已执行",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "用于包含脉冲与时间切片的声场研究。不能把时域输出当作一个普通单频TL矩阵。",
+      "conditions": [
+        "先定义脉冲、频率范围、输出时刻与时间推进控制，再解释声场结果。",
+        "须核对GRN及后处理的频率/时间轴和归一化；单个时间切片不代表完整到达过程。"
+      ],
+      "environment": [
+        "head.env包含常规层状环境外，还给脉冲选项、FMIN/FMAX、输出时刻及TSTART/TMULT等。",
+        "先按原始head.env和head.flp复现，输入含多个介质，不能直接用一个水深数字替代。"
+      ],
+      "files": [
+        [
+          ".env / .flp",
+          "环境、脉冲、时间与后处理设置"
+        ],
+        [
+          ".grn / .shd.mat",
+          "格林函数及经fieldsco处理的时空输出"
+        ]
+      ],
+      "workflow": [
+        "sparc('head')后fieldsco('head.grn')，再read_shd('head.shd.mat')。",
+        "检查各时间切片轴，不用只适用于单源单频二维场的squeeze逻辑解释全部数据。"
+      ],
+      "experience": [
+        "head原始输入实际输出形状1×60×101×500，包含60个输出时间切片。这里只验证运行和结构，未做头波到时解析对照。"
+      ],
+      "sources": [
+        "sparc.m",
+        "Scooter/fieldsco.m",
+        "Sparc/readt.m",
+        "tests/head/runtests.m",
+        "tests/head/head.env",
+        "tests/head/head.flp"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/archive/",
+      "examples": [
+        {
+          "path": "tests/head/head.env",
+          "sha256": "2d32785a5b1e646bf4aaaa7290aa92db6a001b86ef87ece68ad62c505e4fbec5",
+          "text": "'Head-wave problem NN+N'\r\n100.0\r\n2\r\n'NVW S'\r\n500  0.0 50.0\r\n-200.0  1500.0  0.0  1.0  0.0  0.0\r\n  50.0 /\r\n300  0.0  200.0\r\n  50.0  2500.0  0.0  1.0  0.0/\r\n 200.0 /\r\n'R'  0.0\r\n1000.0  1.0E7\r\n1.000\t\t\t\t! RMAX (km)\r\n1\t\t\t\t! NSD\r\n0.0 /\t\t\t\t! SD(1:NSD)\r\n101\t\t\t\t! NRD\r\n0.0 100.0 /\t\t\t! RD(1:NRD)\r\n'NH+N'\t\t\t! Pulse\r\n0.0 600.0\t\t! FMIN FMAX (Hz)\r\n1\t\t\t! NRR\r\n0.100 0.200 /\t\t! RR(1:NRR) (km)\r\n60\t\t\t\t! NTout\r\n0.002 0.120 /\t\t! TOUT(1:NTOUT)\r\n-0.1 0.98 0.0 0.0 0.0\t! TSTART (s), TMULT, ALPHA, BETA, V (m/s)\r\n"
+        },
+        {
+          "path": "tests/head/head.flp",
+          "sha256": "84f2e703e67cf4f026f2702440c68718471a55d8973560f28b6b493c256a4e20",
+          "text": "'RPO'\t\t\t\t! 'R/X (coord), Pos/Neg/Both' \r\n500\t\t\t\t! Nrr number of receiver ranges\r\n0.002  1.0 /\t\t\t! rr( 1 : Nrr ) receiver ranges (km)\r\n"
+        }
+      ]
+    },
+    {
+      "id": "bellhop3d",
+      "name": "BELLHOP3D",
+      "method": "三维声线 / 波束追踪",
+      "status": "移植前记录 · 已审阅 · freeBhat原始算例已执行",
+      "integration": "本机研究Agent可创建经典基线；自定义条件通过独立输入和脚本构造。新版固定表单仍为Munk KRAKEN。",
+      "summary": "含水平位置、方位和俯仰角扇的三维波束流程；不能把它等同于二维BELLHOP多画几张图。",
+      "conditions": [
+        "需要定义源x/y/z、接收方位/距离/深度以及二维角扇。",
+        "三维海底和区域输入的坐标、单位、覆盖与波束近似须单独检查，free算例通过不证明所有区域算例可用。"
+      ],
+      "environment": [
+        "freeBhat.env显式给源水平坐标、方位角、Nalpha/Nbeta、角扇及x/y/z追踪边界。",
+        "保持压力输出中的方位和其他轴语义，不能固定取第一个方位后称完整三维结果。"
+      ],
+      "files": [
+        [
+          ".env及地形等附加输入",
+          "三维几何、源接收和波束配置"
+        ],
+        [
+          ".shd / .ray / .prt（按运行类型）",
+          "三维场、路径与日志"
+        ]
+      ],
+      "workflow": [
+        "bellhop3d('freeBhat')调用bellhop3d.exe，显式读取新freeBhat.shd。",
+        "用原始free子目录作为结构检查，再逐步扩展到海山、楔形底或区域环境。"
+      ],
+      "experience": [
+        "freeBhat已执行，输出含2个方位、501个深度及1000个距离采样；有限非零声压检查通过。",
+        "Bellhop3DTests顶层是子目录调度，某个子例成功不能记作整套3D测试通过。"
+      ],
+      "sources": [
+        "bellhop3d.m",
+        "tests/Bellhop3DTests/runtests.m",
+        "tests/Bellhop3DTests/free/runtests.m",
+        "tests/Bellhop3DTests/free/freeBhat.env"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/archive/",
+      "examples": [
+        {
+          "path": "tests/Bellhop3DTests/free/freeBhat.env",
+          "sha256": "afa22526bd7a4eb8c6b81728dcadeb0f0989cb56c492aa7a487cb660b23dd4b6",
+          "text": "'free space 3D, Hat Cart. Coord'\r\n5.000000\r\n1\r\n'CAF'\r\n0.0 1500.0 /\r\n500 0.0 5000.0 \r\n   0.0  1500.0 /\r\n5000.0  1500.0 /\r\n'A'  0.0\r\n5000.0  /\r\n1                 ! Nsx number of source coordinates in x\r\n0.0 /  \t\t\t\t! x coordinate of source (km)\r\n1                 ! Nsy number of source coordinates in y\r\n0.0 /  \t\t\t\t! y coordinate of source (km)\r\n1                 ! Nsz number of source coordinates in z\r\n3000.0            ! z coordinate of source (m)\r\n501                 ! Nrz number of receiver coordinates in z\r\n0 5000 /              ! z coordinate of receiver (m)  \r\n1000\r\n0.010000 10.000000 /\r\n2                ! Ntheta (number of bearings)\r\n0.0 20.0 /       ! bearing angles (degrees)\r\n'C^   3'              ! 'R/C/I/S'\r\n189                 ! Nalpha\r\n-89 89 /    ! alpha1, 2 (degrees) Elevation/declination angle fan\r\n11               ! Nbeta\r\n-5  5 /    ! beta1, beta2 (degrees) bearine angle fan\r\n100.0  10.05 10.05 5000.5  ! STEP (m), xBox (km), yBox (km), zBox (m)\r\n"
+        }
+      ]
+    },
+    {
+      "id": "krakel",
+      "name": "KRAKEL",
+      "method": "弹性模态扩展入口",
+      "status": "已编译 krakel.exe · 流体模态冒烟通过(44 模态) · 弹性已由 KRAKEN 验证（TLslices 弹性 5 例）",
+      "integration": "krakel.exe 已就位 bin/，流体模态可用；弹性能力已由 KRAKEN/KRAKENC/SCOOTER 覆盖（TLslices 弹性族），KRAKEL 作备选与 Ahmad 弹性基准。",
+      "summary": "AT 的遗留独立弹性求解器。krakel.exe 已由 2026-10-22 源码编译（gfortran+LAPACK），流体模态冒烟通过；现代 AT 的弹性算例（elsed/scholte/flused/normal/ice）由 KRAKEN 原生支持。",
+      "conditions": [
+        "弹性介质需给定剪切波速 cs 与密度；网格要够细（ahmad 的 cLow=100 搜索范围偏宽，需加大 N 并核对模态收敛）。",
+        "场后处理需匹配版本的 field 例程；KRAKEN 自带 field.exe 与 KRAKEL 弹性 .mod 的兼容性待验证，不能直接用 KRAKENC 冒充 KRAKEL。"
+      ],
+      "environment": [
+        "需依据对应版本的弹性介质输入和求解说明配置，当前没有完成输入构造与运行验证。"
+      ],
+      "files": [
+        [
+          ".env / .flp及弹性输出",
+          "依版本核对，当前未验收"
+        ]
+      ],
+      "workflow": [
+        "本机krakel.m先寻找krakel.exe，当前会在查找阶段失败。",
+        "继续工作前需要取得兼容程序并独立复现；不自动下载替换工具箱。"
+      ],
+      "experience": [
+        "elsed 流体算例冒烟通过，44 个模态正常输出。",
+        "ahmad 弹性算例需加细网格并核对模态收敛；弹性场后处理尚未打通。"
+      ],
+      "sources": [
+        "krakel.m"
+      ],
+      "manual": "https://oalib-acoustics.org/website_resources/AcousticsToolbox/manual/node46.html",
+      "examples": []
+    }
+  ]
+}

@@ -1,0 +1,4189 @@
+{
+  "scope": "All top-level test families mapped by source call evidence. Full coverage is not claimed.",
+  "families": [
+    {
+      "family": "3DAtlantic",
+      "purpose": "北大西洋三维模态与FIELD3D，需三角网格和多剖面，不能按单一ENV解释。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/3DAtlantic/krakenallOld.m",
+          "sha256": "74735b8f4827f670949823d61a28c61c934b45d0f67310c0d21b2d175bdc1089",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "runkraken = which( 'kraken.exe' );"
+            }
+          ]
+        },
+        {
+          "path": "tests/3DAtlantic/krakenallOld2.m",
+          "sha256": "8f01c248eda5e7196fb85b6aab4c75c98e13885d3ef91011363e3c787372ab19",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "runkraken = which( 'kraken.exe' );"
+            }
+          ]
+        },
+        {
+          "path": "tests/3DAtlantic/loadssp.m",
+          "sha256": "0e514df379b488dd05a6dbe31fac5404a12630c8aaf43da6d1f7a0de876d08a4",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/3DAtlantic/runtests.m",
+          "sha256": "218712f785f55ea33c5314d7adeed5d6ffa3ccf60c4246c985accdce0d6555a9",
+          "active_call_evidence": [
+            {
+              "line": 19,
+              "text": "krakenall"
+            },
+            {
+              "line": 22,
+              "text": "runfield3d = which( 'field3d.exe' );"
+            },
+            {
+              "line": 23,
+              "text": "eval( [ '! \"' runfield3d '\" lant > field3d.prt' ] );"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/3DAtlantic/lanta36.env",
+          "title": "'LANTA36'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta38.env",
+          "title": "'LANTA38'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta40.env",
+          "title": "'LANTA40'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta42.env",
+          "title": "'LANTA42'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta44.env",
+          "title": "'LANTA44'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta46.env",
+          "title": "'LANTA46'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta48.env",
+          "title": "'LANTA48'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta50.env",
+          "title": "'LANTA50'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lanta52.env",
+          "title": "'LANTA52'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb36.env",
+          "title": "'LANTB36'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb38.env",
+          "title": "'LANTB38'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb40.env",
+          "title": "'LANTB40'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb42.env",
+          "title": "'LANTB42'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb44.env",
+          "title": "'LANTB44'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb46.env",
+          "title": "'LANTB46'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantb48.env",
+          "title": "'LANTB48'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc36.env",
+          "title": "'LANTC36'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc38.env",
+          "title": "'LANTC38'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc40.env",
+          "title": "'LANTC40'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc42.env",
+          "title": "'LANTC42'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc44.env",
+          "title": "'LANTC44'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc46.env",
+          "title": "'LANTC46'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantc48.env",
+          "title": "'LANTC48'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd36.env",
+          "title": "'LANTD36'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd38.env",
+          "title": "'LANTD38'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd40.env",
+          "title": "'LANTD40'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd42.env",
+          "title": "'LANTD42'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd44.env",
+          "title": "'LANTD44'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd46.env",
+          "title": "'LANTD46'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lantd48.env",
+          "title": "'LANTD48'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante02.env",
+          "title": "'LANTE02'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante04.env",
+          "title": "'LANTE04'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante06.env",
+          "title": "'LANTE06'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante08.env",
+          "title": "'LANTE08'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante10.env",
+          "title": "'LANTE10'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante12.env",
+          "title": "'LANTE12'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante14.env",
+          "title": "'LANTE14'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante16.env",
+          "title": "'LANTE16'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante18.env",
+          "title": "'LANTE18'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante20.env",
+          "title": "'LANTE20'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante22.env",
+          "title": "'LANTE22'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante24.env",
+          "title": "'LANTE24'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante26.env",
+          "title": "'LANTE26'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante28.env",
+          "title": "'LANTE28'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante30.env",
+          "title": "'LANTE30'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante32.env",
+          "title": "'LANTE32'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante34.env",
+          "title": "'LANTE34'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante36.env",
+          "title": "'LANTE36'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante38.env",
+          "title": "'LANTE38'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante40.env",
+          "title": "'LANTE40'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante42.env",
+          "title": "'LANTE42'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante44.env",
+          "title": "'LANTE44'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante46.env",
+          "title": "'LANTE46'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante48.env",
+          "title": "'LANTE48'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante50.env",
+          "title": "'LANTE50'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante52.env",
+          "title": "'LANTE52'",
+          "frequency_line": "50.00"
+        },
+        {
+          "path": "tests/3DAtlantic/lante52withsed.env",
+          "title": "'LANTE52'",
+          "frequency_line": "50.00"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "arctic",
+      "purpose": "极区声速结构下的声线、模态、谱积分和SimplePE对照。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/arctic/runtests.m",
+          "sha256": "7bdd5cc327a8efd92efd8aef4a4e87d9d3b551791d4479a42aec1d6e5195011c",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop( 'arcticB' )"
+            },
+            {
+              "line": 11,
+              "text": "bellhop( 'arcticB_gb' )"
+            },
+            {
+              "line": 15,
+              "text": "kraken( 'arcticK' )"
+            },
+            {
+              "line": 19,
+              "text": "scooter( 'arcticS' )"
+            },
+            {
+              "line": 23,
+              "text": "simplePE arcticB"
+            }
+          ]
+        },
+        {
+          "path": "tests/arctic/runtestsM.m",
+          "sha256": "f02a3078b572fff047d7012f1cade84d5322825189801a8ebee798031cc68b42",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bellhopM( 'arcticB' )"
+            },
+            {
+              "line": 8,
+              "text": "bellhopM( 'arcticB_gb' )"
+            },
+            {
+              "line": 12,
+              "text": "kraken( 'arcticK' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/arctic/arctic.env",
+          "title": "'Arctic profile'\t! TITLE",
+          "frequency_line": "500.0 \t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/arctic/arctic2layB.env",
+          "title": "'Arctic profile',\t\t! TITLE",
+          "frequency_line": "200.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/arctic/arcticB.env",
+          "title": "'Arctic profile',\t\t! TITLE",
+          "frequency_line": "200.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/arctic/arcticB_cpp.env",
+          "title": "'Arctic profile (Gaussian beam option)'\t\t! TITLE",
+          "frequency_line": "200.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/arctic/arcticB_gb.env",
+          "title": "'Arctic profile (Gaussian beam option)'\t\t! TITLE",
+          "frequency_line": "200.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/arctic/arcticK.env",
+          "title": "'Arctic profile',\t\t! TITLE",
+          "frequency_line": "200.0,\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/arctic/arcticS.env",
+          "title": "'Arctic profile',\t\t! TITLE",
+          "frequency_line": "200.0,\t\t\t\t! frequency (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "BeamPattern",
+      "purpose": "声源方向性对照：全向/加权波束与模态、谱积分方向图；需保留波束输入。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/BeamPattern/runtests.m",
+          "sha256": "e86781efa9c0c822a67ddd366a34293e019d9d0bc979f725a58c0dd8494ddd60",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "bellhop( 'omni' )"
+            },
+            {
+              "line": 11,
+              "text": "bellhop( 'shaded' )"
+            },
+            {
+              "line": 16,
+              "text": "scooter shadedS"
+            },
+            {
+              "line": 24,
+              "text": "scooter MunkS"
+            },
+            {
+              "line": 30,
+              "text": "krakenc MunkKleaky"
+            }
+          ]
+        },
+        {
+          "path": "tests/BeamPattern/runtestsM.m",
+          "sha256": "62714498bda34cfb36e169a5766f93426578cf925a217cd12a8d3492c553a303",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "bellhopM( 'omni' )"
+            },
+            {
+              "line": 11,
+              "text": "bellhopM( 'shaded' )"
+            },
+            {
+              "line": 30,
+              "text": "krakenc MunkKleaky"
+            },
+            {
+              "line": 31,
+              "text": "field MunkKleaky"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/BeamPattern/MunkKleaky.env",
+          "title": "'Munk profile, leaky modes'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/BeamPattern/MunkS.env",
+          "title": "'Munk profile'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/BeamPattern/omni.env",
+          "title": "'Point source in free space'",
+          "frequency_line": "100.0  \t      \t      ! Frequency (Hz)"
+        },
+        {
+          "path": "tests/BeamPattern/shaded.env",
+          "title": "'Shaded point source in free space'",
+          "frequency_line": "100.0\t      ! Frequency (Hz)"
+        },
+        {
+          "path": "tests/BeamPattern/shadedS.env",
+          "title": "'Shaded point source in free space'",
+          "frequency_line": "100.0\t      ! Frequency (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "Bellhop3DTests",
+      "purpose": "三维自由场、海山、楔形底与区域案例的调度集合；只跑free不能称覆盖整个集合。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/Bellhop3DTests/cleanall.m",
+          "sha256": "104bbd2e23ab7a36408fcc17bb48745a7808145eae4bb6d280088cf1b1722ae1",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/Bellhop3DTests/DoubleSeamount/runtests.m",
+          "sha256": "9ac4d20181f65f9b5119e4fbf76f25a02a7316cb877c441e16e533bba65ce5fa",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop3d DoubleSeamount_ray"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/runtests.m",
+          "sha256": "20ea5807c716b653c5e147c273c660f170cd85248226e4a865a65a47f20776e2",
+          "active_call_evidence": [
+            {
+              "line": 9,
+              "text": "scooter( 'freeSPoint' )"
+            },
+            {
+              "line": 13,
+              "text": "bellhop3d( 'freeBhat' )"
+            },
+            {
+              "line": 17,
+              "text": "bellhop3d( 'freeBhat_raycen' )"
+            },
+            {
+              "line": 21,
+              "text": "bellhop3d( 'freeBgaussian' )"
+            },
+            {
+              "line": 25,
+              "text": "bellhop3d( 'freeBgaussian_raycen' )"
+            },
+            {
+              "line": 32,
+              "text": "bellhop3d( 'freeBhatpolar' )"
+            },
+            {
+              "line": 39,
+              "text": "bellhop3d( 'freeBgaussianpolar' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/halfspace/runtests.m",
+          "sha256": "6711711d9da7b46f6574bec162618b221643b30c8d5cb9209468a85584891c28",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "scooter( 'lower_halfS' )"
+            },
+            {
+              "line": 10,
+              "text": "bellhop3d( 'lower_halfB' )"
+            },
+            {
+              "line": 14,
+              "text": "scooter( 'upper_halfS' )"
+            },
+            {
+              "line": 18,
+              "text": "bellhop3d( 'upper_halfB' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/runtests.m",
+          "sha256": "13373858f362778fc0bb7d5a3425cf8f8bc11fee346b9cc385b94b1cc26b598b",
+          "active_call_evidence": [
+            {
+              "line": 20,
+              "text": "bellhop3d KR3dCart"
+            },
+            {
+              "line": 34,
+              "text": "bellhop3d KR3dGaussian"
+            },
+            {
+              "line": 50,
+              "text": "bellhop3d KR3d_ray     % run BELLHOP3D on the KR3d test case"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/runtests.m",
+          "sha256": "1a7cccf84b3d3e13a0c6c9798ff61b55540d8ea9d68e1620a5d9938ab2bb8dbe",
+          "active_call_evidence": [
+            {
+              "line": 19,
+              "text": "bellhop3d( fileroot )     % run BELLHOP3D on the munk3d test case"
+            },
+            {
+              "line": 42,
+              "text": "bellhop3d( fileroot )     % run BELLHOP3D on the munk3d test case"
+            },
+            {
+              "line": 66,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 85,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 104,
+              "text": "bellhop3d( fileroot )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/runtests.m",
+          "sha256": "ba79367a80dc73f60247e57dda30ec228df27558f94ae62745554c2abfe18d6d",
+          "active_call_evidence": [
+            {
+              "line": 16,
+              "text": "bellhop3d munk3d     % run BELLHOP3D on the munk3d test case"
+            },
+            {
+              "line": 25,
+              "text": "bellhop3d munk3d_ray     % run BELLHOP3D on the munk3d test case"
+            },
+            {
+              "line": 32,
+              "text": "bellhop3d slice2dHatCart"
+            },
+            {
+              "line": 36,
+              "text": "bellhop3d slice3dHatCart"
+            },
+            {
+              "line": 40,
+              "text": "bellhop3d slice2dGaussian"
+            },
+            {
+              "line": 44,
+              "text": "bellhop3d slice3dGaussian"
+            },
+            {
+              "line": 53,
+              "text": "bellhop3d slice3dHatRaycen"
+            },
+            {
+              "line": 58,
+              "text": "bellhop3d slice3dHatRaycenInc"
+            },
+            {
+              "line": 62,
+              "text": "bellhop3d slice3dHatRaycenSemi"
+            },
+            {
+              "line": 72,
+              "text": "bellhop3d slice3dHatCartInc"
+            },
+            {
+              "line": 76,
+              "text": "bellhop3d slice3dHatCartSemi"
+            },
+            {
+              "line": 85,
+              "text": "bellhop3d slice3dGaussianInc"
+            },
+            {
+              "line": 89,
+              "text": "bellhop3d slice3dGaussianSemi"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/MunkRot/runtests.m",
+          "sha256": "b883dfde8f019e85469701dc36c3de3d9a24a378cd445a04409643db1be6ef00",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop3d Munk3D"
+            },
+            {
+              "line": 14,
+              "text": "bellhop3d Munk3Dz"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/Parabot/runtests.m",
+          "sha256": "75499383fb69c1f3911ebb0e1a188865e8860428d7219f5b62e613f9fb0afb29",
+          "active_call_evidence": [
+            {
+              "line": 16,
+              "text": "bellhop3d ParaBot_ray     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 28,
+              "text": "bellhop3d ParaBot2D     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 44,
+              "text": "bellhop3d ParaBot3DHatCart     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 60,
+              "text": "bellhop3d ParaBot3DHatRaycen     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 77,
+              "text": "bellhop3d ParaBot3DGaussian     % run BELLHOP3D on the wedge3d test case"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/runtests.m",
+          "sha256": "ea3cb9866d4eef4841cc1f7eae8510195699fd90d37548fefb6bec087a07546b",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop3d pwedge3dRayCen     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 17,
+              "text": "bellhop3d pwedge3dCart     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 27,
+              "text": "bellhop3d pwedge2d     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 36,
+              "text": "bellhop3d pwedge2d_rot     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 45,
+              "text": "bellhop3d pwedge3d_rot     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 55,
+              "text": "bellhop3d slice2d     % run BELLHOP3D on the wedge3d test case"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/runtests.m",
+          "sha256": "36964ca952bc196ecd5bcfe03417a6add7c8e084d0f61a93c055f725dab9bcf7",
+          "active_call_evidence": [
+            {
+              "line": 32,
+              "text": "bellhop3d wedge2dray"
+            },
+            {
+              "line": 45,
+              "text": "bellhop3d wedge2d     % run BELLHOP3D on the wedge2d test case"
+            },
+            {
+              "line": 57,
+              "text": "bellhop3d wedge3dHat     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 71,
+              "text": "bellhop3d wedge3dHatRayCen     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 84,
+              "text": "bellhop3d wedge3dGaussian     % run BELLHOP3D on the wedge3d test case"
+            },
+            {
+              "line": 98,
+              "text": "bellhop3d wedge3d_ray     % run BELLHOP3D on the wedge3d test case"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/runtests.m",
+          "sha256": "401709eb61a9ccc3cf5c2b43e8eb49cfa9ea54e57467536e2224a2afbef05739",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/Bellhop3DTests/Seamount/runtests.m",
+          "sha256": "df5670c1a9bc70eea3050f7f224a6bf1d57df8fbfb09be1d95ebe0f6063f0b01",
+          "active_call_evidence": [
+            {
+              "line": 14,
+              "text": "bellhop3d Seamount_ray"
+            },
+            {
+              "line": 22,
+              "text": "bellhop3d Seamount2D"
+            },
+            {
+              "line": 35,
+              "text": "bellhop3d Seamount3DHatcart"
+            },
+            {
+              "line": 48,
+              "text": "bellhop3d Seamount3DHatRaycen"
+            },
+            {
+              "line": 61,
+              "text": "bellhop3d Seamount3DGaussian"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/Taiwan/runtests.m",
+          "sha256": "1e58a1bcb76c1d1e764d366a52f113549cf5c4db2e23b49790c918340ecabb7d",
+          "active_call_evidence": [
+            {
+              "line": 25,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 49,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 74,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 93,
+              "text": "bellhop3d( fileroot )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/runtests.m",
+          "sha256": "a7545cd00c9cb71e9ebedea3f3e65505a0834e422c23fd9adc05df427851ad94",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop3d wedge2d"
+            },
+            {
+              "line": 22,
+              "text": "bellhop3d wedge3dHatRayCen"
+            },
+            {
+              "line": 38,
+              "text": "bellhop3d wedge3dCart"
+            },
+            {
+              "line": 53,
+              "text": "bellhop3d wedge3dGaussian"
+            },
+            {
+              "line": 69,
+              "text": "bellhop3d wedge3d_ray     % run BELLHOP3D on the wedge3d test case"
+            }
+          ]
+        },
+        {
+          "path": "tests/Bellhop3DTests/Weymouth/runtests.m",
+          "sha256": "6f4093a3bf5c8b87a2c3a42fa128344e272c85d7ae070021813f5359f607c8ab",
+          "active_call_evidence": [
+            {
+              "line": 24,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 43,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 61,
+              "text": "bellhop3d( fileroot )"
+            },
+            {
+              "line": 88,
+              "text": "bellhop3d( fileroot )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/Bellhop3DTests/DoubleSeamount/DoubleSeamount3D.env",
+          "title": "'Seamount profile (Gaussian beam option)'\t! TITLE",
+          "frequency_line": "100.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/DoubleSeamount/DoubleSeamount_ray.env",
+          "title": "'Seamount profile'\t! TITLE",
+          "frequency_line": "100.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBgaussian.env",
+          "title": "'free space 3D, Gaussian Cart. Coord'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBgaussian_raycen.env",
+          "title": "'free space 3D, Gaussian ray-centered'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBgaussianpolar.env",
+          "title": "'free space 3D, Gaussian'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBhat.env",
+          "title": "'free space 3D, Hat Cart. Coord'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBhat_raycen.env",
+          "title": "'free space 3D, Hat ray-centered'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBhatpolar.env",
+          "title": "'free space 3D, Hat'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeBxz.env",
+          "title": "'free space 3D, Hat'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/free/freeSPoint.env",
+          "title": "'Free space'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/halfspace/lower_halfB.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/halfspace/lower_halfS.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/halfspace/upper_halfB.env",
+          "title": "'Upper halfspace'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/Bellhop3DTests/halfspace/upper_halfS.env",
+          "title": "'Upper halfspace'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/halfspace/vacuumB.env",
+          "title": "'Reflection by a vacuum (top+bottom)'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/KR3d_ray.env",
+          "title": "'Kermit-Roosevelt'\t! TITLE",
+          "frequency_line": "40.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/KR3dCart.env",
+          "title": "'Kermit-Roosevelt 501 bearings x 701 declinations'\t! TITLE",
+          "frequency_line": "40.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/KR3dGaussian.env",
+          "title": "'Kermit-Roosevelt GeoGaussian beams, 1001 bearings x 701 declinations'\t! TITLE",
+          "frequency_line": "40.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/slice2d.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/slice2d_flat.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/slice2d_flatS.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/slice3d.env",
+          "title": "'TWedge profile, 721x1000 3D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/wedge2d.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KermitRoosevelt/wedge3d.env",
+          "title": "'TWedge profile, 3D Hat beams 721 x 721'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/KoreanSea_3D.env",
+          "title": "'Korean Sea 3D (3D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/KoreanSea_3D_eigen.env",
+          "title": "'Korean Sea 3D eigenrays (3D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/KoreanSea_3D_ray.env",
+          "title": "'Korean Sea 3D (3D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/KoreanSea_demo.env",
+          "title": "'Korean Sea 3D (Nx2D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/KoreanSea_Nx2D.env",
+          "title": "'Korean Sea 3D (Nx2D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/KoreanSeas/KoreanSea_Nx2D_ray.env",
+          "title": "'Korean Sea 3D (Nx2D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/iso2d.env",
+          "title": "'3D Munk profile, Nx2D'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/iso3d.env",
+          "title": "'3D Munk profile, 3D, Gaussian'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munk3d.env",
+          "title": "'3D Munk profile'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munk3d_ray.env",
+          "title": "'3D Munk profile'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munk3dGood.env",
+          "title": "'3D Munk profile'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/MunkB.env",
+          "title": "'Munk profile, coherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munknx2d.env",
+          "title": "'Three-dimensional Munk profile'\t! Title",
+          "frequency_line": "'NMNR'\t\t\t\t! Drop rays, choose eps, doubling, images"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr0.env",
+          "title": "'Range-dependent Munk profile'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr1.env",
+          "title": "Range-dependent Munk profile",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr10.env",
+          "title": "Range-dependent Munk profile (100 km)",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr3.env",
+          "title": "Range-dependent Munk profile",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr5.env",
+          "title": "Range-dependent Munk profile (50 km)",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr7.env",
+          "title": "Range-dependent Munk profile",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkr9.env",
+          "title": "Range-dependent Munk profile",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkt0.env",
+          "title": "'Range-dependent Munk profile'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkt270.env",
+          "title": "'3D Munk profile (THETA=270)'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/munkt90.env",
+          "title": "'Range-dependent Munk profile (100 km)'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice2dGaussian.env",
+          "title": "'3D Munk profile, Nx2D, Gaussian'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice2dHatCart.env",
+          "title": "'3D Munk profile, Nx2D, Hat Cart.'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice2dHatCartInc.env",
+          "title": "'3D Munk profile, Nx2D, Hat Cart.'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dGaussian.env",
+          "title": "'3D Munk profile, 3D, Gaussian'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dGaussianInc.env",
+          "title": "'3D Munk profile, 3D, Gaussian, Incoherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dGaussianSemi.env",
+          "title": "'3D Munk profile, 3D, Gaussian, semi-coherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dHatCart.env",
+          "title": "'3D Munk profile, 3D, Hat Cart.'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dHatCartInc.env",
+          "title": "'3D Munk profile, 3D, Hat Cart., Incoherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dHatCartSemi.env",
+          "title": "'3D Munk profile, 3D, Hat Cart., semi-coherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dHatRaycen.env",
+          "title": "'3D Munk profile, 3D, Hat Ray centered'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dHatRaycenInc.env",
+          "title": "'3D Munk profile, 3D, Hat, ray centered, Incoherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Munk/slice3dHatRaycenSemi.env",
+          "title": "'3D Munk profile, 3D, Hat, ray centered, semi-coherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/MunkRot/Munk3D.env",
+          "title": "'Munk3D'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/MunkRot/Munk3Dz.env",
+          "title": "'Munk3Dz 2D'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/MunkRot/Munk3Dz_ray.env",
+          "title": "'Munk3Dz 3D'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Parabot/ParaBot2D.env",
+          "title": "'Parabolic bottom profile, Nx2D'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Parabot/ParaBot3DGaussian.env",
+          "title": "'Parabolic bottom profile, 3D Gaussian'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Parabot/ParaBot3DHatCart.env",
+          "title": "'Parabolic bottom profile, 3D hat Cart'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Parabot/ParaBot3DHatRaycen.env",
+          "title": "'Parabolic bottom profile, 3D hat ray-centered'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Parabot/ParaBot_ray.env",
+          "title": "'Parabolic bottom profile'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/pwedge2d.env",
+          "title": "'Penetrable Wedge, 2D, 1801x900 hat beams, 15 degree critical' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/pwedge2d_rot.env",
+          "title": "'Penetrable Wedge, 2D, 1801x900 hat beams, 15 degree critical' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/pwedge3d_rot.env",
+          "title": "'Penetrable Wedge, 3D, 1801x900 hat beams, 15 degree critical' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/pwedge3dCart.env",
+          "title": "'Penetrable Wedge, 3D, hat-beam, Cart. 1801x900 beams, 15 degree critical' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/pwedge3dRayCen.env",
+          "title": "'Penetrable Wedge, 3D, 1801x900 hat beams, Ray coord. 15 degree critical' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/slice2d.env",
+          "title": "'TWedge profile, 2001 beams Nx2D'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PenetrableWedge/slice2dB.env",
+          "title": "'Penetrable wedge 2001 beams 2D'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge2d.env",
+          "title": "'Perfect wedge,2D, 401 ray-centered geo beams' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge2dray.env",
+          "title": "'Perfect wedge, 2D, 3200 beams' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge2dside.env",
+          "title": "'Wedge profile, 2D, 3200 beams' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge3d_ray.env",
+          "title": "'Perfect wedge, 2D, 3200 beams' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge3dGaussian.env",
+          "title": "'Perfect wedge, 3D Gaussian, 301x401 beams' ! TITLE",
+          "frequency_line": "10.0                ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge3dHat.env",
+          "title": "'Perfect wedge, 3D, Geo Hat, Cart. 301x401  beams' ! TITLE",
+          "frequency_line": "10.0              ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/PerfectWedge/wedge3dHatRayCen.env",
+          "title": "'Perfect wedge, 3D, Ray-Cen Geo Hat 301x401  beams' ! TITLE",
+          "frequency_line": "10.0              ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Seamount/Seamount2D.env",
+          "title": "'Seamount2D, HatCart 721x1201, 721x1201'      ! TITLE",
+          "frequency_line": "5.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Seamount/Seamount3DGaussian.env",
+          "title": "'Seamount3D, Gaussian 361x601 rcvrs, 721x1201 beams'      ! TITLE",
+          "frequency_line": "5.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Seamount/Seamount3DHatcart.env",
+          "title": "'Seamount3D, HatCart 721x601 rcvrs, 1201x721 beams'      ! TITLE",
+          "frequency_line": "5.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Seamount/Seamount3DHatRaycen.env",
+          "title": "'Seamount3D, Hat ray cen., 361x601 rcvrs, 361x601 beams'      ! TITLE",
+          "frequency_line": "5.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Seamount/Seamount_ray.env",
+          "title": "'Seamount profile'\t! TITLE",
+          "frequency_line": "10.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Taiwan/Taiwan3D.env",
+          "title": "'Taiwan (3D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Taiwan/Taiwan3D_ray.env",
+          "title": "'Taiwan (3D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Taiwan/TaiwanNx2D.env",
+          "title": "'Taiwan (Nx2D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Taiwan/TaiwanNx2D_ray.env",
+          "title": "'Taiwan (Nx2D run)'\t! TITLE",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/slice2d.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/slice2d_flat.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/slice2d_flatS.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/slice3d.env",
+          "title": "'TWedge profile, 721x1000 3D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/wedge2d.env",
+          "title": "'TWedge profile, 721x1000 Nx2D'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/wedge3d.env",
+          "title": "'TWedge profile, 3D Hat beams 721 x 721'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/wedge3d_ray.env",
+          "title": "'TWedge profile'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/wedge3dCart.env",
+          "title": "'TWedge profile, GeoHat, Cartesian 721x1441/ 1001x1441 rcvrs'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/wedge3dGaussian.env",
+          "title": "'TWedge profile, GeoGaussian, 721 x 1441 rays, 1001x1441 rcvrs'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/TruncatedWedge/wedge3dHatRayCen.env",
+          "title": "'TWedge profile, GeoHat RayCen, 721x1441/ 1001x1441 rcvrs'\t! TITLE",
+          "frequency_line": "25.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Weymouth/Weymouth3D.env",
+          "title": "'Weymouth (3D run)'\t! TITLE",
+          "frequency_line": "1500.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Weymouth/Weymouth3D_ray.env",
+          "title": "'Weymouth (3D run)'\t! TITLE",
+          "frequency_line": "1500.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Weymouth/WeymouthNx2D.env",
+          "title": "'Weymouth (Nx2D run)'\t! TITLE",
+          "frequency_line": "1500.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Bellhop3DTests/Weymouth/WeymouthNx2D_ray.env",
+          "title": "'Weymouth (Nx2D run)'\t! TITLE",
+          "frequency_line": "1500.0\t\t\t\t! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [
+        "BELLHOP3D-Bellhop3DTests_free-freeBhat"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "block",
+      "purpose": "障碍物前后声场与声线，几何遮蔽和散射解释须区分。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/block/runtests.m",
+          "sha256": "7f1ee1aecde459651312a7e1477093215dde72938d417f5ec4cdc9a3d183308b",
+          "active_call_evidence": [
+            {
+              "line": 5,
+              "text": "bellhop blockB_ray"
+            },
+            {
+              "line": 14,
+              "text": "bellhop blockB_geo"
+            },
+            {
+              "line": 20,
+              "text": "bellhop blockB_gb"
+            }
+          ]
+        },
+        {
+          "path": "tests/block/runtestsM.m",
+          "sha256": "1a1c5234e67138d18e124922779985e78c9387dc8a7889dba16558baa5f80f2d",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "bellhopM blockB_ray"
+            },
+            {
+              "line": 15,
+              "text": "bellhopM blockB_geo"
+            },
+            {
+              "line": 21,
+              "text": "bellhopM blockB_gb"
+            }
+          ]
+        },
+        {
+          "path": "tests/block/scs.m",
+          "sha256": "ecfc78e4f3212bd1ee5d693521b306a3cfe0c10328ea2b839074b239988f2a5f",
+          "active_call_evidence": [
+            {
+              "line": 1,
+              "text": "bellhop scs_s1"
+            }
+          ]
+        },
+        {
+          "path": "tests/block/scs_ray.m",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "active_call_evidence": []
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/block/blockB_gb.env",
+          "title": "'Block case, Gaussian beams'",
+          "frequency_line": "100.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/block/blockB_geo.env",
+          "title": "'Block case, geometric beams'",
+          "frequency_line": "100.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/block/blockB_ray.env",
+          "title": "'Block case'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/block/scs_s1.env",
+          "title": "'SCS_S1, Gaussian beams'",
+          "frequency_line": "1500.0,\t\t\t     ! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "BroadBand",
+      "purpose": "宽频选项及稳定化衰减随频率的缩放；不能把单频SHD当时域脉冲。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/BroadBand/runtests.m",
+          "sha256": "8327aa19644a41f85bdc874c6d69d6bca7ffe645e1f832ab089744de47c8fd4c",
+          "active_call_evidence": [
+            {
+              "line": 16,
+              "text": "kraken(  'MunkK' )"
+            },
+            {
+              "line": 25,
+              "text": "scooter( 'MunkS' )"
+            },
+            {
+              "line": 34,
+              "text": "scooter( 'MunkS_500Hz' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/BroadBand/MunkK.env",
+          "title": "'BBMunk profile'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/BroadBand/MunkS.env",
+          "title": "'BBMunk profile'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/BroadBand/MunkS_500Hz.env",
+          "title": "'BBMunk profile'",
+          "frequency_line": "500.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "calib",
+      "purpose": "等声速及梯度校准环境，比较不同传播方法。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/calib/runtests.m",
+          "sha256": "e6be09a2188353c695ee3b3ba5b4f8cd21543cb5919e73970061c2b19d3dbad6",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "bellhop( 'calibB' )"
+            },
+            {
+              "line": 10,
+              "text": "bellhop( 'calibB_gb' )"
+            },
+            {
+              "line": 14,
+              "text": "krakenc( 'calibK' )"
+            },
+            {
+              "line": 18,
+              "text": "scooter( 'calibS' )"
+            },
+            {
+              "line": 25,
+              "text": "bellhop( 'calibBgrad' )"
+            },
+            {
+              "line": 29,
+              "text": "bellhop( 'calibBgrad_gb' )"
+            },
+            {
+              "line": 33,
+              "text": "kraken( 'calibKgrad' )"
+            },
+            {
+              "line": 37,
+              "text": "scooter( 'calibSgrad' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/calib/runtestsM.m",
+          "sha256": "da6320462de6e56c1632da2dc4c95ce17df1a7c91e9e2e0e967a53b6048b8348",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "bellhopM( 'calibB' )"
+            },
+            {
+              "line": 10,
+              "text": "bellhopM( 'calibB_gb' )"
+            },
+            {
+              "line": 14,
+              "text": "kraken( 'calibK' )"
+            },
+            {
+              "line": 25,
+              "text": "bellhopM( 'calibBgrad' )"
+            },
+            {
+              "line": 29,
+              "text": "bellhopM( 'calibBgrad_gb' )"
+            },
+            {
+              "line": 33,
+              "text": "kraken( 'calibKgrad' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/calib/calibB.env",
+          "title": "'Calibration  case'",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibB_Cerveny.env",
+          "title": "'Calibration  case, Cerveny Gaussian beams'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibB_gb.env",
+          "title": "'Calibration  case, Gaussian beams'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibBarr.env",
+          "title": "'Calibration  case, Gaussian beams'",
+          "frequency_line": "12000.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibBgrad.env",
+          "title": "'Calibration  case with gradient'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibBgrad_gb.env",
+          "title": "'Calibration  case with gradient'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibK.env",
+          "title": "'Calibration case'",
+          "frequency_line": "250.0"
+        },
+        {
+          "path": "tests/calib/calibKgrad.env",
+          "title": "'Calibration case with gradient'",
+          "frequency_line": "250.0"
+        },
+        {
+          "path": "tests/calib/calibray.env",
+          "title": "'Calibration  case'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibraygrad.env",
+          "title": "'Calibration  case with gradient'",
+          "frequency_line": "250.0,\t\t\t     ! FREQ (Hz)"
+        },
+        {
+          "path": "tests/calib/calibS.env",
+          "title": "'Calibration case'",
+          "frequency_line": "250.0"
+        },
+        {
+          "path": "tests/calib/calibSgrad.env",
+          "title": "'Calibration case with gradient'",
+          "frequency_line": "250.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "Dickins",
+      "purpose": "海山地形、平底参照与RAM/SimplePE/模态/声线流程；曲线读取和沿程地形重要。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/Dickins/DickinsPrecalc/runtests.m",
+          "sha256": "e6e2b93ed070f1789787ba64dea8858e42684e293ebedec6b383a4bb00eaf94d",
+          "active_call_evidence": [
+            {
+              "line": 25,
+              "text": "fieldLoadAll( 'DickinsK', D )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Dickins/runtests.m",
+          "sha256": "c13390046077ddf6dd8620214abc96a84196d5c5561b37bb29c464cbaf204359",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "bellhop( 'DickinsBray' )"
+            },
+            {
+              "line": 13,
+              "text": "bellhop( 'DickinsB_oneBeam' )"
+            },
+            {
+              "line": 23,
+              "text": "bellhop( 'DickinsB' )"
+            },
+            {
+              "line": 30,
+              "text": "bellhop( 'DickinsFlatB' )"
+            },
+            {
+              "line": 34,
+              "text": "copyfile( 'field_ri.flp', 'field.flp' )"
+            },
+            {
+              "line": 35,
+              "text": "kraken(  'DickinsFlatK' )"
+            },
+            {
+              "line": 39,
+              "text": "scooter( 'DickinsFlatS' )"
+            },
+            {
+              "line": 59,
+              "text": "ram"
+            },
+            {
+              "line": 65,
+              "text": "plotshd( 'RAM.shd.mat', 2, 1, 2 )"
+            },
+            {
+              "line": 74,
+              "text": "simplePE DickinsFlatB"
+            },
+            {
+              "line": 79,
+              "text": "simplePE DickinsB"
+            }
+          ]
+        },
+        {
+          "path": "tests/Dickins/runtestsM.m",
+          "sha256": "e95b45a3b35846390ad9dd86d669f3319cea60a5676c8eb1b16f35476250dcdc",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "bellhopM( 'DickinsB' )"
+            },
+            {
+              "line": 14,
+              "text": "bellhopM( 'DickinsFlatB' )"
+            },
+            {
+              "line": 18,
+              "text": "kraken( 'DickinsFlatK' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/Dickins/Dickins.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsB.env",
+          "title": "'Dickins seamount; unit density'\t! TITLE",
+          "frequency_line": "230.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsB_oneBeam.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0\t \t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsBray.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsCervenyB.env",
+          "title": "'Dickins seamount, Cerveny Gaussian beams'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsFlatB.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsFlatBray.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsFlatK.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsFlatS.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsK.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsPrecalc/DickinsK.env",
+          "title": "'Dickins seamount'\t! TITLE",
+          "frequency_line": "230.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Dickins/DickinsPrecalc/DickinsK_rd.env",
+          "title": "'Profile #1' ! Title ",
+          "frequency_line": "  230.00  \t \t \t ! Frequency (Hz) "
+        }
+      ],
+      "executions_this_audit": [
+        "RAM-Dickins-original"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "Ellipse",
+      "purpose": "椭圆边界及几何/高斯波束；需同时读ATI/BTY插值和反射条件。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/Ellipse/make_bdry.m",
+          "sha256": "ebc0d9d7ba91f5b47b872b609775363e46d4c0863fac424c8a7f82353c4c5e1a",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/Ellipse/runtests.m",
+          "sha256": "a78a09fbf44540fc987cdc4a45afc4aa9df4b087ea432009946d5b21f0e16251",
+          "active_call_evidence": [
+            {
+              "line": 10,
+              "text": "bellhop Ellipse"
+            },
+            {
+              "line": 20,
+              "text": "bellhop EllipseTLGeom"
+            },
+            {
+              "line": 30,
+              "text": "bellhop EllipseTLGB"
+            },
+            {
+              "line": 46,
+              "text": "bellhop Ellipse"
+            },
+            {
+              "line": 55,
+              "text": "bellhop EllipseTLGeom"
+            },
+            {
+              "line": 65,
+              "text": "bellhop EllipseTLGB"
+            }
+          ]
+        },
+        {
+          "path": "tests/Ellipse/runtestsM.m",
+          "sha256": "e6068f57ccad066c37f492b4b4c7f6fb09d7a32acf2077b3c40edadb25bfaaf6",
+          "active_call_evidence": [
+            {
+              "line": 9,
+              "text": "bellhopM ParaBot"
+            },
+            {
+              "line": 15,
+              "text": "bellhopM ParaBotTLGeom"
+            },
+            {
+              "line": 23,
+              "text": "bellhopM ParaBotTLGB"
+            },
+            {
+              "line": 34,
+              "text": "bellhopM ParaBot"
+            },
+            {
+              "line": 40,
+              "text": "bellhopM ParaBotTLGeom"
+            },
+            {
+              "line": 48,
+              "text": "bellhopM ParaBotTLGB"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/Ellipse/Ellipse.env",
+          "title": "'Ellipse' ",
+          "frequency_line": "100.0\t\t\t! FREQUENCY, source frequency (Hz)"
+        },
+        {
+          "path": "tests/Ellipse/EllipseTLGB.env",
+          "title": "'Ellipse, Gaussian beams' ",
+          "frequency_line": "10.0\t\t\t! FREQUENCY, source frequency (Hz)"
+        },
+        {
+          "path": "tests/Ellipse/EllipseTLGeom.env",
+          "title": "'Ellipse, Geometric beams' ",
+          "frequency_line": "10.0\t\t\t! FREQUENCY, source frequency (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "free",
+      "purpose": "自由场点源/线源及不同波束、谱积分对照；几何扩展规律不同。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/free/Bundles.m",
+          "sha256": "9aa7e65fafe2c70c7ac5f496d3569e1717eff0fd8e86985b26eef897bc42d3ae",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/free/runtests.m",
+          "sha256": "ce7cc8b7ae79e4a2156a1b3d20404f01ccb1cf654ddf25ae2213529b86b39df5",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bellhop 'freePointB'"
+            },
+            {
+              "line": 8,
+              "text": "bellhop 'freePoint_gbtB'"
+            },
+            {
+              "line": 12,
+              "text": "bellhop 'freePoint_CervenyB'"
+            },
+            {
+              "line": 19,
+              "text": "bellhop 'freeLineB'"
+            },
+            {
+              "line": 23,
+              "text": "bellhop 'freeLine_gbtB'"
+            },
+            {
+              "line": 27,
+              "text": "bellhop 'freeLine_CervenyB'"
+            },
+            {
+              "line": 35,
+              "text": "scooter 'freeSPoint'"
+            },
+            {
+              "line": 39,
+              "text": "scooter 'freeSLine'"
+            }
+          ]
+        },
+        {
+          "path": "tests/free/runtestsM.m",
+          "sha256": "a8950f219b8efc028a4b4f2f40018bbab44c01d14f06b9caae4fe8506e0fbc54",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bellhopM 'freePointB'"
+            },
+            {
+              "line": 8,
+              "text": "bellhopM 'freePoint_gbtB'"
+            },
+            {
+              "line": 20,
+              "text": "bellhopM 'freeLineB'"
+            },
+            {
+              "line": 24,
+              "text": "bellhopM 'freeLine_gbtB'"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/free/freeLine_CervenyB.env",
+          "title": "'Free space, line source, Cerveny Gaussian beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/free/freeLine_gbtB.env",
+          "title": "'Free space, line source, Gaussian beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/free/freeLineB.env",
+          "title": "'Free space, line source, Hat beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/free/freePoint_CervenyB.env",
+          "title": "'Free space, point source, Cerveny Gaussian beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/free/freePoint_gbtB.env",
+          "title": "'Free space, point source, Gaussian beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/free/freePointB.env",
+          "title": "'Free space, point source, Hat beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/free/freeSLine.env",
+          "title": "'Free space, line source'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/free/freeSPoint.env",
+          "title": "'Free space, point source'",
+          "frequency_line": "5.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "Gulf",
+      "purpose": "涡旋剖面变化下距离无关、绝热和耦合模态，以及BELLHOP二维SSP。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/Gulf/runtests.m",
+          "sha256": "68587bfbccc2b76db04a717dbba21cce150ce2edcb315540e62446883b80b95a",
+          "active_call_evidence": [
+            {
+              "line": 14,
+              "text": "runkraken = which( 'kraken.exe' );"
+            },
+            {
+              "line": 15,
+              "text": "runfield  = which( 'field.exe' );"
+            },
+            {
+              "line": 22,
+              "text": "eval( [ '! \"' runfield '\" gulf_ri > field.prt' ] );"
+            },
+            {
+              "line": 27,
+              "text": "eval( [ '! \"' runfield '\" gulf_cm > field.prt' ] );"
+            },
+            {
+              "line": 32,
+              "text": "eval( [ '! \"' runfield '\" gulf_ad > field.prt' ] );"
+            },
+            {
+              "line": 43,
+              "text": "bellhop 'Gulf_ray_ri'"
+            },
+            {
+              "line": 50,
+              "text": "bellhop 'Gulf_ray_rd'"
+            },
+            {
+              "line": 55,
+              "text": "bellhop 'GulfB_ri_geo'"
+            },
+            {
+              "line": 59,
+              "text": "bellhop 'GulfB_ri_gb'"
+            },
+            {
+              "line": 63,
+              "text": "bellhop 'GulfB_rd_geo'"
+            },
+            {
+              "line": 67,
+              "text": "bellhop 'GulfB_rd_gb'"
+            },
+            {
+              "line": 72,
+              "text": "simplePE GulfB_rd_geo"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/Gulf/Gulf_ray_rd.env",
+          "title": "'Topgulf'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/Gulf_ray_ri.env",
+          "title": "'Topgulf'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/gulf_rd.env",
+          "title": "'Topgulf 0 km'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/GulfB_rd_gb.env",
+          "title": "'Topgulf, Range dep., Gaussian beams'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/GulfB_rd_geo.env",
+          "title": "'Topgulf, Range dep., Geometric beams'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/GulfB_ri_Cerveny.env",
+          "title": "'Topgulf, Cerveny beams'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/GulfB_ri_gb.env",
+          "title": "'Topgulf, Range ind., Gaussian beams'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/GulfB_ri_geo.env",
+          "title": "'Topgulf, Range-ind., Geometric beams'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Gulf/GulfS.env",
+          "title": "'Topgulf, spectral integral'",
+          "frequency_line": "50.0"
+        }
+      ],
+      "executions_this_audit": [
+        "KRAKEN-FIELD-Gulf-gulf_cm",
+        "KRAKEN-FIELD-Gulf-gulf_ri",
+        "KRAKEN-FIELD-Gulf-gulf_ad"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "halfspace",
+      "purpose": "上下半空间与界面反射系数，检查边界定义而非固定水深。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/halfspace/runtests.m",
+          "sha256": "eaf62bc3661b8d03d4084075366c1fea85c4882e08b6226ba6857c09a61744db",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "scooter( 'lower_halfS' )"
+            },
+            {
+              "line": 8,
+              "text": "bellhop( 'lower_halfB' )"
+            },
+            {
+              "line": 12,
+              "text": "scooter( 'upper_halfS' )"
+            },
+            {
+              "line": 16,
+              "text": "bellhop( 'upper_halfB' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/halfspace/runtestsM.m",
+          "sha256": "34716722df2177823a62e6680c5acc5a6d66a39daa53ce52361ffb8cf0172c65",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhopM( 'lower_halfB' )"
+            },
+            {
+              "line": 15,
+              "text": "bellhopM( 'upper_halfB' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/halfspace/lower_halfB.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/halfspace/lower_halfB_grain.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/halfspace/lower_halfS.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/halfspace/upper_halfB.env",
+          "title": "'Upper halfspace'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/halfspace/upper_halfS.env",
+          "title": "'Upper halfspace'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/halfspace/vacuumB.env",
+          "title": "'Reflection by a vacuum (top+bottom)'",
+          "frequency_line": "10.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "head",
+      "purpose": "SPARC头波与时域输出；输出第二轴可能是时间，不能按多个源深解释。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/head/runtests.m",
+          "sha256": "34e6e7c4be3fed4d7b14c43bc2ee260289b26d324429ca55f954e7fd3cdee132",
+          "active_call_evidence": [
+            {
+              "line": 3,
+              "text": "sparc head"
+            },
+            {
+              "line": 4,
+              "text": "fieldsco head.grn"
+            }
+          ]
+        },
+        {
+          "path": "tests/head/runtestsM.m",
+          "sha256": "8c6bdc1e61d263045ab46eb5d654c2ed7ae9411edc6f0be96a7d36fd78d55f24",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "fieldsco head.grn.mat"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/head/head.env",
+          "title": "'Head-wave problem NN+N'",
+          "frequency_line": "100.0"
+        },
+        {
+          "path": "tests/head/headS.env",
+          "title": "'Head-wave problem NN+N'",
+          "frequency_line": "100.0"
+        },
+        {
+          "path": "tests/head/iso.env",
+          "title": "'Isovelocity problem NN+H'",
+          "frequency_line": "100.0"
+        }
+      ],
+      "executions_this_audit": [
+        "SPARC-head-head"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "Munk",
+      "purpose": "深海声道，多模型与声线/本征声线/模态/叠加方式示例。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/Munk/runtests.m",
+          "sha256": "8875874fb960501c0161e0c9fb820c90d8175a798c235ef9918625514801bef0",
+          "active_call_evidence": [
+            {
+              "line": 9,
+              "text": "bellhop( 'MunkB_ray' )"
+            },
+            {
+              "line": 13,
+              "text": "bellhop( 'MunkB_eigenray' )"
+            },
+            {
+              "line": 18,
+              "text": "bellhop( 'MunkB_Coh' )"
+            },
+            {
+              "line": 19,
+              "text": "bellhop( 'MunkB_gb' )"
+            },
+            {
+              "line": 20,
+              "text": "kraken(  'MunkK' )"
+            },
+            {
+              "line": 21,
+              "text": "scooter( 'MunkS' )"
+            },
+            {
+              "line": 45,
+              "text": "simplePE MunkB_Coh"
+            },
+            {
+              "line": 68,
+              "text": "bellhop( 'MunkB_Coh_gb' )"
+            },
+            {
+              "line": 72,
+              "text": "bellhop( 'MunkB_Coh_CervenyR' )"
+            },
+            {
+              "line": 76,
+              "text": "bellhop( 'MunkB_Coh_CervenyC' )"
+            },
+            {
+              "line": 80,
+              "text": "bellhop( 'MunkB_Coh_SGB' )"
+            },
+            {
+              "line": 87,
+              "text": "bellhop( 'MunkB_Coh' )"
+            },
+            {
+              "line": 91,
+              "text": "bellhop( 'MunkB_Coh_gb' )"
+            },
+            {
+              "line": 95,
+              "text": "bellhop( 'MunkB_Semi' )"
+            },
+            {
+              "line": 99,
+              "text": "bellhop( 'MunkB_Semi_gb' )"
+            },
+            {
+              "line": 103,
+              "text": "bellhop( 'MunkB_Inc' )"
+            },
+            {
+              "line": 107,
+              "text": "bellhop( 'MunkB_Inc_gb' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Munk/runtestsM.m",
+          "sha256": "5519dc52a40b1091676bcf7b841bd2db07b471946df514689b50a36b607ac4b5",
+          "active_call_evidence": [
+            {
+              "line": 5,
+              "text": "bellhopM( 'MunkB_ray' )"
+            },
+            {
+              "line": 13,
+              "text": "bellhopM( 'MunkB_Coh' )"
+            },
+            {
+              "line": 17,
+              "text": "bellhopM( 'MunkB_gb' )"
+            },
+            {
+              "line": 21,
+              "text": "kraken( 'MunkK' )"
+            },
+            {
+              "line": 31,
+              "text": "bellhopM( 'MunkB_Coh' )"
+            },
+            {
+              "line": 35,
+              "text": "bellhopM( 'MunkB_Coh_gb' )"
+            },
+            {
+              "line": 39,
+              "text": "bellhopM( 'MunkB_Semi' )"
+            },
+            {
+              "line": 43,
+              "text": "bellhopM( 'MunkB_Semi_gb' )"
+            },
+            {
+              "line": 47,
+              "text": "bellhopM( 'MunkB_Inc' )"
+            },
+            {
+              "line": 51,
+              "text": "bellhopM( 'MunkB_Inc_gb' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/Munk/MunkB_Arr.env",
+          "title": "'Munk profile, coherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Coh.env",
+          "title": "'Munk profile, coherent'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Coh_CervenyC.env",
+          "title": "'Munk profile, CervenyC-style beams, IBWin=5'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Coh_CervenyR.env",
+          "title": "'Munk profile, CervenyR-style beams, IBWin=5'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Coh_cpp.env",
+          "title": "'Munk profile, Cerveny-style beams, IBWin=5'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Coh_gb.env",
+          "title": "'Munk profile, coherent, Gaussian beam'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Coh_SGB.env",
+          "title": "'Munk profile, simple Gaussian beams, IBWin=5'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_eigenray.env",
+          "title": "'Munk profile'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_gb.env",
+          "title": "'Munk profile (Gaussian beam option)'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_gbt.env",
+          "title": "'Munk profile'\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_geo_rot.env",
+          "title": "'Munk profile'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Inc.env",
+          "title": "'Munk profile, incoherent'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Inc_gb.env",
+          "title": "'Munk profile, incoherent, Gaussian beam'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_OneBeam.env",
+          "title": "'Munk profile, One Gaussian beam'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_ray.env",
+          "title": "'Munk profile'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_ray_rot.env",
+          "title": "'Munk profile'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Semi.env",
+          "title": "'Munk profile, semi-coherent'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkB_Semi_gb.env",
+          "title": "'Munk profile, semi-coherent, Gaussian beam'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/Munk/MunkK.env",
+          "title": "'BBMunk profile'",
+          "frequency_line": "50"
+        },
+        {
+          "path": "tests/Munk/MunkS.env",
+          "title": "'Munk profile'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/Munk/MunkSflip.env",
+          "title": "'Munk profile',\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "MunkLeaky",
+      "purpose": "逐步扩展相速搜索范围，研究水体俘获、底部与泄漏模态贡献；KRAKENC与SCOOTER对照。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/MunkLeaky/runtests.m",
+          "sha256": "55057f886e2c13662e9e385f8ded9f245c81e3a27bda5d98a9db25ae0b644e11",
+          "active_call_evidence": [
+            {
+              "line": 26,
+              "text": "krakenc( 'MunkKwb' )"
+            },
+            {
+              "line": 31,
+              "text": "krakenc( 'MunkKbb' )"
+            },
+            {
+              "line": 36,
+              "text": "krakenc( 'MunkKleaky' )"
+            },
+            {
+              "line": 45,
+              "text": "scooter( 'MunkS' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/MunkLeaky/runtestsM.m",
+          "sha256": "363caa38f31a8ac82680e6b276967bbe3e180f6e1f606a70771303732e645809",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bellhopM( 'MunkB_ray' )"
+            },
+            {
+              "line": 12,
+              "text": "bellhopM( 'MunkB_Coh' )"
+            },
+            {
+              "line": 16,
+              "text": "bellhopM( 'MunkB_gb' )"
+            },
+            {
+              "line": 20,
+              "text": "kraken( 'MunkK' )"
+            },
+            {
+              "line": 30,
+              "text": "bellhopM( 'MunkB_Coh' )"
+            },
+            {
+              "line": 34,
+              "text": "bellhopM( 'MunkB_Coh_gb' )"
+            },
+            {
+              "line": 38,
+              "text": "bellhopM( 'MunkB_Semi' )"
+            },
+            {
+              "line": 42,
+              "text": "bellhopM( 'MunkB_Semi_gb' )"
+            },
+            {
+              "line": 46,
+              "text": "bellhopM( 'MunkB_Inc' )"
+            },
+            {
+              "line": 50,
+              "text": "bellhopM( 'MunkB_Inc_gb' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/MunkLeaky/MunkK1501.env",
+          "title": "'Munk profile, cmax = 1501'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkK1510.env",
+          "title": "'Munk profile, cmax = 1510'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkK1525.env",
+          "title": "'Munk profile, cmax = 1525'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkKbb.env",
+          "title": "'Munk profile, bottom bounce modes'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkKleaky.env",
+          "title": "'Munk profile, leaky modes'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkKwb.env",
+          "title": "'Munk profile, waterborne modes'",
+          "frequency_line": "50.0"
+        },
+        {
+          "path": "tests/MunkLeaky/MunkS.env",
+          "title": "'Munk profile'",
+          "frequency_line": "50.0"
+        }
+      ],
+      "executions_this_audit": [
+        "KRAKENC-MunkLeaky-MunkKwb",
+        "KRAKENC-MunkLeaky-MunkKbb",
+        "KRAKENC-MunkLeaky-MunkKleaky"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "MunkRot",
+      "purpose": "旋转Munk/三维几何测试，不能把bearing轴丢弃为二维结果。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/MunkRot/MakeMunkSSP.m",
+          "sha256": "d84a4581ba2b852ae980d47c3e8ade8e831bb0a6bce912f698db91b145b3b66d",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/MunkRot/Munk.m",
+          "sha256": "7481a24088322f23698bff06525735be0d672c64ff0ffb22bdb1161e40c9e8e7",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/MunkRot/runtests.m",
+          "sha256": "129c4b4b225fec02386df9368d956d06f9fa2ef2c0a3b30755bfbd22329f28cb",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop Munk"
+            },
+            {
+              "line": 14,
+              "text": "bellhop MunkRot"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/MunkRot/Munk.env",
+          "title": "'Munk profile'\t\t! TITLE",
+          "frequency_line": "50.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/MunkRot/MunkRot.env",
+          "title": "'Munk Rotated Geobeam ray-centered'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "MunkTS",
+      "purpose": "含声场与到达结构的资料目录，本轮未发现顶层runtests入口，需进一步核对用途。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [],
+      "environment_files": [
+        {
+          "path": "tests/MunkTS/MunkB.env",
+          "title": "'Munk profile'\t! TITLE",
+          "frequency_line": "5.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/MunkTS/MunkS.env",
+          "title": "'Munk profile'\t! TITLE",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/MunkTS/py_env.env",
+          "title": "'Pekeris profile' ! Title ",
+          "frequency_line": ""
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "Noise",
+      "purpose": "Halfspace、Pekeris、ATOC等噪声子目录调度；不是单一声场求解器。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/Noise/ATOC/runtests.m",
+          "sha256": "773e6071cd5e5ea06b2a927a56abe7f470755456a17873172e3b5a2d701bd856",
+          "active_call_evidence": [
+            {
+              "line": 15,
+              "text": "bellhop aetB_TL"
+            },
+            {
+              "line": 19,
+              "text": "print -dpng BELLHOP_TL"
+            },
+            {
+              "line": 23,
+              "text": "bellhop aetB"
+            },
+            {
+              "line": 25,
+              "text": "C  = field_noise( 'aetB.shd', sd, rd, freq );"
+            },
+            {
+              "line": 32,
+              "text": "title( 'BELLHOP Noise Level' )"
+            },
+            {
+              "line": 37,
+              "text": "print -dpng BELLHOP_NL"
+            },
+            {
+              "line": 42,
+              "text": "kraken aetK_TL"
+            },
+            {
+              "line": 46,
+              "text": "print -dpng KRAKEN_TL"
+            },
+            {
+              "line": 50,
+              "text": "kraken aetK"
+            },
+            {
+              "line": 52,
+              "text": "C  = field_noise( 'aetK.shd', sd, rd, freq );"
+            },
+            {
+              "line": 59,
+              "text": "title( 'KRAKEN Noise Level' )"
+            },
+            {
+              "line": 64,
+              "text": "print -dpng KRAKEN_NL"
+            },
+            {
+              "line": 68,
+              "text": "krakenc aetC_TL"
+            },
+            {
+              "line": 72,
+              "text": "print -dpng KRAKENC_TL"
+            },
+            {
+              "line": 76,
+              "text": "krakenc aetC"
+            },
+            {
+              "line": 78,
+              "text": "C  = field_noise( 'aetC.shd', sd, rd, freq );"
+            },
+            {
+              "line": 85,
+              "text": "title( 'KRAKENC Noise Level' )"
+            },
+            {
+              "line": 90,
+              "text": "print -dpng KRAKENC_NL"
+            },
+            {
+              "line": 95,
+              "text": "scooter aetS_TL"
+            },
+            {
+              "line": 103,
+              "text": "scooter aetS"
+            },
+            {
+              "line": 105,
+              "text": "C  = field_noise( 'aetS.shd.mat', sd, rd, freq );"
+            },
+            {
+              "line": 112,
+              "text": "title( 'SCOOTER Noise Level' )"
+            },
+            {
+              "line": 127,
+              "text": "freqIn = 0;   % frequency (irrelevant if there is only one frequency in the SCOOTER run"
+            },
+            {
+              "line": 135,
+              "text": "title( 'SCOOTER Noise Level (analytic)' )"
+            },
+            {
+              "line": 168,
+              "text": "legend( 'Kraken', 'Krakenc' )"
+            },
+            {
+              "line": 169,
+              "text": "title( 'Kraken NL using analytic formula' );"
+            },
+            {
+              "line": 174,
+              "text": "print -dpng KRAKEN_NL_modal_full"
+            },
+            {
+              "line": 198,
+              "text": "legend( 'Kraken', 'Krakenc' )"
+            },
+            {
+              "line": 199,
+              "text": "title( 'Kraken NL using analytic formula, diag. only' );"
+            },
+            {
+              "line": 204,
+              "text": "print -dpng KRAKEN_NL_modal_diag"
+            },
+            {
+              "line": 212,
+              "text": "bellhop aet_VLA_B"
+            },
+            {
+              "line": 213,
+              "text": "C_B  = field_noise( 'aet_VLA_B.shd', sd, rd, freq );"
+            },
+            {
+              "line": 216,
+              "text": "kraken aet_VLA_K"
+            },
+            {
+              "line": 217,
+              "text": "C_K  = field_noise( 'aet_VLA_K.shd', sd, rd, freq );"
+            },
+            {
+              "line": 220,
+              "text": "krakenc aet_VLA_C"
+            },
+            {
+              "line": 221,
+              "text": "C_C  = field_noise( 'aet_VLA_C.shd', sd, rd, freq );"
+            },
+            {
+              "line": 224,
+              "text": "scooter aet_VLA_S"
+            },
+            {
+              "line": 225,
+              "text": "C_S  = field_noise( 'aet_VLA_S.shd.mat', sd, rd, freq );"
+            },
+            {
+              "line": 253,
+              "text": "legend( 'Bellhop', 'Kraken', 'Krakenc', 'Scooter' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Noise/cleanall.m",
+          "sha256": "d7363a16451980a29fb74d8f58268f46dfa1aaba8ab19f5304e5a5842a6eaa46",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/Noise/Halfspace/runtests.m",
+          "sha256": "321190dfa12e8283ba78efc62e5b27797e7e30206425fba4f84ac4d71c5fb3a1",
+          "active_call_evidence": [
+            {
+              "line": 11,
+              "text": "scooter halfspace"
+            }
+          ]
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/runtests.m",
+          "sha256": "53fad011712469e58422b598c17217593784c13a354faf68c7c16e717d86b737",
+          "active_call_evidence": [
+            {
+              "line": 23,
+              "text": "kraken(  filename  )"
+            },
+            {
+              "line": 26,
+              "text": "krakenc( filenameC )"
+            },
+            {
+              "line": 30,
+              "text": "scooter( filenameS )"
+            },
+            {
+              "line": 83,
+              "text": "ll = legend( 'kraken modal noise Full', 'krakenc modal noise Full', 'scooter spectral noise' );"
+            },
+            {
+              "line": 91,
+              "text": "C  = field_noise( [ filename '.shd' ], sd, rd, freq );"
+            },
+            {
+              "line": 95,
+              "text": "ll = legend( 'kraken modal noise Full', 'krakenc modal noise Full', 'scooter spectral noise', 'kraken field noise' );"
+            },
+            {
+              "line": 103,
+              "text": "C  = field_noise( [ filenameC '.shd' ], sd, rd, freq );"
+            },
+            {
+              "line": 107,
+              "text": "ll = legend( 'kraken modal noise Full', 'krakenc modal noise Full', 'scooter spectral noise', 'kraken field noise', 'krakenc field noise' );"
+            },
+            {
+              "line": 115,
+              "text": "C  = field_noise( [ filenameS '.shd.mat' ], sd, rd, freq );"
+            },
+            {
+              "line": 119,
+              "text": "ll = legend( 'kraken modal noise Full', 'krakenc modal noise Full', 'scooter spectral noise', 'kraken field noise', 'krakenc field noise', 'scooter field noise' );"
+            }
+          ]
+        },
+        {
+          "path": "tests/Noise/Pekeris/runtests.m",
+          "sha256": "ad468e0ee774d878437d1c7fafabd32f0b6a52a4a47ebff57a0cd425f3c932cc",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "kraken_nofield( filename )"
+            },
+            {
+              "line": 44,
+              "text": "title( 'KRAKEN' )"
+            },
+            {
+              "line": 55,
+              "text": "title( 'KRAKEN' )"
+            },
+            {
+              "line": 85,
+              "text": "scooter pekeris"
+            },
+            {
+              "line": 88,
+              "text": "C  = field_noise( ShadeFile, sd, rd, freq );"
+            },
+            {
+              "line": 94,
+              "text": "legend( 'Nodal noise full', 'Modal noise diag', 'Spectral noise', 'Field noise (scooter)' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/Noise/runtests.m",
+          "sha256": "e225617b45fcd43ba00f14c256833ed1d93795e9c9aa8b7afc8008adb9993cea",
+          "active_call_evidence": []
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/Noise/ATOC/aet_VLA_B.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aet_VLA_C.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aet_VLA_K.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aet_VLA_S.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetB.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetB_TL.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetBray.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "75.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetC.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetC_TL.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetK.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetK_TL.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetS.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetS_TL.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/ATOC/aetSNoiseRun.env",
+          "title": "'ATOC Engineering test, mean profile'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/Halfspace/halfspace.env",
+          "title": "'halfspace'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/DownwdRef.env",
+          "title": "'K+I Downward Refracting',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/DownwdRef_C.env",
+          "title": "'K+I Downward Refracting'\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/DownwdRef_S.env",
+          "title": "'K+I Downward Refracting',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/DownwdRef_Snoise.env",
+          "title": "'K+I Downward Refracting',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/HS_S.env",
+          "title": "'Halfspace',\t\t! TITLE",
+          "frequency_line": "800.0,\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Iso.env",
+          "title": "'K+I Isovelocity',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Iso_C.env",
+          "title": "'K+I Isovelocity',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Iso_S.env",
+          "title": "'K+I Isovelocity',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Iso_Snoise.env",
+          "title": "'K+I Isovelocity',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Pek.env",
+          "title": "'Pekeris'\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Pek_C.env",
+          "title": "'Pekeris'\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Pek_S.env",
+          "title": "'Pekeris',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Pek_Snoise.env",
+          "title": "'Pekeris',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Sduct.env",
+          "title": "'K+I Upward Refracting'\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Sduct_C.env",
+          "title": "'K+I Upward Refracting'\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Sduct_S.env",
+          "title": "'K+I Upward Refracting',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/KupermanIngenito/Sduct_Snoise.env",
+          "title": "'K+I Upward Refracting',\t\t! TITLE",
+          "frequency_line": "800.0\t\t\t\t! frequency (Hz)"
+        },
+        {
+          "path": "tests/Noise/Pekeris/pekeris.env",
+          "title": "'pekeris'",
+          "frequency_line": "300.0"
+        },
+        {
+          "path": "tests/Noise/Pekeris/pekerisS.env",
+          "title": "'pekeris'",
+          "frequency_line": "300.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "ParaBot",
+      "purpose": "抛物线形海面/海底边界及插值、声线与波束测试；名称不表示抛物方程求解器。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/ParaBot/make_bdry.m",
+          "sha256": "5b51d5eeb7eec982e697fd4b0a6c706244d45fee201f87d8a87cb6da290ebac5",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/ParaBot/make_bty_circ.m",
+          "sha256": "0c53b6dd45a7682007bf1c1e85b37fdaecd821a9c33f143a809e4de1cc522e9e",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/ParaBot/runtests.m",
+          "sha256": "3e12e7466bdcb72e0d04e94853ef2048967a7f0420a54995f52a74e889f4ff13",
+          "active_call_evidence": [
+            {
+              "line": 13,
+              "text": "bellhop ParaBot"
+            },
+            {
+              "line": 23,
+              "text": "bellhop ParaBotTLGeom"
+            },
+            {
+              "line": 33,
+              "text": "bellhop ParaBotTLGB"
+            },
+            {
+              "line": 49,
+              "text": "bellhop ParaBot"
+            },
+            {
+              "line": 59,
+              "text": "bellhop ParaBotTLGeom"
+            },
+            {
+              "line": 69,
+              "text": "bellhop ParaBotTLGB"
+            }
+          ]
+        },
+        {
+          "path": "tests/ParaBot/runtestsM.m",
+          "sha256": "915aa565a51a4a4a879882fe4cc7630e6d53a63faad807c903bf2dc316ac56ac",
+          "active_call_evidence": [
+            {
+              "line": 13,
+              "text": "bellhopM ParaBot"
+            },
+            {
+              "line": 22,
+              "text": "bellhopM ParaBotTLGeom"
+            },
+            {
+              "line": 32,
+              "text": "bellhopM ParaBotTLGB"
+            },
+            {
+              "line": 46,
+              "text": "bellhopM ParaBot"
+            },
+            {
+              "line": 55,
+              "text": "bellhopM ParaBotTLGeom"
+            },
+            {
+              "line": 65,
+              "text": "bellhopM ParaBotTLGB"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/ParaBot/ParaBot.env",
+          "title": "'Parabolic bottom profile'\t! TITLE",
+          "frequency_line": "10.0,\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/ParaBot/ParaBotTLGB.env",
+          "title": "'Parabolic bottom profile, Gaussian beams'\t! TITLE",
+          "frequency_line": "10.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/ParaBot/ParaBotTLGeom.env",
+          "title": "'Parabolic bottom profile, Geometric beams'\t! TITLE",
+          "frequency_line": "10.0\t\t\t! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "PekerisRD",
+      "purpose": "主要为BELLHOP沿程底质变化，RAM片段被注释；不等同于RAM已启用。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/PekerisRD/runtests.m",
+          "sha256": "a52102dc044df8a06517b34b322fa97fed1c3ab3898171c122dbc4e5212d4edf",
+          "active_call_evidence": [
+            {
+              "line": 10,
+              "text": "bellhop( 'PekerisRDB' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/PekerisRD/runtestsM.m",
+          "sha256": "e95b45a3b35846390ad9dd86d669f3319cea60a5676c8eb1b16f35476250dcdc",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "bellhopM( 'DickinsB' )"
+            },
+            {
+              "line": 14,
+              "text": "bellhopM( 'DickinsFlatB' )"
+            },
+            {
+              "line": 18,
+              "text": "kraken( 'DickinsFlatK' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/PekerisRD/PekerisRDB.env",
+          "title": "'Range-dependent Pekeris waveguide'",
+          "frequency_line": "50.0\t\t\t\t! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "PointLine",
+      "purpose": "Lloyd镜像与点源/线源归一化对照，需分开几何扩展约定。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/PointLine/runtests.m",
+          "sha256": "f8a82ec4ebd480171ae2044110e73cbf7237f631a292854fd150ca5dee2883c1",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop 'LloydPointB'"
+            },
+            {
+              "line": 14,
+              "text": "bellhop 'LloydLineB'"
+            },
+            {
+              "line": 60,
+              "text": "bellhop 'LloydPoint_gbtB'"
+            },
+            {
+              "line": 67,
+              "text": "bellhop 'LloydLine_gbtB'"
+            },
+            {
+              "line": 91,
+              "text": "scooter 'LloydSPoint'"
+            },
+            {
+              "line": 96,
+              "text": "scooter 'LloydSLine'"
+            }
+          ]
+        },
+        {
+          "path": "tests/PointLine/runtestsM.m",
+          "sha256": "f405ff96cdeed416e7ce963e41f990208ec81a2e7043cc4423a84227bf8cc496",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhopM 'LloydPointB'"
+            },
+            {
+              "line": 14,
+              "text": "bellhopM 'LloydLineB'"
+            },
+            {
+              "line": 55,
+              "text": "bellhopM 'LloydPoint_gbtB'"
+            },
+            {
+              "line": 62,
+              "text": "bellhopM 'LloydLine_gbtB'"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/PointLine/LloydLine_gbtB.env",
+          "title": "'Lloyd mirror, line source, Gaussian beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/PointLine/LloydLineB.env",
+          "title": "'Lloyd mirror, line source'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/PointLine/LloydPoint_gbtB.env",
+          "title": "'Lloyd mirror, point source, Gaussian beam'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/PointLine/LloydPointB.env",
+          "title": "'Lloyd mirror, point source'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/PointLine/LloydSLine.env",
+          "title": "'Lloyd mirror'",
+          "frequency_line": "5.0"
+        },
+        {
+          "path": "tests/PointLine/LloydSPoint.env",
+          "title": "'Lloyd mirror'",
+          "frequency_line": "5.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "SBCX",
+      "purpose": "BELLHOP到达结构重建声场与直接声场对照，检查ARR格式与相位约定。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/SBCX/runtests.m",
+          "sha256": "cc0498e8a27aba774d7d32e0a0f0b9de7adf40eb0dbabc31891935dfaa58d96e",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "bellhop( 'sbcx' )"
+            },
+            {
+              "line": 12,
+              "text": "bellhop( 'sbcx_Arr_asc' )"
+            },
+            {
+              "line": 17,
+              "text": "bellhop( 'sbcx_Arr_bin' )"
+            }
+          ]
+        },
+        {
+          "path": "tests/SBCX/runtestsM.m",
+          "sha256": "d79a7893440f6fcaf0d70c5100fdafd110aa88a93f80e14404da75c580b183ad",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "bellhopM( 'sbcx' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/SBCX/sbcx.env",
+          "title": "'Santa Barbara Channel Experiment (direct pressure field)'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/SBCX/sbcx_Arr_asc.env",
+          "title": "'Santa Barbara Channel Experiment (ascii arrivals file)'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/SBCX/sbcx_Arr_bin.env",
+          "title": "'Santa Barbara Channel Experiment (binary arrivals file)'",
+          "frequency_line": "200.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "scs",
+      "purpose": "南海相关输入及scs.m脚本；未发现标准runtests入口，需单独审查研究脚本。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/scs/scs.m",
+          "sha256": "da8d288f84fa9880e33b3a68c9ef8271504b3c0b3830e9eb7c1b1b22ce86748d",
+          "active_call_evidence": [
+            {
+              "line": 6,
+              "text": "bellhop scs_s1;"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/scs/scs_s1.env",
+          "title": "'SCS_S1, Gaussian beams'",
+          "frequency_line": "1500.0\t\t\t     ! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "sduct",
+      "purpose": "泄漏表面声道，多模型流程；声速正梯度候选不等于所有频率有效俘获。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/sduct/runtests.m",
+          "sha256": "17aa021de3116444aaba875fb9b368036ee64b281cce3a8d139e72ce52f07993",
+          "active_call_evidence": [
+            {
+              "line": 9,
+              "text": "bellhop( 'sductB' )"
+            },
+            {
+              "line": 14,
+              "text": "bellhop( 'sductB_gb' )"
+            },
+            {
+              "line": 19,
+              "text": "kraken( 'sductK' )"
+            },
+            {
+              "line": 24,
+              "text": "scooter( 'sductS' )"
+            },
+            {
+              "line": 29,
+              "text": "simplePE sductB"
+            }
+          ]
+        },
+        {
+          "path": "tests/sduct/runtestsM.m",
+          "sha256": "a6b858458e4b222bea08eea59ebac8dde68de06e709135703f6ecfb56d808f70",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bellhopM( 'sductB' )"
+            },
+            {
+              "line": 8,
+              "text": "bellhopM( 'sductB_gb' )"
+            },
+            {
+              "line": 12,
+              "text": "kraken( 'sductK' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/sduct/sduct_bbB.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/sduct/sduct_bbS.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/sduct/sduct_nrS.env",
+          "title": "'Case 7 -- Leaky surface duct, no return'",
+          "frequency_line": "80.0"
+        },
+        {
+          "path": "tests/sduct/sductB.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/sduct/sductB_gb.env",
+          "title": "'Leaky surface duct  Gaussian beam option'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/sduct/sductBray.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "80.0"
+        },
+        {
+          "path": "tests/sduct/sductK.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/sduct/sductnew.env",
+          "title": "'Surface duct problem'",
+          "frequency_line": "120.0"
+        },
+        {
+          "path": "tests/sduct/sductS.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "200.0"
+        },
+        {
+          "path": "tests/sduct/single.env",
+          "title": "'Leaky surface duct'",
+          "frequency_line": "80.0"
+        }
+      ],
+      "executions_this_audit": [
+        "SCOOTER-sduct-sductS"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "SedAtten",
+      "purpose": "无损、dB/波长与频率幂律衰减；250Hz基频等价性与其他频率区别。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/SedAtten/runtests.m",
+          "sha256": "765ef2f51eecdcb912c4a707aa8b98d12ec8ecfec812890729ad8a8f60ccd2c4",
+          "active_call_evidence": [
+            {
+              "line": 22,
+              "text": "bounce calibBounce"
+            },
+            {
+              "line": 27,
+              "text": "scooter calibS_noloss"
+            },
+            {
+              "line": 39,
+              "text": "scooter calibS_0.6dB"
+            },
+            {
+              "line": 51,
+              "text": "scooter calibS_PowLaw"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/SedAtten/calibB.env",
+          "title": "'Calibration  case'",
+          "frequency_line": "250.0\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/SedAtten/calibBounce.env",
+          "title": "'Calibration case, 0.5 dB/\\lambda'",
+          "frequency_line": "250"
+        },
+        {
+          "path": "tests/SedAtten/calibK.env",
+          "title": "'Calibration case'",
+          "frequency_line": "250.0"
+        },
+        {
+          "path": "tests/SedAtten/calibS_0.6dB.env",
+          "title": "'Calibration case, 0.6 dB/\\lambda'",
+          "frequency_line": "250.0"
+        },
+        {
+          "path": "tests/SedAtten/calibS_noloss.env",
+          "title": "'Calibration case, no loss'",
+          "frequency_line": "250.0"
+        },
+        {
+          "path": "tests/SedAtten/calibS_PowLaw.env",
+          "title": "'Calibration case, power law'",
+          "frequency_line": "250.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "step",
+      "purpose": "台阶地形，按多剖面调用kraken_rd和FIELD，以及SimplePE；需检查沿程采样。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/step/runtests.m",
+          "sha256": "6e2e2ee8c0e31e47b11c66e582b713ca0d5829ccfe7df505954a9ea837d1d023",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "Nprof = 4;  % change field.flp to also"
+            },
+            {
+              "line": 12,
+              "text": "kraken_rd( 'stepK', r )"
+            },
+            {
+              "line": 15,
+              "text": "runfield  = which( 'field.exe' );"
+            },
+            {
+              "line": 32,
+              "text": "simplePE step"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/step/step.env",
+          "title": "'Step'\t! TITLE",
+          "frequency_line": "230.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/step/stepK.env",
+          "title": "'Step'\t! TITLE",
+          "frequency_line": "230.0\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/step/stepK_rd.env",
+          "title": "'Step #1' ! Title ",
+          "frequency_line": "  230.00  \t \t \t ! Frequency (Hz) "
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "TabRefCoef",
+      "purpose": "BOUNCE生成反射系数，再比较直接地声学底、BRC与IRC边界输入。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/TabRefCoef/runtests.m",
+          "sha256": "d2dc1e10f78ebaf8ed8c885056a0f131767b6e93ff4832c28bf1fddbbe628055",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bounce( 'neggradB' )   % make the tabulated reflection coefficient"
+            },
+            {
+              "line": 9,
+              "text": "kraken(  'neggradK_geo' )   % reference solution (full geoacoustic bottom)"
+            },
+            {
+              "line": 13,
+              "text": "copyfile( 'neggradB.brc', 'neggradK_brc.brc' )  % for KRAKENC input"
+            },
+            {
+              "line": 14,
+              "text": "kraken(  'neggradK_brc' )   % using the BRC file"
+            },
+            {
+              "line": 18,
+              "text": "copyfile( 'neggradB.irc', 'neggradK_irc.irc' )  % for KRAKENC input"
+            },
+            {
+              "line": 19,
+              "text": "kraken(  'neggradK_irc' )   % using the IRC file"
+            },
+            {
+              "line": 25,
+              "text": "krakenc( 'neggradC_geo' )   % reference solution (full geoacoustic bottom)"
+            },
+            {
+              "line": 29,
+              "text": "copyfile( 'neggradB.brc', 'neggradC_brc.brc' )  % for KRAKENC input"
+            },
+            {
+              "line": 30,
+              "text": "krakenc( 'neggradC_brc' )   % using the BRC file"
+            },
+            {
+              "line": 34,
+              "text": "copyfile( 'neggradB.irc', 'neggradC_irc.irc' )  % for KRAKENC input"
+            },
+            {
+              "line": 35,
+              "text": "krakenc( 'neggradC_irc' )   % using the IRC file"
+            },
+            {
+              "line": 41,
+              "text": "scooter( 'neggradS_geo' )   % reference solution (full geoacoustic bottom)"
+            },
+            {
+              "line": 45,
+              "text": "movefile( 'neggradB.brc', 'neggradS_brc.brc' )  % for KRAKENC input"
+            },
+            {
+              "line": 46,
+              "text": "scooter( 'neggradS_brc' )   % using the BRC file"
+            },
+            {
+              "line": 50,
+              "text": "copyfile( 'neggradB.irc', 'neggradS_irc.irc' )  % for KRAKENC input"
+            },
+            {
+              "line": 51,
+              "text": "scooter( 'neggradS_irc' )   % using the IRC file"
+            }
+          ]
+        },
+        {
+          "path": "tests/TabRefCoef/runtestsM.m",
+          "sha256": "a03a6266b0caf0657501f17ee88532f89ce61ad63741f05834bd92fc44e9022f",
+          "active_call_evidence": [
+            {
+              "line": 4,
+              "text": "bounce( 'neggradB' )   % make the tabulated reflection coefficient"
+            },
+            {
+              "line": 24,
+              "text": "movefile( 'neggradB.brc', 'neggradS_brc.brc' )  % for KRAKENC input"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/TabRefCoef/neggradB.env",
+          "title": "'neggrad (Bounce)' \t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradC_brc.env",
+          "title": "'neggrad brc' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradC_geo.env",
+          "title": "'neggrad geo' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradC_irc.env",
+          "title": "'neggrad irc' \t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradK_brc.env",
+          "title": "'neggrad brc' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradK_geo.env",
+          "title": "'neggrad geo' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradK_irc.env",
+          "title": "'neggrad irc' \t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradS_brc.env",
+          "title": "'neggrad brc' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradS_geo.env",
+          "title": "'neggrad geo' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        },
+        {
+          "path": "tests/TabRefCoef/neggradS_irc.env",
+          "title": "'neggrad irc' \t\t\t\t! TITLE",
+          "frequency_line": "500.0 \t\t\t\t\t! FREQ (Hz)"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "terrain",
+      "purpose": "随地形变化的非矩形接收坐标；接收位置与海底地形不是同一个参数。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/terrain/runtests.m",
+          "sha256": "d18472dae0ed86ea0617741fe3ef4c556d4d8239700dd79205531263d22b5e26",
+          "active_call_evidence": [
+            {
+              "line": 8,
+              "text": "bellhop( 'lower_half' )"
+            },
+            {
+              "line": 12,
+              "text": "bellhop( 'lower_half_gbt' )"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/terrain/lower_half.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/terrain/lower_half_arr.env",
+          "title": "'Lower halfspace'",
+          "frequency_line": "5.000000"
+        },
+        {
+          "path": "tests/terrain/lower_half_gbt.env",
+          "title": "'Lower halfspace, Gaussian beams'",
+          "frequency_line": "5.000000"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "TLslices",
+      "purpose": "11个手册波导/弹性/粗糙界面问题；KRAKEN/KRAKENC/SCOOTER能力并不完全相同。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/TLslices/runtests.m",
+          "sha256": "14eaca5a36d3adabb9c5d2c5a47a3dcd34e2c16fc07bc939b91aa91c710c353b",
+          "active_call_evidence": [
+            {
+              "line": 17,
+              "text": "copyfile( 'fieldbat.flp', 'field.flp' )"
+            },
+            {
+              "line": 23,
+              "text": "copyfile( 'field.flp', [ envfil '.flp' ] );"
+            },
+            {
+              "line": 27,
+              "text": "eval( [ 'kraken( ''' envfil ''' )' ] );"
+            },
+            {
+              "line": 33,
+              "text": "eval( [ 'krakenc( ''' envfil ''' )' ] );"
+            },
+            {
+              "line": 53,
+              "text": "if ( icase ~= 11 )   % scooter can't run kuperm with interfacial roughness"
+            },
+            {
+              "line": 54,
+              "text": "copyfile( 'fields.flp', [ envfil '.flp' ] );"
+            },
+            {
+              "line": 55,
+              "text": "eval( [ 'scooter( ''' envfil ''' )' ] );"
+            }
+          ]
+        },
+        {
+          "path": "tests/TLslices/runtestsM.m",
+          "sha256": "c60947d564bf8f8eb76eb3145b22035fce2ca069b7906d3ee7dfae31eab4d9b6",
+          "active_call_evidence": [
+            {
+              "line": 9,
+              "text": "copyfile( 'fieldbat.flp', 'field.flp' )"
+            },
+            {
+              "line": 16,
+              "text": "eval( [ 'kraken( ''' envfil ''')' ] );"
+            },
+            {
+              "line": 22,
+              "text": "eval( [ 'krakenc( ''' envfil ''' )' ] );"
+            },
+            {
+              "line": 38,
+              "text": "if ( icase ~= 11 )   % scooter can't run kuperm with interfacial roughness"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/TLslices/atten.env",
+          "title": "'Attenuation test .001dB/kmHz'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/double.env",
+          "title": "'Double-duct problem'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/elsed.env",
+          "title": "'Elastic sediment problem'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/flused.env",
+          "title": "'Fluid sediment problem'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/ice.env",
+          "title": "'Ice problem'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/kuperb.env",
+          "title": "'Bottom roughness test'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/kuperm.env",
+          "title": "'Mid roughness test'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/kupert.env",
+          "title": "'Top roughness test'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/normal.env",
+          "title": "'Mode normalization test'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/pekeris.env",
+          "title": "'Pekeris problem'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/scholte.env",
+          "title": "'Scholte waveguide'",
+          "frequency_line": "10.0"
+        },
+        {
+          "path": "tests/TLslices/twersky.env",
+          "title": "'Pekeris problem with Twersky ice scatter'",
+          "frequency_line": "10.0"
+        }
+      ],
+      "executions_this_audit": [
+        "KRAKEN-TLslices-pekeris",
+        "KRAKENC-TLslices-pekeris",
+        "SCOOTER-TLslices-pekeris"
+      ],
+      "all_variants_verified": false
+    },
+    {
+      "family": "VolAtt",
+      "purpose": "体吸收与点/线源、波束设置；频率与衰减约定须核对。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/VolAtt/runtests.m",
+          "sha256": "d1040ad932024460a8e4de529f48fffedd27bdbd00f8fcbf6f27379acea31357",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhop 'freePointB'"
+            },
+            {
+              "line": 13,
+              "text": "bellhop 'freePoint_gbtB'"
+            },
+            {
+              "line": 21,
+              "text": "scooter 'freeSPoint'"
+            },
+            {
+              "line": 31,
+              "text": "bellhop 'freePointB_Inc'"
+            },
+            {
+              "line": 37,
+              "text": "bellhop 'freePoint_gbtB_Inc'"
+            }
+          ]
+        },
+        {
+          "path": "tests/VolAtt/runtestsM.m",
+          "sha256": "1f4fb4b8cad29476c77e3d693bc7aa434b007e0b139c50ac9865a9e900306023",
+          "active_call_evidence": [
+            {
+              "line": 7,
+              "text": "bellhopM 'freePointB'"
+            },
+            {
+              "line": 13,
+              "text": "bellhopM 'freePoint_gbtB'"
+            },
+            {
+              "line": 31,
+              "text": "bellhopM 'freePointB_Inc'"
+            },
+            {
+              "line": 37,
+              "text": "bellhopM 'freePoint_gbtB_Inc'"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/VolAtt/freePoint_gbtB.env",
+          "title": "'Free space, point source, Gaussian beam'",
+          "frequency_line": "15.000000"
+        },
+        {
+          "path": "tests/VolAtt/freePoint_gbtB_Inc.env",
+          "title": "'Free space, point source, Gaussian beam, Inc.'",
+          "frequency_line": "15.000000"
+        },
+        {
+          "path": "tests/VolAtt/freePointB.env",
+          "title": "'Free space, point source'",
+          "frequency_line": "15.000000"
+        },
+        {
+          "path": "tests/VolAtt/freePointB_Inc.env",
+          "title": "'Free space, point source, Inc.'",
+          "frequency_line": "15.000000"
+        },
+        {
+          "path": "tests/VolAtt/freeSPoint.env",
+          "title": "'Free space, point source'",
+          "frequency_line": "15.0"
+        }
+      ],
+      "executions_this_audit": [],
+      "all_variants_verified": false
+    },
+    {
+      "family": "wedge",
+      "purpose": "坡底/楔形波导，分段复模态耦合、SimplePE与RAM输入；存在随距离逼近岸线的区域。",
+      "runner_scope": "调用结构已梳理；不代表逐行理解全部数值实现或运行所有变体。",
+      "scripts": [
+        {
+          "path": "tests/wedge/runplots.m",
+          "sha256": "11d7df3f176b28573ae48d7d588089276ed18c315e8762bb283116ef17e57692",
+          "active_call_evidence": []
+        },
+        {
+          "path": "tests/wedge/runtests.m",
+          "sha256": "67bb317563755ff21fd8492035f684f28078c93a2bdf9ea71b649a61dc58a691",
+          "active_call_evidence": [
+            {
+              "line": 19,
+              "text": "model    = 'KRAKENC';"
+            },
+            {
+              "line": 64,
+              "text": "runkraken = which( 'krakenc.exe' );"
+            },
+            {
+              "line": 67,
+              "text": "runfield = which( 'field.exe' );"
+            },
+            {
+              "line": 81,
+              "text": "scooter wedge_flatS"
+            },
+            {
+              "line": 85,
+              "text": "simplePE wedge_flatB"
+            },
+            {
+              "line": 91,
+              "text": "simplePE wedgeB"
+            }
+          ]
+        },
+        {
+          "path": "tests/wedge/runtests2.m",
+          "sha256": "e31304f14e98b3cc8966f1c5840974159af5c8419aec1672c86656e2f6741ead",
+          "active_call_evidence": [
+            {
+              "line": 9,
+              "text": "model  = 'KRAKENC';"
+            },
+            {
+              "line": 44,
+              "text": "!krakenc.exe < ENVFIL > foo.prt"
+            },
+            {
+              "line": 45,
+              "text": "!field.exe < field.flp"
+            }
+          ]
+        },
+        {
+          "path": "tests/wedge/runtestsOld.m",
+          "sha256": "ce28cfab4c5e9e0158778c1a09beb59d6bb08d82a9494f70721cb2e19d85c585",
+          "active_call_evidence": [
+            {
+              "line": 40,
+              "text": "!krakenc.exe < ENVFIL > foo.prt"
+            },
+            {
+              "line": 41,
+              "text": "!field.exe < field.flp"
+            }
+          ]
+        }
+      ],
+      "environment_files": [
+        {
+          "path": "tests/wedge/wedge.env",
+          "title": "'Wedge problem #1' ! Title ",
+          "frequency_line": "   25.00  \t \t \t ! Frequency (Hz) "
+        },
+        {
+          "path": "tests/wedge/wedge_flatB.env",
+          "title": "'Wedge problem, flat' ! Title ",
+          "frequency_line": "   25.00  \t \t \t ! Frequency (Hz) "
+        },
+        {
+          "path": "tests/wedge/wedge_flatS.env",
+          "title": "'Wedge problem' ! Title ",
+          "frequency_line": "   25.00  \t \t \t ! Frequency (Hz) "
+        },
+        {
+          "path": "tests/wedge/wedgeB.env",
+          "title": "'Wedge problem' ! Title ",
+          "frequency_line": "   25.00  \t \t \t ! Frequency (Hz) "
+        }
+      ],
+      "executions_this_audit": [
+        "RAM-wedge-original",
+        "RAM-wedge-half_dr",
+        "RAM-wedge-half_dz",
+        "SimplePE-wedge-wedgeB",
+        "RAM-wedge-matlab_reader"
+      ],
+      "all_variants_verified": false
+    }
+  ]
+}

@@ -1,0 +1,882 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-10-13",
+  "purpose": "四人小组海洋声学课程作业；无商业用途",
+  "authorship": "本项目编写的教学命题，不包含课程原始资料或第三方题库的逐字复制",
+  "execution_note": "runnable 只表示已有参数模板；点击预设不会自动提交或声明求解成功。comparison_plans 需分别预览后提交。",
+  "exercises": [
+    {
+      "id": "EX01",
+      "title": "Munk 基准声场",
+      "question": "计算 50 Hz、源深 1000 m、接收深度 1000 m、1–50 km 的 Munk 传播损失。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "理解 ENV、FLP、SHD 与传播损失结果之间的对应关系。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "1 个任务；声场图、接收曲线、CSV 与验证记录。",
+        "显示实际接收深度、矩阵尺寸、有效比例及输入/脚本哈希。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。"
+      ],
+      "knowledge_nodes": [
+        "munk_profile",
+        "matlab_kraken_wrapper",
+        "transmission_loss",
+        "validation"
+      ]
+    },
+    {
+      "id": "EX02",
+      "title": "声源深度对照",
+      "question": "保持 50 Hz 与接收网格相同，对比源深 500 m 和 1000 m 的结果。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "用控制变量方法观察源深变化对模态激发与接收曲线的影响。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          500,
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "2 个任务；分别记录源深，保持相同网格和接收深度。",
+        "对照曲线与有限样本统计；写清改变的唯一参数。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "源深改变并不允许据一张图断言所有距离的 TL 都更小。"
+      ],
+      "knowledge_nodes": [
+        "source_depth",
+        "mode_excitation",
+        "comparison"
+      ]
+    },
+    {
+      "id": "EX03",
+      "title": "频率对照",
+      "question": "源深与接收深度均为 1000 m，对照 50 Hz 与 100 Hz 的 1–50 km 声场。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "观察固定环境下频率变化的数值结果，并说明相干干涉与模态差异。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50,
+          100
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "2 个任务；记录真实频率并核对各自 SHD。",
+        "相同坐标网格上的对照曲线与频率标识。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "改变频率后的单点或中位数差异不代表真实海域优劣；本题没有证明求解器网格收敛。"
+      ],
+      "knowledge_nodes": [
+        "normal_mode_field",
+        "coherent_modal_sum",
+        "comparison"
+      ]
+    },
+    {
+      "id": "EX04",
+      "title": "频率与源深二维扫参",
+      "question": "对 50、100 Hz 与 500、1000 m 两个源深做 2×2 扫参。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "将复合命题展开为清晰的四个独立计算 case。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50,
+          100
+        ],
+        "source_depths_m": [
+          500,
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "恰好 4 个不重复任务，覆盖完整参数笛卡尔积。",
+        "每个结果独立标明频率、源深、状态和验证证据。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "必须逐个控制变量解释；不能把四个中位数简单排成‘最佳海域’。"
+      ],
+      "knowledge_nodes": [
+        "comparison",
+        "range_depth_grid",
+        "munk_case"
+      ]
+    },
+    {
+      "id": "EX05",
+      "title": "请求深度与实际取样",
+      "question": "接收深度请求 1001 m，使用 0–5000 m 的 251 点深度网格。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "理解接收深度按最近网格取点，区分请求值和实际值。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1001,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "实际接收深度应由结果坐标核实；在该默认等距网格中为 1000 m。",
+        "显示 1 m 网格偏差，并证明曲线来自该实际深度行。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "以上深度是由已知等距网格得到的几何验收值，不是预先伪造的 TL 仿真结果。"
+      ],
+      "knowledge_nodes": [
+        "receiver_depth",
+        "range_depth_grid",
+        "binary_shd_pressure"
+      ]
+    },
+    {
+      "id": "EX06",
+      "title": "距离采样敏感性",
+      "question": "用相同 50 Hz 场景比较 201 与 401 个距离采样点。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "检查图形细节是否受输出取样影响，并区分输出采样与模态求解收敛。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "分别运行两份计划，核对曲线长度 201 / 401。",
+        "提示两份完整距离坐标不同，不能直接比较全场中位数排名。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "更密的 FIELD 输出距离采样不等于 KRAKEN 模态求解器已经收敛。"
+      ],
+      "knowledge_nodes": [
+        "range_depth_grid",
+        "validation",
+        "comparison"
+      ],
+      "comparison_plans": [
+        {
+          "template": "munk_5000m",
+          "frequencies_hz": [
+            50
+          ],
+          "source_depths_m": [
+            1000
+          ],
+          "receiver_depth_m": 1000,
+          "range_min_km": 1,
+          "range_max_km": 50,
+          "range_points": 201,
+          "depth_points": 251
+        },
+        {
+          "template": "munk_5000m",
+          "frequencies_hz": [
+            50
+          ],
+          "source_depths_m": [
+            1000
+          ],
+          "receiver_depth_m": 1000,
+          "range_min_km": 1,
+          "range_max_km": 50,
+          "range_points": 401,
+          "depth_points": 251
+        }
+      ]
+    },
+    {
+      "id": "EX07",
+      "title": "深度采样敏感性",
+      "question": "用相同参数比较 251 与 501 个深度采样点。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "核对深度轴、矩阵尺寸与最近接收网格的关系。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "分别核对 [251,201] 与 [501,201] 尺寸和实际深度。",
+        "完整网格不同，应先说明采样条件再比较局部曲线。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "深度网格变密改变统计样本集合，不能据全场中位数认定物理效果更优。"
+      ],
+      "knowledge_nodes": [
+        "receiver_depth",
+        "range_depth_grid",
+        "comparison"
+      ],
+      "comparison_plans": [
+        {
+          "template": "munk_5000m",
+          "frequencies_hz": [
+            50
+          ],
+          "source_depths_m": [
+            1000
+          ],
+          "receiver_depth_m": 1000,
+          "range_min_km": 1,
+          "range_max_km": 50,
+          "range_points": 201,
+          "depth_points": 251
+        },
+        {
+          "template": "munk_5000m",
+          "frequencies_hz": [
+            50
+          ],
+          "source_depths_m": [
+            1000
+          ],
+          "receiver_depth_m": 1000,
+          "range_min_km": 1,
+          "range_max_km": 50,
+          "range_points": 201,
+          "depth_points": 501
+        }
+      ]
+    },
+    {
+      "id": "EX08",
+      "title": "单位换算与标准参数",
+      "question": "将源深 1 km、接收深度 1 km、距离 1000–50000 m、频率 50 Hz 转成网页参数。",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "统一内部量纲，防止 m / km 混淆。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "标准计划源深/接收深度均为 1000 m，距离为 1–50 km。",
+        "与 EX01 的规范化输入一致，而不是新环境。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "转换只改变表达单位，不改变物理环境。"
+      ],
+      "knowledge_nodes": [
+        "source_depth",
+        "receiver_depth",
+        "flp_file"
+      ]
+    },
+    {
+      "id": "EX09",
+      "title": "相干场的解释边界",
+      "question": "观察相干 TL 曲线起伏；能否直接把它当作非相干结果？",
+      "kind": "simulation",
+      "runnable": true,
+      "objective": "说明当前工具只计算相干简正波场，拒绝未经实现的算法切换。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": {
+        "template": "munk_5000m",
+        "frequencies_hz": [
+          50
+        ],
+        "source_depths_m": [
+          1000
+        ],
+        "receiver_depth_m": 1000,
+        "range_min_km": 1,
+        "range_max_km": 50,
+        "range_points": 201,
+        "depth_points": 251
+      },
+      "expected_outputs": [
+        "生成当前支持的相干场，并保留相干归一化 reference。",
+        "解释当前尚未提供非相干场重算，不能改标签冒充非相干结果。"
+      ],
+      "scientific_notes": [
+        "Munk 理想深海模板不是任何指定海域的观测环境。",
+        "所有数值从本次已完成的 result.json 获取；未计算前不给出预测的 TL 数值。",
+        "不能通过平滑 TL 曲线或对 dB 直接求和冒充非相干压力/能量叠加。",
+        "TL 不要求随距离单调增加。"
+      ],
+      "knowledge_nodes": [
+        "coherent_modal_sum",
+        "modal_sum",
+        "transmission_loss"
+      ]
+    },
+    {
+      "id": "EX10",
+      "title": "传播损失命题缺参",
+      "question": "计算某真实海域的传播损失和最佳通信距离。",
+      "kind": "reasoning",
+      "runnable": false,
+      "objective": "识别环境与链路条件不足，避免默默套用理想模板。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": null,
+      "missing_fields": [
+        "声速剖面与观测来源",
+        "海深/海底参数",
+        "频率与源/接收几何",
+        "通信判断所需源级、噪声与门限"
+      ],
+      "expected_outputs": [
+        "列出必要条件，明确没有接入真实海域数据。",
+        "不能给出捏造的 TL 或最佳通信距离；若演示 Munk，需要明确改题。"
+      ],
+      "scientific_notes": [
+        "传播损失不能单独决定通信或探测性能。",
+        "当前模板仿真不能替代 CTD 与真实环境输入。"
+      ],
+      "knowledge_nodes": [
+        "transmission_loss",
+        "ctd",
+        "seabed",
+        "validation"
+      ]
+    },
+    {
+      "id": "EX11",
+      "title": "浅海与射线请求边界",
+      "question": "用 BELLHOP 计算 100 m 浅海的射线路径。",
+      "kind": "reasoning",
+      "runnable": false,
+      "objective": "区分知识库介绍的模型与当前真正可执行的求解器。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": null,
+      "missing_fields": [
+        "当前执行器尚未提供 BELLHOP 路径",
+        "该浅海环境尚未登记为可计算模板"
+      ],
+      "expected_outputs": [
+        "明确当前网页执行器仅支持 Munk 5000 m 的 KRAKEN/FIELD。",
+        "可以查阅射线与 BELLHOP 知识，不能提交成 Munk 并称已完成题目。"
+      ],
+      "scientific_notes": [
+        "界面上存在模型知识点不等于该求解器已接入。"
+      ],
+      "knowledge_nodes": [
+        "bellhop",
+        "ray_method",
+        "munk_case"
+      ]
+    },
+    {
+      "id": "EX12",
+      "title": "近零声压与验证",
+      "question": "为什么部分表面网格没有 TL 值？能否把它们填成 0 dB？",
+      "kind": "reasoning",
+      "runnable": false,
+      "objective": "区分物理边界、数值近零与有效数据比例。",
+      "input_ranges": {
+        "frequency_hz": [
+          10,
+          200
+        ],
+        "source_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "receiver_depth_m": {
+          "exclusive_min": 0,
+          "exclusive_max": 5000
+        },
+        "range_min_km": [
+          0.1,
+          99
+        ],
+        "range_max_km": {
+          "exclusive_min": 0.1,
+          "max": 100
+        },
+        "range_points": [
+          51,
+          501
+        ],
+        "depth_points": [
+          51,
+          501
+        ],
+        "public_case_limit": 4,
+        "template": "munk_5000m",
+        "solver": "KRAKEN/FIELD",
+        "field_type": "coherent"
+      },
+      "plan": null,
+      "expected_outputs": [
+        "解释当前计算将近零/非有限压力对应的 TL 标为无效样本。",
+        "不使用 0 dB 或大数填充来篡改统计和色图；统计有效比例。"
+      ],
+      "scientific_notes": [
+        "缺失样本不等于零传播损失。",
+        "是否为边界导致应结合环境和求解器日志核验，不能对所有无效样本作统一猜测。"
+      ],
+      "knowledge_nodes": [
+        "near_zero_pressure",
+        "pressure_release_surface",
+        "validation"
+      ]
+    }
+  ]
+}

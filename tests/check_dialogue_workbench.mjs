@@ -1,0 +1,23 @@
+import {build} from 'esbuild';
+import {mkdirSync,readFileSync} from 'node:fs';
+import {execFileSync} from 'node:child_process';
+import {resolve} from 'node:path';
+import assert from 'node:assert/strict';
+const root=resolve(import.meta.dirname,'..'),out=resolve(root,'.local/validation/dialogue-ui.cjs');
+mkdirSync(resolve(root,'.local/validation'),{recursive:true});
+await build({stdin:{resolveDir:root,contents:`
+import React from 'react';import {renderToStaticMarkup} from 'react-dom/server';import assert from 'node:assert/strict';
+import Workbench from './src/DialogueWorkbench.jsx';import ChatMessage from './src/ChatMessage.jsx';import {taskChatDraft} from './src/taskChat.js';
+global.localStorage={getItem:()=>null,setItem:()=>{}};
+const html=renderToStaticMarkup(React.createElement(Workbench,{}));
+for(const label of ['对话工作台','DSH · 完整 Agent','Codex · 本机 Agent','现有模型接口','导出聊天','清空聊天','模型与环境设置'])assert(html.includes(label),label);
+assert(!html.includes('下方课程问答'));assert(!html.includes('local-research-agent'));
+const math=renderToStaticMarkup(React.createElement(ChatMessage,{text:'传播损失：\\\\[ TL=20\\\\log_{10}(r/r_0) \\\\]'}));assert(math.includes('katex'));
+const draft=taskChatDraft({id:'abc',plan:{kind:'research',title:'RAM',objective:'verify'}});assert(draft.text.includes('get_job'));assert(draft.text.includes('abc'));
+console.log('PASS: standalone Agent, three backends, export/clear, math and task import');
+`,loader:'js'},bundle:true,platform:'node',format:'cjs',outfile:out,loader:{'.css':'empty'},logLevel:'error'});
+process.stdout.write(execFileSync(process.execPath,[out],{encoding:'utf8'}));
+const main=readFileSync(resolve(root,'src/main.jsx'),'utf8');
+assert(main.includes('<DialogueWorkbench'));assert(!main.includes('<MascotDock'));assert(!main.includes('<ChatView'));assert(!main.includes('知识问答'));
+assert(main.includes('onImportChat={task=>'));
+console.log('PASS: old Q&A and floating assistant removed from main UI; task import wired');

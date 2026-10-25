@@ -1,0 +1,238 @@
+{
+  "version": 1,
+  "models": [
+    {
+      "id": "kraken",
+      "name": "KRAKEN",
+      "skill": "at-kraken",
+      "case": "TLslices/pekeris",
+      "base": "pekeris",
+      "inputs": [
+        [
+          "tests/TLslices/pekeris.env",
+          "pekeris.env"
+        ],
+        [
+          "tests/TLslices/fieldbat.flp",
+          "pekeris.flp"
+        ]
+      ],
+      "executables": [
+        "kraken.exe",
+        "field.exe"
+      ],
+      "postprocess": "",
+      "output": "pekeris.shd",
+      "axis": "source_depth",
+      "supported": true,
+      "limitations": [
+        "距离无关Pekeris基线；距离相关研究另查Gulf的RI/AD/CM配置。",
+        "核对ENV与FLP实际使用的源深、范围和模态截断。"
+      ]
+    },
+    {
+      "id": "krakenc",
+      "name": "KRAKENC",
+      "skill": "at-krakenc",
+      "case": "MunkLeaky/MunkKleaky",
+      "base": "MunkKleaky",
+      "inputs": [
+        [
+          "tests/MunkLeaky/MunkKleaky.env",
+          "MunkKleaky.env"
+        ],
+        [
+          "tests/MunkLeaky/MunkKleaky.flp",
+          "MunkKleaky.flp"
+        ]
+      ],
+      "executables": [
+        "krakenc.exe",
+        "field.exe"
+      ],
+      "postprocess": "",
+      "output": "MunkKleaky.shd",
+      "axis": "source_depth",
+      "supported": true,
+      "limitations": [
+        "复模态搜索范围影响泄漏模态的纳入。",
+        "本例相速度上限20000，不是任意环境默认值；先做搜索范围与网格敏感性检查。"
+      ]
+    },
+    {
+      "id": "scooter",
+      "name": "SCOOTER",
+      "skill": "at-scooter",
+      "case": "TLslices/pekeris",
+      "base": "pekeris",
+      "inputs": [
+        [
+          "tests/TLslices/pekeris.env",
+          "pekeris.env"
+        ],
+        [
+          "tests/TLslices/fields.flp",
+          "pekeris.flp"
+        ]
+      ],
+      "executables": [
+        "scooter.exe"
+      ],
+      "postprocess": "fieldsco('pekeris.grn');",
+      "output": "pekeris.shd.mat",
+      "axis": "source_depth",
+      "supported": true,
+      "limitations": [
+        "波数积分采样与模态搜索精度不是同一参数。",
+        "FIELDSCO使用本算例匹配的fields.flp，不能沿用KRAKEN的FIELD配置。"
+      ]
+    },
+    {
+      "id": "bellhop",
+      "name": "BELLHOP",
+      "skill": "at-bellhop",
+      "case": "free/freePointB",
+      "base": "freePointB",
+      "inputs": [
+        [
+          "tests/free/freePointB.env",
+          "freePointB.env"
+        ]
+      ],
+      "executables": [
+        "bellhop.exe"
+      ],
+      "postprocess": "",
+      "output": "freePointB.shd",
+      "axis": "source_depth",
+      "supported": true,
+      "limitations": [
+        "本例为自由空间点源基线；相干声场与声线图使用不同运行选项。",
+        "声束数和步长需加密检查；阴影区结果需要审慎解释。"
+      ]
+    },
+    {
+      "id": "ram",
+      "name": "RAM",
+      "skill": "at-ram",
+      "case": "wedge/ram",
+      "base": "ram",
+      "inputs": [
+        [
+          "tests/wedge/ram.in",
+          "ram.in"
+        ]
+      ],
+      "executables": [
+        "ram.exe"
+      ],
+      "postprocess": "",
+      "output": "tl.grid",
+      "axis": "range_depth",
+      "supported": true,
+      "limitations": [
+        "TL网格没有相位；不能恢复复声压。",
+        "本机深度起点经过探针核对，其他RAM构建应重新确认。",
+        "wedge原始步长尚未证明收敛；输出只证明执行与结构检查。"
+      ]
+    },
+    {
+      "id": "simplepe",
+      "name": "SimplePE",
+      "skill": "at-simplepe",
+      "case": "wedge/wedgeB",
+      "base": "wedgeB",
+      "inputs": [
+        [
+          "tests/wedge/wedgeB.env",
+          "wedgeB.env"
+        ],
+        [
+          "tests/wedge/wedgeB.bty",
+          "wedgeB.bty"
+        ]
+      ],
+      "executables": [],
+      "postprocess": "simplePE('wedgeB');",
+      "output": "wedgeB.shd.mat",
+      "axis": "source_depth",
+      "supported": true,
+      "limitations": [
+        "MATLAB实现，不是RAM包装；其默认离散参数需查simplePE源码。",
+        "前向PE近似与底部吸收域需单独检查。"
+      ]
+    },
+    {
+      "id": "sparc",
+      "name": "SPARC",
+      "skill": "at-sparc",
+      "case": "head/head",
+      "base": "head",
+      "inputs": [
+        [
+          "tests/head/head.env",
+          "head.env"
+        ],
+        [
+          "tests/head/head.flp",
+          "head.flp"
+        ]
+      ],
+      "executables": [
+        "sparc.exe"
+      ],
+      "postprocess": "fieldsco('head.grn');",
+      "output": "head.shd.mat",
+      "axis": "time_s",
+      "supported": true,
+      "limitations": [
+        "输出第一类源深轴在本时域流程实际存储时间，不能解释为多源深。",
+        "单个时间切片展示相对场幅；未标定源波形前不能直接当单频TL。"
+      ]
+    },
+    {
+      "id": "bellhop3d",
+      "name": "BELLHOP3D",
+      "skill": "at-bellhop3d",
+      "case": "Bellhop3DTests/free/freeBhat",
+      "base": "freeBhat",
+      "inputs": [
+        [
+          "tests/Bellhop3DTests/free/freeBhat.env",
+          "freeBhat.env"
+        ]
+      ],
+      "executables": [
+        "bellhop3d.exe"
+      ],
+      "postprocess": "",
+      "output": "freeBhat.shd",
+      "axis": "source_depth",
+      "supported": true,
+      "limitations": [
+        "输出含方位维度；默认只展示第一个方位与第一个源深。",
+        "三维地形、方位采样与射线扇区还需独立验证。"
+      ]
+    },
+    {
+      "id": "krakel",
+      "name": "KRAKEL",
+      "skill": "at-krakel",
+      "case": "未核验",
+      "base": "",
+      "inputs": [],
+      "executables": [
+        "krakel.exe",
+        "field.exe"
+      ],
+      "postprocess": "",
+      "output": "",
+      "axis": "source_depth",
+      "supported": false,
+      "unavailable_reason": "krakel.exe 已编译并冒烟通过，但弹性算例的场后处理与收敛尚未验证，暂不开放基线创建。",
+      "limitations": [
+        "krakel.exe 已就位；弹性场后处理（field 例程兼容）与 ahmad 弹性收敛待验证。"
+      ]
+    }
+  ]
+}

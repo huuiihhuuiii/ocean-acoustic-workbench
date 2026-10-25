@@ -1,0 +1,850 @@
+/* Original ocean/NPU course theme; official visual references: docs/OCEAN_DESIGN.md. */
+:root {
+  --ocean-navy: #0e304a;
+  --ocean-blue: #245f89;
+  --ocean-teal: #3b8292;
+  --ocean-gold: #c5a16d;
+  --ocean-paper: #f3f8fb;
+  font-size: 14px;
+}
+.workbench-app {
+  color: #27485f;
+  background: var(--ocean-paper);
+}
+.workbench-app .sidebar {
+  width: 204px;
+  padding: 25px 12px 17px;
+  background: #10324d;
+  color: #c7dce8;
+  border-right: 1px solid #2d526b;
+}
+.workbench-app .sidebar::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 0;
+  bottom: 130px;
+  height: 255px;
+  opacity: 0.21;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='255' fill='none' viewBox='0 0 240 255'%3E%3Cpath d='M-35 39C25 5 50 97 117 50S206 2 275 35M-31 69C28 34 59 119 121 79S209 32 273 66M-38 101C26 59 69 150 128 113S210 62 275 101M-32 135C26 84 70 184 129 147S212 96 272 132M-22 166C39 121 68 216 135 183S217 129 270 163M-25 203C33 158 83 250 139 216S222 166 274 204' stroke='%2376AEC2' stroke-width='.8'/%3E%3C/svg%3E")
+    center / 240px 255px no-repeat;
+  pointer-events: none;
+}
+.workbench-app .brand {
+  color: #f0f7fa;
+  padding: 0 7px;
+  gap: 9px;
+  font-size: 17px;
+  letter-spacing: 0.2px;
+}
+.workbench-app .brand-icon {
+  color: #9dc9d7;
+  width: 31px;
+  border: 0;
+  background: none;
+}
+.workbench-app .brand div span {
+  color: #9ab9cc;
+  font-size: 11px;
+  letter-spacing: 0.7px;
+}
+.workbench-app .side-label {
+  margin: 35px 12px 14px;
+  color: #7198b2;
+  font-size: 11px;
+}
+.workbench-app .nav-item {
+  color: #b4cede;
+  gap: 11px;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 14px;
+}
+.workbench-app .nav-item:hover {
+  color: #eef8fc;
+  background: #214763;
+}
+.workbench-app .nav-item.active {
+  color: #fff;
+  background: #285371;
+  box-shadow: inset 2px 0 #d0b582;
+}
+.workbench-app .nav-item.active svg {
+  color: #c0e4ed;
+}
+.workbench-app .nav-count {
+  color: #cce6ef;
+  background: #3d6b85;
+  font-size: 10px;
+}
+.workbench-app .sidebar-note {
+  border-color: #31536d;
+  margin-top: 28px;
+  padding: 19px 11px;
+  color: #c0d5e2;
+  font-size: 11px;
+}
+.workbench-app .sidebar-note span {
+  color: #7fa4bb;
+  font-size: 10px;
+  line-height: 1.9;
+}
+.workbench-app .repository-link {
+  color: #9dbece;
+}
+.workbench-app .repository-link:hover {
+  color: #eaf7fb;
+}
+.workbench-app .team {
+  color: #87a7bc;
+  font-size: 10px;
+  line-height: 2;
+}
+.workbench-app .course-purpose {
+  color: #7298b0;
+  font-size: 9px;
+}
+.workbench-app .main {
+  margin-left: 204px;
+  width: calc(100% - 204px);
+  background: #f0f6f9;
+}
+.workbench-app .workspace-header {
+  background: #fcfeff;
+  border-bottom: 1px solid #d6e5ed;
+  height: 55px;
+}
+.workbench-app .breadcrumb {
+  color: #829aaa;
+  font-size: 12px;
+}
+.workbench-app .breadcrumb strong {
+  color: #365b77;
+}
+.workbench-app .header-status {
+  color: #7290a5;
+  font-size: 11px;
+}
+.workbench-app .header-status button {
+  border-color: #dae8ef;
+  background: #f8fcfd;
+  padding: 7px 9px;
+}
+.workbench-app .workspace-statusbar {
+  left: 204px;
+  height: 28px;
+  color: #7c97a9;
+  border-color: #d5e5ed;
+  background: #f7fbfd;
+}
+.workbench-app main {
+  padding-top: 18px;
+}
+.workbench-app .panel {
+  border-color: #d8e6ed;
+  border-radius: 5px;
+  box-shadow: 0 1px 0 #143f5a03;
+}
+.workbench-app .panel-heading {
+  color: #3d627b;
+  border-color: #e2edf2;
+  font-size: 14px;
+  background: #fbfdfe;
+}
+.workbench-app .page-title h1 {
+  font-size: 23px;
+  color: #234c6a;
+  font-weight: 600;
+}
+.workbench-app .page-title p {
+  color: #7c95a7;
+  font-size: 13px;
+  line-height: 1.75;
+}
+.workbench-app .button {
+  color: #436e89;
+  border-color: #ccdfe8;
+  border-radius: 4px;
+  font-size: 13px;
+}
+.workbench-app .button:hover {
+  border-color: #93b7ca;
+  background: #f3f9fc;
+}
+.workbench-app .button.primary {
+  background: #286e95;
+  border-color: #286e95;
+  color: #fff;
+}
+.workbench-app .button.primary:hover {
+  background: #205e83;
+}
+.workbench-app .course-explorer.light {
+  --bg: #fff;
+  --surface: #f8fbfd;
+  --line: #d7e5ed;
+  --text: #294e69;
+  --muted: #8199ab;
+  border-color: #d7e5ed;
+  border-radius: 5px;
+}.workbench-app .course-tabs {
+  background: #f6fafc;
+  height: 45px;
+}
+.workbench-app .course-tabs button {
+  font-size: 13px;
+}
+.workbench-app .course-tabs button.active {
+  color: #2b7193;
+}
+.workbench-app .course-tabs button.active:after {
+  background: #2b7193;
+}
+.workbench-app .course-directory {
+  background: #f7fafc;
+  width: 232px;
+}
+.workbench-app .directory-title {
+  color: #436c88;
+  font-size: 13px;
+}
+.workbench-app .course-search {
+  background: #fff;
+  border-color: #d9e7ee;
+  padding: 9px 10px;
+}
+.workbench-app .course-search input {
+  font-size: 12px;
+}
+.workbench-app .directory-home {
+  font-size: 13px;
+}
+.workbench-app .directory-home.active,
+.workbench-app .unit-heading.current {
+  background: #e8f2f7;
+  color: #346f93;
+}
+.workbench-app .unit-heading button {
+  font-size: 12px;
+  padding-top: 11px;
+  padding-bottom: 11px;
+}
+.workbench-app .unit-children button {
+  font-size: 12px;
+  line-height: 1.65;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.workbench-app .unit-children button:hover,
+.workbench-app .unit-children button.current {
+  background: #e7f1f6;
+  color: #2d6d93;
+}
+.workbench-app .course-workspace {
+  background: #fff;
+}
+.workbench-app .course-overview {
+  padding: 23px 24px 38px;
+}
+.workbench-app .overview-intro h2 {
+  font-size: 18px;
+  color: #305b79;
+}
+.workbench-app .overview-intro p {
+  font-size: 13px;
+  color: #7d98ab;
+}
+.workbench-app .overview-table-head {
+  background: #f6fafc;
+  font-size: 11px;
+}
+.workbench-app .overview-unit-main {
+  padding-top: 20px;
+}
+.workbench-app .overview-unit-main h3 {
+  font-size: 15px;
+  color: #315e7b;
+}
+.workbench-app .overview-unit-main p {
+  font-size: 12px;
+  line-height: 1.75;
+}
+.workbench-app .overview-knowledge-links button {
+  font-size: 11px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #5a87a2;
+}
+.workbench-app .overview-knowledge-links button:hover {
+  color: #266b92;
+}
+.workbench-app .knowledge-drawer {
+  background: #fdfeff;
+  color: #31536b;
+}
+.workbench-app .drawer-header h2 {
+  font-size: 21px;
+  color: #2e5874;
+}
+.workbench-app .drawer-tabs button {
+  font-size: 12px;
+}
+.workbench-app .knowledge-overview,
+.workbench-app .knowledge-points {
+  font-size: 14px;
+  line-height: 1.9;
+  color: #486b82;
+}
+.workbench-app .drawer-scroll h3 {
+  font-size: 13px;
+  color: #3a6684;
+}
+.workbench-app .knowledge-note,
+.workbench-app .knowledge-example {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.workbench-app .knowledge-source-image span,
+.workbench-app .knowledge-source-links a {
+  font-size: 12px;
+}
+.workbench-app .knowledge-formula {
+  background: #f1f7fa;
+  border-color: #77a7bc;
+}
+.workbench-app .knowledge-formula div {
+  font-size: 16px;
+}
+.workbench-app .knowledge-relation {
+  border-color: #dbe8ef;
+  background: #f9fcfd;
+}
+.workbench-app .knowledge-relation strong {
+  font-size: 13px;
+}
+.workbench-app .map-heading h2 {
+  color: #315e7b;
+  font-size: 19px;
+}
+.workbench-app .learning-step p,
+.workbench-app .knowledge-index-status p {
+  font-size: 12px;
+}
+.workbench-app .knowledge-index-status {
+  background: #f6fafc;
+  border-color: #d8e6ed;
+}
+.workbench-app .knowledge-index-status h3 {
+  font-size: 14px;
+}
+.workbench-app .course-resource-card h3 {
+  font-size: 14px;
+  color: #365f7b;
+}
+.workbench-app .course-resource-card p {
+  font-size: 12px;
+}
+.workbench-app .course-resource-card small {
+  font-size: 11px;
+}
+.workbench-app .resource-cover {
+  background: #eff6fa;
+  color: #79a3b8;
+}
+.workbench-app .resource-pending {
+  font-size: 11px;
+}
+.workbench-app .field > span {
+  font-size: 14px;
+  color: #3f6782;
+}
+.workbench-app .field input,
+.workbench-app .field select {
+  font-size: 14px;
+  padding: 11px 12px;
+  border-color: #d2e3ec;
+}
+.workbench-app .field em {
+  font-size: 11px;
+  color: #8ba2b1;
+}
+.workbench-app .template-card {
+  border-color: #d2e6ed;
+  background: #f4fafc;
+  border-radius: 5px;
+}
+.workbench-app .template-icon {
+  color: #4b8aa4;
+  background: #e0f0f5;
+}
+.workbench-app .template-card h3 {
+  font-size: 16px;
+  color: #355f7d;
+}
+.workbench-app .template-card p {
+  font-size: 12px;
+}
+.workbench-app .inline-note {
+  font-size: 12px;
+  line-height: 1.75;
+}
+.workbench-app .case-list > div {
+  font-size: 13px;
+}.workbench-app .chat-welcome p,
+.workbench-app .prompt-grid button {
+  font-size: 13px;
+}
+.workbench-app .message-text {
+  font-size: 14px;
+  line-height: 1.95;
+  color: #365c75;
+}
+.workbench-app .composer textarea {
+  font-size: 14px;
+  line-height: 1.8;
+  color: #3c6680;
+}.workbench-app .model-panel-heading h2 {
+  font-size: 19px;
+  color: #315d7b;
+}
+.workbench-app .model-panel-heading p {
+  font-size: 12px;
+}
+.workbench-app .provider-tabs strong {
+  font-size: 13px;
+}
+.workbench-app .model-choice strong {
+  font-size: 14px;
+}
+.workbench-app .model-choice p {
+  font-size: 12px;
+}
+.workbench-app .model-choice.selected {
+  background: #edf5f9;
+  box-shadow: inset 2px 0 #43819f;
+}
+.workbench-app .model-connection {
+  background: #f9fcfd;
+  border-color: #d7e6ee;
+}
+.workbench-app .apply-model {
+  background: #2c7196;
+}
+.workbench-app .model-field {
+  font-size: 13px;
+}
+.workbench-app .selected-model {
+  background: #eff6fa;
+}
+.workbench-app .job-list strong {
+  font-size: 13px;
+}
+.workbench-app .job-detail-header h2 {
+  color: #335f7b;
+}
+.workbench-app .result-note,
+.workbench-app .scientific-analysis ul {
+  font-size: 12px;
+}
+.workbench-app .scientific-analysis h3 {
+  font-size: 14px;
+}
+.workbench-app .code {
+  color: #416780;
+  background: #f9fcfd;
+}
+.workbench-app .code.log {
+  background: #12324a;
+  color: #c0d8e6;
+}
+.workbench-app .file-list button {
+  font-size: 12px;
+}
+.workbench-app .file-list .selected {
+  color: #3b789b;
+  background: #eaf3f8;
+}
+.workbench-app .editor-foot {
+  color: #8ba4b5;
+}
+.workbench-app .course-body {
+  height: calc(100dvh - 386px);
+  min-height: 350px;
+}.ocean-banner {
+  position: relative;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 13px 23px;
+  margin: 0 0 19px;
+  border: 1px solid #d5e5ed;
+  border-radius: 6px;
+  background: #fbfdfe;
+  overflow: hidden;
+}
+.ocean-banner-copy {
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+.ocean-school-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #7895a8;
+}
+.ocean-npu-mark {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  color: #3a749b;
+}
+.ocean-school-divider {
+  color: #b1c4d0;
+  margin: 0 8px;
+}
+.ocean-banner h2 {
+  margin: 9px 0 8px;
+  color: #2b5673;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+}
+.ocean-banner-caption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #8da4b3;
+  font-size: 10px;
+}
+.ocean-banner-caption > span:first-child {
+  color: #b18f5b;
+  letter-spacing: 2px;
+}
+.ocean-banner-caption i {
+  width: 1px;
+  height: 10px;
+  background: #d7e3ea;
+}
+.ocean-banner-caption small {
+  color: #a0b5c3;
+  font-size: 9px;
+  margin-left: 6px;
+}
+.ocean-banner-art {
+  width: 460px;
+  height: 110px;
+  flex-shrink: 0;
+  margin-right: -4px;
+  align-self: flex-end;
+  margin-bottom: -17px;
+}
+@media (max-width: 1250px) {
+  .workbench-app .sidebar {
+    width: 186px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .workbench-app .main {
+    margin-left: 186px;
+    width: calc(100% - 186px);
+  }
+  .workbench-app .workspace-statusbar {
+    left: 186px;
+  }
+  .workbench-app .brand {
+    font-size: 15px;
+    padding: 0 4px;
+  }
+  .workbench-app .nav-item {
+    font-size: 13px;
+  }
+  .workbench-app .course-directory {
+    width: 212px;
+  }
+  .ocean-banner {
+    padding: 16px 19px;
+  }
+  .ocean-banner-art {
+    width: 380px;
+    margin-right: -14px;
+  }
+}
+@media (max-width: 1000px) {
+  .ocean-banner-art {
+    width: 300px;
+    opacity: 0.8;
+    margin-right: -42px;
+  }
+  .ocean-banner h2 {
+    font-size: 21px;
+  }}
+@media (max-width: 760px) {
+  .workbench-app .sidebar {
+    width: 240px;
+    background: #12354f;
+    padding-top: 24px;
+  }
+  .workbench-app .main {
+    margin-left: 0;
+    width: 100%;
+  }
+  .workbench-app .workspace-statusbar {
+    left: 0;
+  }
+  .workbench-app .workspace-header {
+    height: 50px;
+  }
+  .workbench-app main {
+    padding-top: 13px;
+  }
+  .workbench-app .nav-item {
+    font-size: 14px;
+    padding: 13px 12px;
+  }
+  .workbench-app .brand {
+    font-size: 17px;
+  }
+  .workbench-app .course-purpose {
+    font-size: 10px;
+  }
+  .ocean-banner {
+    height: 100px;
+    margin-bottom: 15px;
+    padding: 13px 16px;
+  }
+  .ocean-school-line {
+    font-size: 10px;
+    gap: 6px;
+  }
+  .ocean-npu-mark {
+    font-size: 13px;
+  }
+  .ocean-school-divider {
+    margin: 0 5px;
+  }
+  .ocean-banner h2 {
+    font-size: 20px;
+    letter-spacing: 0.8px;
+    margin: 9px 0 8px;
+  }
+  .ocean-banner-caption {
+    font-size: 9px;
+    gap: 8px;
+  }
+  .ocean-banner-caption small {
+    display: none;
+  }
+  .ocean-banner-art {
+    position: absolute;
+    right: -95px;
+    bottom: 0;
+    width: 265px;
+    height: 90px;
+    opacity: 0.24;
+    margin: 0;
+  }  .workbench-app .course-tabs {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .workbench-app .course-tabs button {
+    font-size: 12px;
+  }
+  .workbench-app .course-directory {
+    width: 210px;
+  }
+  .workbench-app .course-overview {
+    padding: 20px 16px 35px;
+  }
+  .workbench-app .overview-unit-main h3 {
+    font-size: 14px;
+  }
+  .workbench-app .overview-unit-main p {
+    font-size: 11px;
+  }
+  .workbench-app .overview-knowledge-links button {
+    font-size: 11px;
+  }
+  .workbench-app .course-body {
+    height: calc(100dvh - 365px);
+    min-height: 430px;
+  }  .workbench-app .page-title h1 {
+    font-size: 22px;
+  }
+  .workbench-app .page-title p {
+    font-size: 12px;
+  }
+  .workbench-app .message-text,
+  .workbench-app .composer textarea {
+    font-size: 13px;
+  }
+  .workbench-app .header-status button {
+    max-width: 117px;
+    font-size: 10px;
+    padding: 6px;
+  }
+}
+@media (max-width: 400px) {
+  .ocean-school-line {
+    font-size: 9px;
+  }
+  .ocean-banner h2 {
+    font-size: 19px;
+  }
+  .ocean-banner-caption {
+    font-size: 9px;
+  }
+  .workbench-app .course-tabs button {
+    font-size: 11px;
+  }
+  .workbench-app .header-status button {
+    max-width: 96px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .workbench-app *,
+  .workbench-app *:before,
+  .workbench-app *:after {
+    scroll-behavior: auto !important;
+  }
+}
+.workbench-app .course-explorer.dark .course-banner h1,
+.workbench-app .course-explorer.dark .overview-intro h2,
+.workbench-app .course-explorer.dark .overview-unit-main h3,
+.workbench-app .course-explorer.dark .directory-title,
+.workbench-app .course-explorer.dark .map-heading h2,
+.workbench-app .course-explorer.dark .course-resource-card h3 {
+  color: #d9e9f3;
+}
+.workbench-app .course-explorer.dark .course-directory,
+.workbench-app .course-explorer.dark .course-tabs,
+.workbench-app .course-explorer.dark .knowledge-index-status {
+  background: #1b3448;
+}
+.workbench-app .course-explorer.dark .course-workspace,
+.workbench-app .course-explorer.dark .overview-table-head {
+  background: #182d40;
+}
+.workbench-app .course-explorer.dark .course-search {
+  background: #183145;
+  border-color: #38566b;
+}
+.workbench-app .course-explorer.dark .directory-home.active,
+.workbench-app .course-explorer.dark .unit-heading.current,
+.workbench-app .course-explorer.dark .unit-children button.current {
+  background: #2d5067;
+  color: #cbe9f5;
+}
+.workbench-app .course-explorer.dark .course-banner,
+.workbench-app .course-explorer.dark .knowledge-index-status {
+  border-color: #365168;
+}
+.workbench-app .course-explorer.dark .course-tabs button.active,
+.workbench-app .course-explorer.dark .overview-knowledge-links button {
+  color: #9ccbdc;
+}
+
+/* Input-first conversation: light course identity, one column, one footer. */
+.workbench-app[data-page="chat"] .header-status {
+  display: none;
+}
+.workbench-app[data-page="chat"] main {
+  padding: 14px 25px 0;
+}.workbench-app[data-page="chat"] .prompt-grid {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 25px;
+}
+.workbench-app[data-page="chat"] .prompt-grid button {
+  border: 1px solid #dce8ee;
+  border-radius: 5px;
+  padding: 9px 12px;
+  background: #fbfdfe;
+  color: #7898ad;
+  font-size: 11px;
+}
+.workbench-app[data-page="chat"] .prompt-grid button:hover {
+  color: #547f99;
+  border-color: #bed5e2;
+}
+.workbench-app[data-page="chat"] .message {
+  margin-bottom: 31px;
+  gap: 12px;
+}
+.workbench-app[data-page="chat"] .avatar {
+  background: #e4eff5;
+  color: #5f8ca6;
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  font-size: 10px;
+}
+.workbench-app[data-page="chat"] .user .avatar {
+  color: #8b9fb1;
+  background: #eaf0f5;
+}
+.workbench-app[data-page="chat"] .message-content {
+  min-width: 0;
+  flex: 1;
+}
+.workbench-app[data-page="chat"] .message-text {
+  font-size: 14px;
+  color: #3a6179;
+  line-height: 1.95;
+}
+.workbench-app[data-page="chat"] .message.failed .message-text {
+  color: #a26655;
+}
+.workbench-app[data-page="chat"] .agent-composer {
+  flex-shrink: 0;
+  margin: 15px 8px 12px;
+  padding: 16px 17px 11px;
+  background: #fff;
+  border: 1px solid #d1e1eb;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px #25465b04;
+}
+.workbench-app[data-page="chat"] .agent-composer:focus-within {
+  border-color: #9ebfd2;
+}
+.workbench-app[data-page="chat"] .agent-composer textarea {
+  display: block;
+  height: 78px;
+  font-size: 14px;
+  line-height: 1.8;
+  border: 0;
+  background: transparent;
+  box-shadow: none !important;
+}
+@media (max-width: 760px) {
+  .workbench-app[data-page="chat"] main {
+    padding: 10px 10px 0;
+  }  .workbench-app[data-page="chat"] .prompt-grid button {
+    font-size: 10px;
+  }
+  .workbench-app[data-page="chat"] .message-text {
+    font-size: 13px;
+  }
+  .workbench-app[data-page="chat"] .message {
+    gap: 9px;
+  }
+  .workbench-app[data-page="chat"] .agent-composer {
+    margin: 10px 0 9px;
+    padding: 13px 12px 9px;
+  }
+  .workbench-app[data-page="chat"] .agent-composer textarea {
+    height: 70px;
+    font-size: 13px;
+  }
+}
+@media (max-height: 500px) {  .workbench-app[data-page="chat"] .agent-composer textarea {
+    height: 42px;
+  }}
